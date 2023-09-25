@@ -21,6 +21,25 @@ As turmas permitem um agrupamento de alunos, por característica comum, no caso 
 ### Gerenciamento de Grupos de Aluno
 Grupos de aluno são uma abstração de alunos pertencentes a mesma turma, servido para especificar os usuários dentro de um conjunto já especifico que é a turma.
 
+### Backlog
+| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Usuário | Login/Log-off| Acessar o sistema | Imprescindível | 3 | **-** |
+| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 3 | **-** |
+| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 3 | **-** |
+| Diretor | Editar e excluir contas, grupos de alunos e turmas| Corrigir erros e fazer alterações | Importante | 4 | **-** |
+| Professor | Visualizar desempenho individual do aluno | Visualizar notas do aluno | Importante | 3 | **-** |
+| Professor | Visualizar grupo de alunos | Visualizar alunos de um grupo específico | Importante | 3 | **-** |
+| Professor | Inserir nota no ciclo de entrega | Nota individual para o aluno | Importante | 4 | **-** |
+| Aluno | Ver as médias das minhas notas | Noção de performance  | Importante | 3 | **-** |
+| Desenvolvedor | Criar documentação do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar fluxograma e wireframes  do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar Backlog do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar conta no Jira e gerenciar as tasks realizadas durante as sprints | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Aplicar restrições e hierarquias e usuários | Organização | Imprescindível | 2 | **-** |
+| Desenvolvedor | Desenvolver as telas do produto sem funcionalidades| Desenvolvimento | Imprescindível | 2 | **-** |
+| Desenvolvedor | Realizar a conexão das telas com o backend | Desenvolvimento | Imprescindível | 3 | **-** |
+
 ### Ciclo de Entregas:
 O Ciclo de entrega, relaciona todas as entidades do sistema, salvo os diretores, uma vez que através de datas define seu ciclo de vida, um ciclo de entregas permite ao professor atribuir notas as atividades, gerando assim um score que os alunos podem acompanhar de desde sua parcialidade.
 
