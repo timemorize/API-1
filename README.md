@@ -21,6 +21,17 @@ As turmas permitem um agrupamento de alunos, por característica comum, no caso 
 ### Gerenciamento de Grupos de Aluno
 Grupos de aluno são uma abstração de alunos pertencentes a mesma turma, servido para especificar os usuários dentro de um conjunto já especifico que é a turma.
 
+
+### Ciclo de Entregas:
+O Ciclo de entrega, relaciona todas as entidades do sistema, salvo os diretores, uma vez que através de datas define seu ciclo de vida, um ciclo de entregas permite ao professor atribuir notas as atividades, gerando assim um score que os alunos podem acompanhar de desde sua parcialidade.
+
+### Fluxograma da Aplicação:
+Acesse o fluxograma da aplicação através do Miro, clicando no link que segue: <br>
+<a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">Ir para o Miro</a>
+### WireFrame
+Acesse o wire frame da aplicação através do Figma, clicando no link que segue:<br>
+<a href="https://www.figma.com/file/z3ULTstviHzHjpTrmdqyky/Untitled?type=design&node-id=0%3A1&mode=design&t=7X3mwSH3mpjgNpdP-1">Ir para o Figma</a>
+
 ### Backlog
 | **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
 |-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
@@ -40,15 +51,6 @@ Grupos de aluno são uma abstração de alunos pertencentes a mesma turma, servi
 | Desenvolvedor | Desenvolver as telas do produto sem funcionalidades| Desenvolvimento | Imprescindível | 2 | **-** |
 | Desenvolvedor | Realizar a conexão das telas com o backend | Desenvolvimento | Imprescindível | 3 | **-** |
 
-### Ciclo de Entregas:
-O Ciclo de entrega, relaciona todas as entidades do sistema, salvo os diretores, uma vez que através de datas define seu ciclo de vida, um ciclo de entregas permite ao professor atribuir notas as atividades, gerando assim um score que os alunos podem acompanhar de desde sua parcialidade.
-
-### Fluxograma da Aplicação:
-Acesse o fluxograma da aplicação através do Miro, clicando no link que segue: <br>
-<a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">Ir para o Miro</a>
-### WireFrame
-Acesse o wire frame da aplicação através do Figma, clicando no link que segue:<br>
-<a href="https://www.figma.com/file/z3ULTstviHzHjpTrmdqyky/Untitled?type=design&node-id=0%3A1&mode=design&t=7X3mwSH3mpjgNpdP-1">Ir para o Figma</a>
 ## Tecnologias usadas
 ### Backend:
  - Python 🐍 : Framework Flask
