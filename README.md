@@ -1,4 +1,4 @@
-# MorizeApp 🍏
+# MorizeApp 🔭
 
 Ola, o Morize App é uma aplicação web, que permite o gerenciamento de um instituição de ensino, permitindo que usuários e professores consigam interagir, mantendo e acompanhando um ciclo de entregas que relaciona atividades diretamente de alunos interfaceado por grupos de alunos e turmas.
 
