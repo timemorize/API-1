@@ -1,0 +1,17 @@
+[
+    {
+        "identificador":"A30",
+        "nome":"Arquitetura de Computadores",
+        "professor":"PF03"
+    },
+    {
+        "identificador":"A32",
+        "nome":"DevOps",
+        "professor":"PF03"
+    },
+    {
+        "identificador":"A33",
+        "nome":"Absurdismo",
+        "professor":"PF03"
+    }
+]

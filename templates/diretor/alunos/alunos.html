@@ -1,0 +1,32 @@
+{% include 'componentes/header.html' %}
+<script src="{{ url_for('static', filename='scripts/diretor/alunos/alunos.js') }}"></script>
+<body>
+    {% include 'diretor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10"><h3><i class="fa-solid fa-graduation-cap"></i> Gerenciamento de Alunos</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" onclick="novoAluno()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Aluno</button>
+                    <button type="button" onclick="exportarDados()" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
+                    <button type="button" onclick="exportarDados()" class="btn btn-secondary"><i class="fa-solid fa-file-pdf"></i> Gerar Relatório</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="nome" selected>Nome</option>
+                    <option value="ra">RA</option>
+                    <option value="email">E-mail</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+              </div>
+        </div>
+    </div>
+</body>
