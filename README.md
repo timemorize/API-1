@@ -102,6 +102,3 @@ cd nome-do-projeto
 ### 3. Criar o primeiro usuário Diretor
 bash
 python firstUsr.py
-
-
-](https://github.com/ClaraSantosmf/FATEC-API-1-SEMESTRE.git)https://github.com/ClaraSantosmf/FATEC-API-1-SEMESTRE.git
