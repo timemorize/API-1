@@ -1,6 +1,6 @@
 # API - 1º Semestre Fatec 🔭
-
-Ola, o Morize App é uma aplicação web, que permite o gerenciamento de um instituição de ensino, permitindo que usuários e professores consigam interagir, mantendo e acompanhando um ciclo de entregas que relaciona atividades diretamente de alunos interfaceado por grupos de alunos e turmas.
+## Objetivo
+Desenvolver um sistema interno de gestão e acompanhamento de scores para a instituição de ensino PBLTeX, especializada em cursos práticos de ensino aplicando PBL, visando otimizar a avaliação do Fator de Ensino Evolutivo (FEE) e fortalecer sua posição no mercado de edtechs.
 
 ### Requisitos Funcionais
 - O SI deve possuir um controle de Turmas;
@@ -50,37 +50,56 @@ Ola, o Morize App é uma aplicação web, que permite o gerenciamento de um inst
 </table>
 
 ### Fluxograma da Aplicação:
-Acesse o fluxograma da aplicação através do Miro, clicando no link que segue: <br>
-<a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">Ir para o Miro</a>
+Foi elaborado um fluxograma utilizando o software Miro. Convido você a clicar no botão abaixo para conferir o resultado: <br>
+<a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">
+    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarFluxograma.png" width="20%"/>
+</a>
 
 ### WireFrame
-Acesse o wire frame da aplicação através do Figma, clicando no link que segue:<br>
-<a href="https://www.figma.com/file/z3ULTstviHzHjpTrmdqyky/Untitled?type=design&node-id=0%3A1&mode=design&t=7X3mwSH3mpjgNpdP-1">Ir para o Figma</a>
+Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no botão abaixo para visualizar o wireframe: <br>
+<a href="https://www.figma.com/file/z3ULTstviHzHjpTrmdqyky/Untitled?type=design&node-id=0%3A1&mode=design&t=7X3mwSH3mpjgNpdP-1">
+    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarWireframe.png" width="20%"/>
+</a>
 
-### Backlog
+### Backlog do projeto
 | **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
 |-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
-| Usuário | Login/Log-off| Acessar o sistema | Imprescindível | 3 | **-** |
-| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 3 | **-** |
-| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 3 | **-** |
-| Diretor | Editar e excluir contas, grupos de alunos e turmas| Corrigir erros e fazer alterações | Importante | 4 | **-** |
-| Professor | Visualizar desempenho individual do aluno | Visualizar notas do aluno | Importante | 3 | **-** |
-| Professor | Visualizar grupo de alunos | Visualizar alunos de um grupo específico | Importante | 3 | **-** |
-| Professor | Inserir nota no ciclo de entrega | Nota individual para o aluno | Importante | 4 | **-** |
-| Aluno | Ver as médias das minhas notas | Noção de performance  | Importante | 3 | **-** |
 | Desenvolvedor | Criar documentação do produto | Organização | Imprescindível | 1 | **Realizado** |
 | Desenvolvedor | Criar fluxograma e wireframes  do produto | Organização | Imprescindível | 1 | **Realizado** |
 | Desenvolvedor | Criar Backlog do produto | Organização | Imprescindível | 1 | **Realizado** |
 | Desenvolvedor | Criar conta no Jira e gerenciar as tasks realizadas durante as sprints | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Aplicar restrições e hierarquias e usuários | Organização | Imprescindível | 2 | **-** |
-| Desenvolvedor | Desenvolver as telas do produto sem funcionalidades| Desenvolvimento | Imprescindível | 2 | **-** |
+| Desenvolvedor | Desenvolver as telas do diretor com as funcionalidades| Desenvolvimento | Imprescindível | 2 | **Realizado** |
+| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 2 | **Realizado**|
+| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 2 | **Realizado** |
+| Usuário | Login/Log-off| Acessar o sistema | Imprescindível | 3 | **-** |
+| Professor | Visualizar desempenho individual do aluno | Visualizar notas do aluno | Importante | 3 | **-** |
+| Professor | Visualizar grupo de alunos | Visualizar alunos de um grupo específico | Importante | 3 | **-** |
+| Desenvolvedor | Aplicar restrições e hierarquias dos usuários | Organização | Imprescindível | 3 | **-** |
+| Desenvolvedor | Desenvolver as telas do aluno com as funcionalidades| Desenvolvimento | Imprescindível | 3 | **-** |
+| Desenvolvedor | Desenvolver as telas do professor com as funcionalidades| Desenvolvimento | Imprescindível | 3 | **-** |
 | Desenvolvedor | Realizar a conexão das telas com o backend | Desenvolvimento | Imprescindível | 3 | **-** |
+| Diretor | Editar e excluir contas, grupos de alunos e turmas| Corrigir erros e fazer alterações | Importante | 4 | **-** |
+| Professor | Inserir nota no ciclo de entrega | Nota individual para o aluno | Importante | 4 | **-** |
+| Aluno | Ver as médias das minhas notas | Noção de performance  | Importante | 4 | **-** |
 
-## Tecnologias utilizadas
-<img src="https://github.com/ElbertJean/faculdade/blob/main/tecnologias.jpg" width="100%"/>
+### Backlog 1º Sprint
+| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Desenvolvedor | Criar documentação do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar fluxograma e wireframes  do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar Backlog do produto | Organização | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar conta no Jira e gerenciar as tasks realizadas durante as sprints | Organização | Imprescindível | 1 | **Realizado** |
 
-#### Membros da Equipe:
-<img src="https://github.com/ElbertJean/faculdade/blob/main/integrantes.jpg" width="100%"/>
+### Backlog 2º Sprint
+| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Desenvolvedor | Desenvolver as telas do diretor com as funcionalidades| Desenvolvimento | Imprescindível | 2 | **Realizado** |
+| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 2 | **Realizado** |
+| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 2 | **Realizado** |
+
+
+## Tecnologias utilizadas e Integrantes
+<img src="https://github.com/ElbertJean/faculdade/blob/main/Frame%203.jpg" width="100%"/>
 
 ## Instalação
 
@@ -94,9 +113,9 @@ Certifique-se de ter o Python instalado em seu sistema. Você pode baixá-lo em 
 
 Clone o repositório do projeto a partir do GitHub.
 
-bash
-git clone <URL_DO_REPOSITORIO>
-cd nome-do-projeto
+bash <br>
+git clone <URL_DO_REPOSITORIO> <br>
+cd nome-do-projeto <br>
 
 
 ### 3. Criar o primeiro usuário Diretor
