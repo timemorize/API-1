@@ -1,0 +1,75 @@
+<div class="modal fade" id="novoAluno" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Cadastrar Aluno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="erroAlunos" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label for="nome_aluno">Nome:</label>
+                    <input type="text" class="form-control" id="nome">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">CPF:</label>
+                    <input type="text" class="form-control" id="cpf">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">RG:</label>
+                    <input type="text" class="form-control" id="rg">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">Email:</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">Telefone:</label>
+                    <input type="text" class="form-control" id="telefone">
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                      Endereço
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="email_aluno">CEP:</label>
+                            <input type="number" class="form-control" pattern="\d{5}-\d{3}" placeholder="00000-000" id="cep" >
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Numero:</label>
+                            <input type="text" class="form-control" id="numero" >
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Logradouro:</label>
+                            <input type="text" class="form-control" id="logradouro">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Bairro:</label>
+                            <input type="text" class="form-control" id="bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Estado:</label>
+                            <input type="text" class="form-control" id="estado">
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoSalvar" type="button" acao="editar" class="btn btn-primary" onclick="cadastrarAluno()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

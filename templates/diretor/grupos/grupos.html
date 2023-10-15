@@ -1,0 +1,74 @@
+{% include 'componentes/header.html' %}
+<body>
+    {% include 'diretor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10"><h3><i class="fa-solid fa-user-group"></i> Gerenciamento de Grupos</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" onclick="novoGrupo()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Grupo de Alunos</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="nome" selected>Nome</option>
+                    <option value="identificador">Identificador</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+              </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>visualizar:</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyAlunos">
+                {% for grupo in listaGrupos %}
+                    <tr class="trGrupo" id="tr{{ grupo.identificador }}" identificador="{{ grupo.identificador }}" nome="{{ grupo.nome }}">
+                        <td><label class="nomeAluno" ra="{{ grupo.identificador }}" onclick="exibirDadosAluno('{{ grupo.identificador }}')">{{ grupo.nome }}</label></td>
+                        <td>{{ grupo.identificador }}</td>
+                        <td>
+                            <button type="button" descCompleta="{{ grupo.descricao }}" class="btn btn-info" onclick="verDescricaoGrupo( this )">
+                                Ver Descrição
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-info" onclick="buscaListaAlunos('{{ grupo.identificador }}','{{ grupo.nome }}')">
+                                Alunos
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="abreModalEdicaoGrupo('{{ grupo.identificador }}','{{ grupo.nome }}','{{ grupo.descricao }}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="iniciaExcluirGrupo('{{ grupo.identificador }}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    {% include 'diretor/grupos/modais/novoGrupo.html' %}
+    {% include 'diretor/grupos/modais/descricaoGrupo.html' %}
+    {% include 'diretor/grupos/modais/confirmarExcluirGrupo.html' %}
+    {% include 'diretor/grupos/modais/editarGrupo.html' %}
+    {% include 'diretor/grupos/modais/visualizarAlunos.html' %}
+    {% include 'diretor/componentes/modalErro.html' %}
+</body>
+
+<script src="{{ url_for('static', filename='scripts/diretor/grupos/grupos.js') }}"></script>

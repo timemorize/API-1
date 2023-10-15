@@ -1,0 +1,72 @@
+{% include 'componentes/header.html' %}
+<body>
+    {% include 'diretor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10"><h3><i class="fa-solid fa-chalkboard-user"></i> Gerenciamento de Professores</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" onclick="novoProfessor()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Professor</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="nome" selected>Nome</option>
+                    <option value="ra">Identificador</option>
+                    <option value="email">E-mail</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+              </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID:</th>
+                    <th>Nome</th>
+                    <th>E-mail:</th>
+                    <th>visualizar</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyAlunos">
+                {% for professor in listaProfessores %}
+                    <tr class="trProfessor" id="tr{{ professor.identificador }}" email="{{ professor.email }}" nome="{{ professor.nome }}" ra="{{ professor.identificador }}">
+                        <td>{{ professor.identificador }}</td>
+                        <td><label class="nomeAluno" ra="{{ professor.identificador }}" onclick="exibirDadosAluno('{{ professor.identificador }}')">{{ professor.nome }}</label></td>
+                        <td>{{ professor.email }}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" onclick="buscaListaTurmas('{{ professor.identificador }}','{{ professor.nome }}')">
+                                Turmas
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="abreModalEdicaoProfessor('{{ professor.identificador }}','{{ professor.nome }}','{{ professor.email }}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="iniciaExcluirProfessor('{{ professor.identificador }}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script src="{{ url_for('static', filename='scripts/diretor/professores/professores.js') }}"></script>
+{% include 'diretor/professores/modais/novoProfessor.html' %}
+{% include 'diretor/professores/modais/visualizarTurmas.html' %}
+{% include 'diretor/professores/modais/confirmarExcluirProfessor.html' %}
+{% include 'diretor/professores/modais/editarProfessor.html' %}
+
+{% include 'diretor/componentes/modalErro.html' %}
+{% include 'diretor/componentes/modlExibirNovaSenha.html' %}

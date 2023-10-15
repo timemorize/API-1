@@ -1,0 +1,38 @@
+<div class="modal fade" id="editarTurma" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Editar Turma</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="erroModalEditar" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <label id="identificadorEditarTurma"></label>
+                <div class="form-group">
+                    <label for="nome_aluno">Nome:</label>
+                    <input type="text" class="form-control" id="nomeEditarTurma">
+                </div>
+                <div class="form-group">
+                    <label for="nome_aluno">Professor:</label>
+                    <select class="form-control" id="professorEditarTurma">
+                        <option value=""></option>
+                        {% for professor in listaProfessores %}
+                            <option value="{{ professor.identificador }}">{{ professor.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoEditarTurma" type="button" identificador="" acao="editar" class="btn btn-primary" onclick="editarTurma()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="modal fade" id="editarAluno" ra=""  tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Editar Aluno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="erroAlunos" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <label id="raEditaAluno"></label>
+                <div class="form-group">
+                    <label for="nome_aluno">Nome:</label>
+                    <input type="text" class="form-control" id="nomeEditaAluno">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">CPF:</label>
+                    <input type="text" class="form-control" id="cpfEditaAluno">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">RG:</label>
+                    <input type="text" class="form-control" id="rgEditaAluno">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">Email:</label>
+                    <input type="text" class="form-control" id="emailEditaAluno">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">Telefone:</label>
+                    <input type="text" class="form-control" id="telefoneEditaAluno">
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                      Endereço
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="email_aluno">CEP:</label>
+                            <input type="number" class="form-control" pattern="\d{5}-\d{3}" placeholder="00000-000" id="cepEditaAluno" >
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Numero:</label>
+                            <input type="text" class="form-control" id="numeroEditaAluno" >
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Logradouro:</label>
+                            <input type="text" class="form-control" id="logradouroEditaAluno">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Bairro:</label>
+                            <input type="text" class="form-control" id="bairroEditaAluno">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Cidade:</label>
+                            <input type="text" class="form-control" id="cidadeEditaAluno">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_aluno">Estado:</label>
+                            <input type="text" class="form-control" id="estadoEditaAluno">
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoSEditaAlunoalvar" type="button" class="btn btn-primary" onclick="editarAluno()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

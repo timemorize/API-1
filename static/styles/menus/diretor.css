@@ -1,0 +1,9 @@
+.nav-diretor{
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 150;
+}
+
+.nav-selected{
+    font-weight: 300;
+}

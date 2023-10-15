@@ -1,0 +1,108 @@
+<div class="modal fade" id="modalTurmas">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Gerir Turmas</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+                <h6>Não Matriculadas</h6>
+                <select multiple class="form-control" id="listaTurmasNaoMatriculadas"></select>
+                <br>
+                <button id="btnAddTurmaALuno" type="button" class="btn btn-success" onclick="adicionarTurma()"><i class="fa-solid fa-plus"></i> Adicionar</button>
+              </div>
+
+            <div class="col-6">
+                <h6>Matriculadas</h6>
+                <select multiple class="form-control" id="listaTurmasMatriculadas"></select>
+                <br>
+                <button id="btnRemoveTurmaALuno" type="button" class="btn btn-danger" onclick="removerTurma()"><i class="fa-solid fa-ban"></i> Remover</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <button id="modalTurmasBotaoSalvar" type="button" class="btn btn-primary" data-dismiss="modal" ra="" onclick="salvarTurmas()"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+ <script>
+    let turmasMatriculadas = [];
+
+    function validaBotoesGerenciarTurma()
+    {
+        const numeroTurmasMatriculadas = $('#listaTurmasMatriculadas option').length;
+        const habilitaBotaoRemover = numeroTurmasMatriculadas < 1;
+        $('#btnRemoveTurmaALuno ').attr('disabled',habilitaBotaoRemover);
+
+        const numeroTurmasNaoMatriculadas = $('#listaTurmasNaoMatriculadas option').length;
+        const habilitaBotaoAdd = numeroTurmasNaoMatriculadas < 1;
+        $('#btnAddTurmaALuno ').attr('disabled', habilitaBotaoAdd );
+    }
+
+    function removerTurma()
+    {
+        const selectMatriculados = $('#listaTurmasMatriculadas ');
+        const turmasSelecionadas = $( selectMatriculados ).find('option:selected');
+        
+        const selectNaoMatriculados = $('#listaTurmasNaoMatriculadas ');
+
+        turmasSelecionadas.each( (index,turma) => {
+            selectNaoMatriculados.append( new Option( $( turma ).text(), $( turma ).val() ) );
+            turmasMatriculadas = turmasMatriculadas.filter((elemento) =>{
+                return elemento != $( turma ).val()
+            } );
+        });
+        turmasSelecionadas.remove();
+        validaBotoesGerenciarTurma()
+    }
+
+    function adicionarTurma()
+    {
+        const selectMatriculados = $('#listaTurmasMatriculadas ');
+        
+        const selectNaoMatriculados = $('#listaTurmasNaoMatriculadas ');
+        const turmasSelecionadas = $( selectNaoMatriculados ).find('option:selected');
+
+        turmasSelecionadas.each( (index,turma) => {
+            selectMatriculados.append( new Option( $( turma ).text(), $( turma ).val() ) );
+            turmasMatriculadas.push( $( turma ).val() );
+        });
+        turmasSelecionadas.remove();
+        validaBotoesGerenciarTurma()
+    }
+
+    function salvarTurmas()
+    {
+        const RA = $('#modalTurmasBotaoSalvar').attr('ra');
+        console.log('tes')
+        $.ajax({
+            url: '/modificarTurmasAluno',
+            type: 'POST',
+            data:
+            {
+                turmas: JSON.stringify(turmasMatriculadas),
+                ra: RA
+            },
+            success: function(response)
+            {
+                $('#modalTurmas').modal('hide');
+                turmasMatriculadas = [];
+            },
+            error: function(error)
+            {
+                console.error('Erro ao excluir elemento:', error);
+            }
+        });
+    }
+    </script>
+</script>

@@ -1,0 +1,105 @@
+<div class="modal fade" id="modalGruposAluno">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Gerir Alunos</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+                <h6>Grupos Disponiveis</h6>
+                <select multiple class="form-control" id="listaGruposDisponiveis"></select>
+                <br>
+                <button id="btnAddGrupoAluno" type="button" class="btn btn-success" onclick="adicionarGrupo()"><i class="fa-solid fa-plus"></i> Adicionar</button>
+              </div>
+
+            <div class="col-6">
+                <h6>Grupos Inseridos</h6>
+                <select multiple class="form-control" id="listaGruposInseridos"></select>
+                <br>
+                <button id="btnRemoveGrupoAluno" type="button" class="btn btn-danger" onclick="removerGrupo()"><i class="fa-solid fa-ban"></i> Remover</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <button id="modalGruposBotaoSalvar" type="button" class="btn btn-primary" data-dismiss="modal" ra="" onclick="salvarGrupos()"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    let gruposInseridos = [];
+
+    function validaBotoesGerenciarGrupo()
+    {
+        const numeroGruposMatriculadas = $('#listaGruposInseridos option').length;
+        const habilitaBotaoRemover = numeroGruposMatriculadas < 1;
+        $('#btnRemoveGrupoAluno ').attr('disabled',habilitaBotaoRemover);
+
+        const numeroGruposNaoMatriculadas = $('#listaGruposDisponiveis option').length;
+        const habilitaBotaoAdd = numeroGruposNaoMatriculadas < 1;
+        $('#btnAddGrupoAluno ').attr('disabled', habilitaBotaoAdd );
+    }
+
+    function removerGrupo()
+    {
+        const selectGruposInseridos = $('#listaGruposInseridos ');
+        const gruposSelecionados = $( selectGruposInseridos ).find('option:selected');
+        
+        const selectGruposDisponiveis = $('#listaGruposDisponiveis ');
+
+        gruposSelecionados.each( (index,turma) => {
+            selectGruposDisponiveis.append( new Option( $( turma ).text(), $( turma ).val() ) );
+            gruposInseridos = gruposInseridos.filter((elemento) =>{
+                return elemento != $( turma ).val()
+            } );
+        });
+        gruposSelecionados.remove();
+        validaBotoesGerenciarGrupo()
+    }
+
+    function adicionarGrupo()
+    {
+        const selectGruposInseridos = $('#listaGruposInseridos ');
+        
+        const selectGruposDisponiveis = $('#listaGruposDisponiveis ');
+        const gruposSelecionadas = $( selectGruposDisponiveis ).find('option:selected');
+
+        gruposSelecionadas.each( (index,grupo) => {
+            selectGruposInseridos.append( new Option( $( grupo ).text(), $( grupo ).val() ) );
+            gruposInseridos.push( $( grupo ).val() );
+        });
+        gruposSelecionadas.remove();
+        validaBotoesGerenciarGrupo()
+    }
+
+    function salvarGrupos()
+    {
+        const ra = $('#modalGruposBotaoSalvar').attr('ra');
+        console.log('tes')
+        $.ajax({
+            url: '/modificarGruposAluno',
+            type: 'POST',
+            data:
+            {
+                grupos: JSON.stringify(gruposInseridos),
+                ra: ra
+            },
+            success: function(response)
+            {
+                $('#modalGrupos').modal('hide');
+                gruposInseridos = [];
+            },
+            error: function(error)
+            {
+                console.error('Erro ao excluir elemento:', error);
+            }
+        });
+    }
+    </script>
+</script>

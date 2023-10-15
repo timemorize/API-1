@@ -1,0 +1,73 @@
+{% include 'componentes/header.html' %}
+<body>
+    {% include 'diretor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10"><h3><i class="fa-solid fa-chalkboard"></i> Gerenciamento de Turmas</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" onclick="novaTurma()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Nova Turma</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="nome" selected>Nome</option>
+                    <option value="id">Identificador</option>
+                    <option value="professor">Professor</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+              </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Turma</th>
+                    <th>Professor</th>
+                    <th>visualizar:</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyAlunos">
+                {% for turma in listaTurmas %}
+                    <tr class="trTurmas" nome="{{ turma.nome }}" id="tr{{ turma.identificador }}" professor="{{ turma.nomeProfessor }}">
+                        <td>{{ turma.identificador }}</td>
+                        <td>{{ turma.nome }}</td>
+                        <td>{{ turma.nomeProfessor }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="buscaListaAlunos('{{ turma.identificador }}','{{ turma.nome }}')">
+                                Alunos
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="abreModalEdicaoTurma('{{ turma.identificador }}','{{ turma.nome }}','{{ turma.professor }}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="iniciaExcluirGrupo('{{ turma.identificador }}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+{% include 'diretor/turmas/modais/novaTurma.html' %}
+{% include 'diretor/turmas/modais/editarTurma.html' %}
+{% include 'diretor/turmas/modais/visualizarAlunos.html' %}
+{% include 'diretor/turmas/modais/confirmarExcluirTurma.html' %}
+
+{% include 'diretor/componentes/modalErro.html' %}
+
+<script src="{{ url_for('static', filename='scripts/diretor/turmas/turmas.js') }}"></script>

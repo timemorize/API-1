@@ -1,0 +1,33 @@
+<div class="modal fade" id="editarProfessor" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Editar Professor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger alert-dismissible fade show erroModalEditar" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <label id="identificadorEditarProfessor"></label>
+                <div class="form-group">
+                    <label for="nome_aluno">Nome:</label>
+                    <input type="text" class="form-control" id="nomeEditarProfessor">
+                </div>
+                <div class="form-group">
+                    <label for="email_aluno">Email:</label>
+                    <input type="text" class="form-control" id="emailEditarProfessor">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoEditarProfessor" identificador="" type="button" acao="editar" class="btn btn-primary" onclick="editarProfessor()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

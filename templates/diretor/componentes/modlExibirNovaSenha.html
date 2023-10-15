@@ -1,0 +1,42 @@
+<div class="modal fade" id="modlExibirNovaSenha" origemUsuario ="" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel"><i class="fa-solid fa-key"></i> Dados do usuário:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="novoRa" value="">
+          </div>
+  
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="novaSenha" value="Conteúdo para copiar">
+            <div class="input-group-append">
+              <button class="btn btn-primary" id="btnCopiar"><i class="fa-solid fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $('#btnCopiar').click(function() {
+      const conteudoInput = $('#novaSenha');
+      conteudoInput.select();
+      document.execCommand('copy');
+    });
+
+    $('#modlExibirNovaSenha').on('hidden.bs.modal', function (e) {
+      window.location.href =  $('#modlExibirNovaSenha').attr('origemUsuario');
+    });
+  });
+  </script>
+  

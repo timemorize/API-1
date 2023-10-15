@@ -1,0 +1,39 @@
+<div class="modal fade" id="reseteDeSenhaAluno" tabindex="-1" role="dialog" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="resetPasswordModalLabel"><i class="fa-solid fa-key"></i> Redefinir Senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <form id="resetPasswordForm">
+            <div class="form-group">
+            <label for="password">Nova Senha</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="password" placeholder="Nova Senha">
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" onclick="exibirInputSenha('password')"><i class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="confirmPassword">Confirmar Senha</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Senha">
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" onclick="exibirInputSenha('confirmPassword')"><i class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+            </div>
+        </form>
+        <div id="errorDiv" class="alert alert-danger" role="alert" style="display: none;"></div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="botaoRedefinirSenha" identificador="" onclick="resetPassword()">Redefinir Senha</button>
+        </div>
+    </div>
+    </div>
+</div>

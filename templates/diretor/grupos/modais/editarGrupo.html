@@ -1,0 +1,33 @@
+<div class="modal fade" id="editarGrupo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Editar Grupo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="erroModal" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <label id="identificadorEditarGrupo"></label>
+                <div class="form-group">
+                    <label for="nome_aluno">Nome:</label>
+                    <input type="text" class="form-control" id="nomeEditarGrupo">
+                </div>
+                <div class="form-group">
+                    <label for="nome_aluno">Descrição:</label>
+                    <textarea class="form-control" id="descricaoEditarGrupo" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoSalvarEditarGrupo" identificador="" type="button" acao="editar" class="btn btn-primary" onclick="editarGrupo()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
