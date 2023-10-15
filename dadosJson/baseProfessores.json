@@ -1,0 +1,26 @@
+[
+  {
+    "chave": 1,
+    "identificador": "PF03",
+    "nome": "Uncle Bob",
+    "email": "uc-@morize.com"
+  },
+  {
+    "chave": 2,
+    "identificador": "PF04",
+    "nome": "Andrew Stuart Tanenbaum",
+    "email": "ast@morize.com"
+  },
+  {
+    "chave": 4,
+    "identificador": "PRF4219",
+    "nome": "Teste",
+    "email": "l\u00e7\u00e7lk\u00e7l\u00e7"
+  },
+  {
+    "chave": 5,
+    "identificador": "PRF5251",
+    "nome": "Gene KIm",
+    "email": "gk@true.com"
+  }
+]

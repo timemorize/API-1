@@ -1,0 +1,68 @@
+[
+  {
+    "chave": 6,
+    "RA": "ALUNO6879",
+    "nome": "Marcos Nunes",
+    "cpf": "43669013822",
+    "rg": "43669001212",
+    "email": "rck13campos@gmail.com",
+    "telefone": "12992442731",
+    "cep": "12230100",
+    "numero": "12",
+    "logradouro": "Rua Maric\u00e1",
+    "bairro": "Jardim Sat\u00e9lite",
+    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
+    "estado": "SP",
+    "turmas": [
+      "RDC4157"
+    ],
+    "grupos": [
+      "GRP3432"
+    ]
+  },
+  {
+    "chave": 3,
+    "RA": "ALUNO3618",
+    "nome": "Martin Fowler",
+    "cpf": "1234567890",
+    "rg": "123",
+    "email": "mf@tes.com",
+    "telefone": "12981707434",
+    "cep": "12230080",
+    "numero": "89",
+    "logradouro": "Rua Patr\u00edcio Santana",
+    "bairro": "Jardim Sat\u00e9lite",
+    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
+    "estado": "SP",
+    "turmas": [
+      "A30"
+    ],
+    "grupos": [
+      "A33",
+      "GRP2175"
+    ]
+  },
+  {
+    "chave": 5,
+    "RA": "ALUNO5471",
+    "nome": "Nicola Tesla",
+    "cpf": "159.653.878-30",
+    "rg": "123",
+    "email": "rck13campos@gmail.com",
+    "telefone": "12992442731",
+    "cep": "12240090",
+    "numero": "89",
+    "logradouro": "Rua Trajano Vieira de Macedo",
+    "bairro": "Jardim das Ind\u00fastrias",
+    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
+    "estado": "SP",
+    "turmas": [
+      "A30",
+      "A32"
+    ],
+    "grupos": [
+      "GRP2175",
+      "GRP3432"
+    ]
+  }
+]

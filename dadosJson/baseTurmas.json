@@ -1,0 +1,43 @@
+[
+  {
+    "chave": 1,
+    "identificador": "A30",
+    "nome": "Arquitetura de Computadores 9",
+    "professor": "PRF4219",
+    "nomeProfessor": "Teste"
+  },
+  {
+    "chave": 3,
+    "identificador": "A32",
+    "nome": "DevOps",
+    "professor": "PF03",
+    "nomeProfessor": "Uncle Bob"
+  },
+  {
+    "chave": 3,
+    "identificador": "MA3100",
+    "nome": "Matematica Avan\u00e7ada",
+    "professor": "PF04",
+    "nomeProfessor": "Andrew Stuart Tanenbaum"
+  },
+  {
+    "chave": 4,
+    "identificador": "RDC4157",
+    "nome": "Redes de Computadores",
+    "professor": "PF04",
+    "nomeProfessor": "Andrew Stuart Tanenbaum"
+  },
+  {
+    "chave": 6,
+    "identificador": "AOC6436",
+    "nome": "Arquitetura e Organiza\u00e7\u00e3o de Computadores 1",
+    "professor": "PF03",
+    "nomeProfessor": "Uncle Bob"
+  },
+  {
+    "chave": 7,
+    "identificador": "TB7891",
+    "nome": "Turma do Bolinha 2 O inimigo agora \u00e9 outro",
+    "professor": "PRF5251"
+  }
+]
