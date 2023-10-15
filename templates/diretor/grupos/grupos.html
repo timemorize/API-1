@@ -3,7 +3,7 @@
     {% include 'diretor/componentes/menu.html' %}
     <div class="container">
         <div class="row">
-            <div class="col-10"><h3><i class="fa-solid fa-user-group"></i> Gerenciamento de Grupos</h3></div>
+            <div class="col-10 py-3"><h3><i class="fa-solid fa-user-group  mr-3"></i> Gerenciamento de Grupos</h3></div>
         </div>
         <div class="row">
             <div class="col-10">
@@ -30,8 +30,8 @@
                     <th>Nome</th>
                     <th>ID</th>
                     <th>Descrição</th>
-                    <th>visualizar:</th>
-                    <th></th>
+                    <th>Visualizar:</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody id="tbodyAlunos">
@@ -45,7 +45,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-info" onclick="buscaListaAlunos('{{ grupo.identificador }}','{{ grupo.nome }}')">
+                            <button type="button" class="btn btn-success" onclick="buscaListaAlunos('{{ grupo.identificador }}','{{ grupo.nome }}')">
                                 Alunos
                             </button>
                         </td>
