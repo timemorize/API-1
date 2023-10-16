@@ -63,7 +63,7 @@ $(document).ready(function()
 
 function novoAluno()
 {
-	$('#erroAlunos').hide();
+	$('.erroModal').hide();
 	$('#novoAluno').modal('show');
 }
 
@@ -126,7 +126,8 @@ function cadastrarAluno()
 	}
 	else
 	{
-		$('#erroAlunos').show();
+		$('.erroModal').show();
+		$('html, body').animate({ scrollTop: 0 }, 800);
 	}
 }
 
@@ -188,7 +189,8 @@ function editarAluno()
 	}
 	else
 	{
-		$('#erroAlunos').show();
+		$('.erroModal').show();
+		$('html, body').animate({ scrollTop: 0 }, 800);
 	}
 }
 
