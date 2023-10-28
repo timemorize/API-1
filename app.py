@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request,jsonify
-from modulos import alunos,grupos,turmas, professores
+from flask import Flask, render_template, request,jsonify, session
+from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega
 import json
 
 app = Flask(__name__)
@@ -170,6 +170,51 @@ def rotaEditarGrupo():
 def rotaGerenciaGrupos():
     dadosGrupos = grupos.buscaDadosGrupos()
     return render_template('diretor/grupos/grupos.html', listaGrupos = dadosGrupos )
+
+@app.route('/minhasTurmas')
+def rotaMinhasTurmas():
+    dadosTurmas = professores.buscarTurmas( 'PF03' )
+    dadosCicloEntrega = cicloEntrega.buscaCiclosEntrega()
+    print( dadosTurmas )
+    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega )
+
+@app.route('/cadastrarAtividade', methods=['POST'])
+def rotaCadastrarAtividade():
+    return atividades.cadastroAtividade( request.form )
+
+@app.route('/buscaAtividadesTurma/<string:identificador>', methods=['GET'])
+def rotaBuscaAtividadesTurma(identificador):
+    listaAtividades = atividades.pesquisaAtividadeTurma( identificador )
+    listaCicloEntregas = cicloEntrega.buscaCiclosEntrega()
+    return jsonify(
+        {
+            'result': '1',
+            'listaAtividades':listaAtividades,
+            'listaCiclosEntrega': listaCicloEntregas
+        } )
+
+@app.route('/excluirAtividade/<string:identificador>', methods=['POST', 'DELETE'])
+def rotaExcluirAtividade(identificador):
+    atividades.excluirAtividade(identificador)
+
+    if request.method == 'DELETE':
+        return '', 204
+
+    return '', 200
+
+@app.route('/notasProfessor/<string:identificador>', methods=['GET'])
+def rotaNotasProfessor(identificador):
+    notasAlunos = atividades.buscaNotasAtividades( identificador )
+    ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega )
+
+@app.route('/salvarNotas', methods=['POST'])
+def rotaSalvarNotas():
+    ra = request.form['ra']
+    notas = json.loads( request.form['dadosNotas'] )
+    nomeAluno = request.form['nomeALuno']
+
+    return atividades.salvarNotasAluno(ra,nomeAluno,notas)
 
 if __name__ == '__main__':
     app.run(debug=True)

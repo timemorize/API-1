@@ -41,7 +41,6 @@ $(document).ready(function()
 		const valorPesquisa = $(this).val().toUpperCase();
 		const campoPesquisa = $( '#campoPesquisa' ).val();
 
-		console.log(campoPesquisa);
 		$(".trAluno").each( function(chave,tarefa)
 		{
 			let pesquisa = $(this).attr( campoPesquisa ).toUpperCase();

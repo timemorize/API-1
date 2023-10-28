@@ -1,0 +1,122 @@
+[
+  {
+    "chave": 1,
+    "titulo": "Teste",
+    "dataEntrega": "10/01/2024",
+    "descricao": "",
+    "turma": "A32",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "5",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "4",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 2,
+    "titulo": "Trabalho Hist\u00f3ria dos Computadores",
+    "dataEntrega": "31/07/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "1",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "8",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 3,
+    "titulo": "Prova Sistema Bin\u00e1rio",
+    "dataEntrega": "26/09/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "1",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "6",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 5,
+    "titulo": "Teste",
+    "dataEntrega": "15/05/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "6",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "3",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 6,
+    "titulo": "Exame Final",
+    "dataEntrega": "31/01/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "6",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "3",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 7,
+    "titulo": "Exame Final 2",
+    "dataEntrega": "27/09/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "1",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "                                            ",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  }
+]

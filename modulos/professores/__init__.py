@@ -58,7 +58,11 @@ def buscarTurmas( identificador ):
     dadosTurmas = turmas.buscaDadosTurmas()
     for dadosTurma in dadosTurmas:
         if dadosTurma['professor'] == identificador:
-            retorno.append(dadosTurma['nome'])
+            dadosRetorno ={
+                'nome':dadosTurma['nome'],
+                'identificador':dadosTurma['identificador']
+            }
+            retorno.append(dadosRetorno)
 
     return retorno
 

@@ -1,0 +1,90 @@
+{% include 'componentes/header.html' %}
+<style>
+.inputNota{
+  width:45px
+}
+</style>
+<body>
+    {% include 'professor/componentes/menu.html' %}
+   <div class="container">
+        <div class="row">
+            <div class="col-10 py-3"><h3> <i class="fa-solid fa-id-badge mr-3"></i>Notas</h3></div>
+        </div>
+        <div class="row">
+            <ul class="nav nav-tabs">
+                {% for cicloEntrega in listaCiclosEntrega %}
+                    <li class="nav-item">
+                        <a cicloEntrega = {{cicloEntrega.chave}} class="nav-link abaCicloEntrega" onclick="mudaAbaCicloEntrega( this )">{{cicloEntrega.titulo}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <br>
+        
+        {% for dadosCicloEntrega in listaDadosCicloEntrega %}
+            <div class="notasCicloEntrega" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
+
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <select class="custom-select" id="campoPesquisa">
+                            <option value="nomeAluno" selected>Nome</option>
+                            <option value="ra">RA</option>
+                          </select>
+                        </div>
+                        <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+                      </div>
+                </div>
+                
+                <table class="table" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
+                    <thead>
+                        <tr>
+                            <th><label>RA</label></th>
+                            <th><label>Nome</label></th>
+                            {% for atividade in dadosCicloEntrega.atividadesCicloEntrega %}
+                                <th titulo="{{atividade.titulo}}">
+                                    <label data-toggle="popover" title="Dados da Atividade:" data-content="Títuro: {{atividade.titulo}} | Prazo: {{atividade.dataEntrega}}">{{atividade.ordemAtividade}}º</label>
+                                </th>
+                            {% endfor %}
+                            <th><label>Ação</label></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tdobyTurmas">
+                        {% for aluno in dadosCicloEntrega.notasAluno %}
+                            <tr class="trNotasAluno" nomeAluno="{{aluno.nomeAluno}}" ra="{{aluno.RA}}">
+                                <td>{{aluno.RA}}</td>
+                                <td>{{aluno.nomeAluno}}</td>
+                                {% for dadosNotas in aluno.dadosNotas %}
+                                    {% if dadosNotas.nota == "" %}
+                                        <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">
+                                            <input type="text" width="10px" class="form-control inputNota" >
+                                        </td>
+                                    {% else %}
+                                        <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">{{dadosNotas.nota}}</td>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if aluno.estadoNotas == "incompleto" %}
+                                    <td class="trAcaoAluno">
+                                        <button class="btn btn-success" onclick="salvarNotas( this )"><i class="fa-solid fa-floppy-disk"></i></button>
+                                    </td>
+                                {% else %}
+                                    <td class="trAcaoAluno">
+                                        <button class="btn btn-primary" onclick="revisarNotas( this )"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+
+    </div>
+</body>
+
+
+{% include 'professor/turmas/modais/modalNovaAtividade.html' %}
+{% include 'professor/turmas/modais/modalGerenciarAtividade.html' %}
+{% include 'professor/turmas/modais/modalExcluirAtividade.html' %}
+
+<script src="{{ url_for('static', filename='scripts/professor/turmas/notas.js') }}"></script>
