@@ -201,8 +201,6 @@ def salvarNotasAluno( ra, nomeAluno, relacaoNotas ):
         dadosAtidade['notas'] = novasNotasAtividades
         novosDadosAtividade.append( dadosAtidade )
 
-    print( json.dumps(dadosAtividades))
-    print( 'ffffff' )
     gravaAtividades( dadosAtividades )
 
 
