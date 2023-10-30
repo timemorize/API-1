@@ -57,7 +57,7 @@
                                 {% for dadosNotas in aluno.dadosNotas %}
                                     {% if dadosNotas.nota == "" %}
                                         <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">
-                                            <input type="text" width="10px" class="form-control inputNota" >
+                                            <span class="badge badge-secondary">sem nota</span>
                                         </td>
                                     {% else %}
                                         <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">{{dadosNotas.nota}}</td>

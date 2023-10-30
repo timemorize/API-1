@@ -46,7 +46,11 @@ function revisarNotas( botao )
 
     indicadoresNotas.each( function(index,td)
     {
-        const valorNota = $( td ).html();
+        let valorNota = parseInt( $( td ).html() );
+        if( isNaN( valorNota ) )
+        {
+            valorNota = '';
+        }
         $( td ).html( '<input type="text" width="10px" class="form-control inputNota" value="' + valorNota + '">' )
     });
 }
@@ -69,12 +73,18 @@ function salvarNotas( botao )
     {
         $( input ).hide();
         const tdNota = $( input ).closest(".indicadorNota");
-        const valorNota = $( input ).val();
-        $( tdNota ).html( valorNota )
+        let valorNota = $( input ).val();
+        
         relacaoNota = {
             'chaveAtividade' : tdNota.attr('chaveAtividade'),
             'nota':valorNota
         }
+
+        if( valorNota == "" )
+        {
+            valorNota = '<span class="badge badge-secondary">sem nota</span>';
+        }
+        $( tdNota ).html( valorNota )
 
         relacaoNotas.push( relacaoNota )
     });

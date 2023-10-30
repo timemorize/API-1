@@ -226,5 +226,17 @@
     "senha": "Teste12345678",
     "tipo": "professor",
     "resetSenha": true
+  },
+  {
+    "usuario": "ALUNO6650",
+    "senha": "Teste12345678",
+    "tipo": "aluno",
+    "resetSenha": true
+  },
+  {
+    "usuario": "ALUNO7699",
+    "senha": "Teste12345678",
+    "tipo": "aluno",
+    "resetSenha": true
   }
 ]

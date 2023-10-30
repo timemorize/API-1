@@ -1,7 +1,8 @@
+let quill = '';
 $(document).ready(function()
 {
     let trAtividade = '';
-    var quill = new Quill('#descricaoAtivdade', {
+    quill = new Quill('#descricaoAtivdade', {
         modules: {
         toolbar: [
             [{ header: [1, 2, false] }],
@@ -34,6 +35,26 @@ $(document).ready(function()
           }
         });
     });
+
+	$('#searchTurmas').on('input', function()
+	{
+		console.log('tes')
+		const valorPesquisa = $(this).val().toUpperCase();
+		const campoPesquisa = $( '#campoPesquisa' ).val();
+
+		$(".trTurmas").each( function(chave,tarefa)
+		{
+			let pesquisa = $(this).attr( campoPesquisa ).toUpperCase();
+			if( !pesquisa.includes(valorPesquisa ) && valorPesquisa != "" )
+			{
+				$( this ).hide();
+			}
+			else
+			{
+				$( this ).show();   
+			}
+		});
+	} );
 });
 
 function novaAtividade( idTurma )
@@ -47,7 +68,7 @@ function cadastrarAtividade()
 {
     const titulo = $('#tituloAtividade').val();
     const dataEntrega = $('#dataEntregaCicloEntregaValor').val();
-    const descricao = $('#descricaoAtivdade').val();
+    const descricao = quill.root.innerHTML;
     const idTurma = $('#novaAtividade').attr( 'idTurma');
     const cicloEntrega = $('#selectCicloDeEntrega').val();
     
@@ -64,7 +85,7 @@ function cadastrarAtividade()
         },
         success: function(response)
         {
-            $('#novaAtividade').modal('hide');
+            window.location.href = '/minhasTurmas'
         },
         error: function(error)
         {
@@ -103,7 +124,7 @@ function abreModalAtividades( idTurma, nomeTurma )
             htmlTabela += '    <td>' + atividade.titulo + '</td>';
             htmlTabela += '    <td>' + atividade.dataEntrega + '</td>';
             htmlTabela += '    <td>';
-            htmlTabela += '        <button type="button" class="btn btn-success" chave="' + atividade.chave + '"onclick="editarAtividade( this )"><i class="fas fa-edit"></i></button>';
+            htmlTabela += '        <button type="button" class="btn btn-success" chave="' + atividade.chave + '"onclick="iniciaEditaModal( this )"><i class="fas fa-edit"></i></button>';
             htmlTabela += '        <button type="button" class="btn btn-danger" chave="' + atividade.chave + '"onclick="iniciarExcluirAtividade( this )"><i class="fa-solid fa-trash"></i></button>';
             htmlTabela += '    </td>';
             htmlTabela += '</tr>';
@@ -170,5 +191,18 @@ function excluirAtividade()
 			console.error('Erro ao excluir elemento:', error);
 		}
 	});
+}
+
+function iniciaEditaModal( botao )
+{
+    const idAtividade = $( botao ).attr( 'chave' );
+    $('#gerenciaAtividade').modal('hide');
+    $('#editaAtividade').modal('show');
+    $('#editaAtividade').attr( 'idAtividade', idAtividade );
+    $('#tituloAtividade').val();
+    $('#dataEntregaCicloEntregaValor').val();
+    quill.root.innerHTML;
+    $('#novaAtividade').attr( 'idTurma');
+    $('#selectCicloDeEntrega').val();
 }
 

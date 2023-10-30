@@ -36,6 +36,11 @@
         "RA": "ALUNO3618",
         "nota": "8",
         "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
       }
     ]
   },
@@ -56,6 +61,11 @@
         "RA": "ALUNO3618",
         "nota": "6",
         "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
       }
     ]
   },
@@ -76,6 +86,11 @@
         "RA": "ALUNO3618",
         "nota": "3",
         "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
       }
     ]
   },
@@ -89,33 +104,173 @@
     "notas": [
       {
         "RA": "ALUNO6879",
-        "nota": "6",
+        "nota": "4",
         "nomeAluno": "Marcos Nunes"
       },
       {
         "RA": "ALUNO3618",
-        "nota": "3",
+        "nota": "",
         "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
       }
     ]
   },
   {
-    "chave": 7,
-    "titulo": "Exame Final 2",
-    "dataEntrega": "27/09/2024",
+    "chave": 8,
+    "titulo": "Fundamentos Calculo",
+    "dataEntrega": "17/10/2024",
     "descricao": "",
     "turma": "AOC6436",
     "cicloEntrega": "2",
     "notas": [
       {
         "RA": "ALUNO6879",
-        "nota": "1",
+        "nota": "",
         "nomeAluno": "Marcos Nunes"
       },
       {
         "RA": "ALUNO3618",
-        "nota": "                                            ",
+        "nota": "9",
         "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      }
+    ]
+  },
+  {
+    "chave": 9,
+    "titulo": "Exame Final",
+    "dataEntrega": "30/04/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "3",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "2",
+        "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      }
+    ]
+  },
+  {
+    "chave": 10,
+    "titulo": "Fundamentos Calculo 2",
+    "dataEntrega": "19/01/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "",
+        "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      }
+    ]
+  },
+  {
+    "chave": 11,
+    "titulo": "Trabalho Hist\u00f3ria dos Computadores",
+    "dataEntrega": "",
+    "descricao": "",
+    "turma": "RDC4157",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "10",
+        "nomeAluno": "Marcos Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 12,
+    "titulo": "Desenho 1",
+    "dataEntrega": "22/11/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "",
+        "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      }
+    ]
+  },
+  {
+    "chave": 13,
+    "titulo": "Desenho 2",
+    "dataEntrega": "22/11/2024",
+    "descricao": "",
+    "turma": "AOC6436",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO6879",
+        "nota": "",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "",
+        "nomeAluno": "Martin Fowler"
+      },
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      }
+    ]
+  },
+  {
+    "chave": 15,
+    "titulo": "Desenho A",
+    "dataEntrega": "19/01/2024",
+    "descricao": "<p><br></p>",
+    "turma": "A32",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO5471",
+        "nota": "",
+        "nomeAluno": "Nicola Tesla"
       }
     ]
   }

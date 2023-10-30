@@ -24,8 +24,7 @@
     "chave": 4,
     "identificador": "RDC4157",
     "nome": "Redes de Computadores",
-    "professor": "PF04",
-    "nomeProfessor": "Andrew Stuart Tanenbaum"
+    "professor": "PF03"
   },
   {
     "chave": 6,
@@ -38,6 +37,7 @@
     "chave": 7,
     "identificador": "TB7891",
     "nome": "Turma do Bolinha 2 O inimigo agora \u00e9 outro",
-    "professor": "PRF5251"
+    "professor": "PRF5251",
+    "nomeProfessor": "Gene KIm"
   }
 ]

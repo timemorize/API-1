@@ -174,7 +174,7 @@ def rotaGerenciaGrupos():
 @app.route('/minhasTurmas')
 def rotaMinhasTurmas():
     dadosTurmas = professores.buscarTurmas( 'PF03' )
-    dadosCicloEntrega = cicloEntrega.buscaCiclosEntrega()
+    dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
     print( dadosTurmas )
     return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega )
 
