@@ -206,20 +206,3 @@ def salvarNotasAluno( ra, nomeAluno, relacaoNotas ):
 
 
     return ''
-
-def iniciaAlunoAtividadesTurma( ra, nomeAluno, idTurma ):
-    dadosAtividades = buscaAtividades()
-    
-    notasIniciais ={
-        "RA": ra,
-        "nota": "",
-        "nomeAluno": nomeAluno
-    } 
-
-    novosDadosAtividades = []
-    for dadosAtividade in dadosAtividades:
-        if dadosAtividade['turma'] == idTurma:
-            dadosAtividade["notas"].append( notasIniciais )
-        novosDadosAtividades.append( dadosAtividade )
-
-    gravaAtividades( novosDadosAtividades )
