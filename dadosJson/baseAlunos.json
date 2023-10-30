@@ -16,7 +16,9 @@
     "turmas": [
       "AOC6436"
     ],
-    "grupos": []
+    "grupos": [
+      "GRP2175"
+    ]
   },
   {
     "chave": 6,
@@ -85,25 +87,5 @@
       "GRP2175",
       "GRP3432"
     ]
-  },
-  {
-    "chave": 6,
-    "RA": "ALUNO6650",
-    "nome": "dfsf",
-    "cpf": "dsfdf",
-    "rg": "111111111",
-    "email": "11111",
-    "telefone": "1111111",
-    "cep": "12230400",
-    "numero": "390",
-    "logradouro": "Rua Aldebaram",
-    "bairro": "Jardim Sat\u00e9lite",
-    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
-    "estado": "SP",
-    "turmas": [
-      "A30",
-      "AOC6436"
-    ],
-    "grupos": []
   }
 ]

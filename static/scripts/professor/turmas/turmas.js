@@ -196,7 +196,10 @@ function excluirAtividade()
 function iniciaEditaModal( botao )
 {
     const idAtividade = $( botao ).attr( 'chave' );
-    $('#gerenciaAtividade').modal('hide');
+    //$('#gerenciaAtividade').modal('hide');
+
+    
+
     $('#editaAtividade').modal('show');
     $('#editaAtividade').attr( 'idAtividade', idAtividade );
     $('#tituloAtividade').val();

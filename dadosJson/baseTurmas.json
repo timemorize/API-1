@@ -24,7 +24,8 @@
     "chave": 4,
     "identificador": "RDC4157",
     "nome": "Redes de Computadores",
-    "professor": "PF03"
+    "professor": "PF03",
+    "nomeProfessor": "Uncle Bob"
   },
   {
     "chave": 6,
@@ -39,5 +40,11 @@
     "nome": "Turma do Bolinha 2 O inimigo agora \u00e9 outro",
     "professor": "PRF5251",
     "nomeProfessor": "Gene KIm"
+  },
+  {
+    "chave": 8,
+    "identificador": "BB8749",
+    "nome": "Biologia Botanica",
+    "professor": "PRF5251"
   }
 ]
