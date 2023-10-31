@@ -38,7 +38,6 @@ $(document).ready(function()
 
 	$('#searchTurmas').on('input', function()
 	{
-		console.log('tes')
 		const valorPesquisa = $(this).val().toUpperCase();
 		const campoPesquisa = $( '#campoPesquisa' ).val();
 
@@ -55,17 +54,55 @@ $(document).ready(function()
 			}
 		});
 	} );
+
+    $('#pesoAtividade').on('input', function()
+    {
+        const valorAdicionar = parseInt( $( this ).val() );
+        const valorAtual = parseInt( $( this ).attr('pesoatual') );
+        let valorFinal = 0;
+
+        if( isNaN( valorAdicionar ) )
+        {
+            valorFinal = valorAtual;
+        }
+        else
+        {
+            valorFinal = valorAdicionar + valorAtual;
+        }
+        $('#indicadorPesoTotal').html("/ " + valorFinal);
+    });
 });
 
-function novaAtividade( idTurma )
+function novaAtividade( idTurma, pesoJSON )
 {
+    const pesoCiclos = JSON.parse(pesoJSON);
     $('#novaAtividade').modal('show');
     $('#novaAtividade').attr( 'idTurma', idTurma );
+
+    $('#selectCicloDeEntrega option').each( function( chave, option )
+    {
+        const chaveCiclo = $( option ).val()
+        if( chaveCiclo )
+        {
+            const pesoCiclo = pesoCiclos.filter((peso) => peso.chaveCicloEntrega == chaveCiclo);
+            $( option ).attr('peso',pesoCiclo[0].pesoTotalCiclo);
+        }
+    } );
+
+    $("#pesoAtividade").attr('pesoAtividade',pesoCiclos)
     $("#dataEntregaAtividade").hide();
+}
+
+function selecionaCIcloEntregaAtividade( select )
+{
+    const peso = $( "#selectCicloDeEntrega option:selected" ).attr('peso');
+    $("#indicadorPesoTotal").html( "/" + peso );
+    $('#pesoAtividade').attr('pesoAtual',peso)
 }
 
 function cadastrarAtividade()
 {
+    const peso = $('#pesoAtividade').val();
     const titulo = $('#tituloAtividade').val();
     const dataEntrega = $('#dataEntregaCicloEntregaValor').val();
     const descricao = quill.root.innerHTML;
@@ -115,13 +152,18 @@ function abreModalAtividades( idTurma, nomeTurma )
             });
 
         $('#tbodyAtividades').html('');
+        const pesoCiclos = JSON.parse( response.data.pesoTotal );
         const atividades = response.data.listaAtividades;
             atividades.forEach( atividade =>{
+
+            const pesoCiclo = pesoCiclos.filter((peso) => peso.chaveCicloEntrega == atividade.cicloEntrega);
+            const pesoTotal = pesoCiclo[0].pesoTotalCiclo ?? 0 ;
+            const porcentagem = parseInt( 100 * atividade.peso / pesoTotal);
             htmlTabela = '';
 
             htmlTabela += '<tr class="trAtividadeCicloEntrega" idAtividade = ' + atividade.chave + ' cicloEntrega = ' + atividade.cicloEntrega + '>';
-            htmlTabela += '    <td>' + atividade.chave + '</td>';
             htmlTabela += '    <td>' + atividade.titulo + '</td>';
+            htmlTabela += '    <td>' + atividade.peso + '/' + pesoTotal + ' ('+ porcentagem +'%)' +'</td>';
             htmlTabela += '    <td>' + atividade.dataEntrega + '</td>';
             htmlTabela += '    <td>';
             htmlTabela += '        <button type="button" class="btn btn-success" chave="' + atividade.chave + '"onclick="iniciaEditaModal( this )"><i class="fas fa-edit"></i></button>';
@@ -196,16 +238,20 @@ function excluirAtividade()
 function iniciaEditaModal( botao )
 {
     const idAtividade = $( botao ).attr( 'chave' );
-    //$('#gerenciaAtividade').modal('hide');
 
-    
+    axios.get('/buscaDadosAtividade/' + idAtividade )
+	.then(function (response) {
+		dadosTurma = response.data;
+	if( dadosTurma.result )
+	{
+        $('#editaAtividade').modal('show');
+        $('#editaAtividade').attr( 'idAtividade', idAtividade );
 
-    $('#editaAtividade').modal('show');
-    $('#editaAtividade').attr( 'idAtividade', idAtividade );
-    $('#tituloAtividade').val();
-    $('#dataEntregaCicloEntregaValor').val();
-    quill.root.innerHTML;
-    $('#novaAtividade').attr( 'idTurma');
-    $('#selectCicloDeEntrega').val();
+
+	}
+	})
+	.catch(function () {
+		alert('Erro ao buscar o CEP. Tente novamente mais tarde.');
+	});
 }
 

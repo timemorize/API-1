@@ -1,7 +1,7 @@
 import json
 from flask import jsonify
 import random
-from modulos import usuarios, grupos, turmas
+from modulos import usuarios, grupos, turmas, atividades
 
 def buscaDadosProfessores():
     with open('dadosJson/baseProfessores.json', 'r') as arquivo:
@@ -58,9 +58,12 @@ def buscarTurmas( identificador ):
     dadosTurmas = turmas.buscaDadosTurmas()
     for dadosTurma in dadosTurmas:
         if dadosTurma['professor'] == identificador:
+            
+            pesoTotalTurma = atividades.getPesoTotalAtividades( dadosTurma['identificador'] )
             dadosRetorno ={
                 'nome':dadosTurma['nome'],
-                'identificador':dadosTurma['identificador']
+                'identificador':dadosTurma['identificador'],
+                'pesoTotalTurma': pesoTotalTurma
             }
             retorno.append(dadosRetorno)
 

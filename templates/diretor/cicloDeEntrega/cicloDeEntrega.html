@@ -1,0 +1,66 @@
+{% include 'componentes/header.html' %}
+<script src="{{ url_for('static', filename='scripts/diretor/cicloDeEntrega/cicloDeEntrega.js') }}"></script>
+
+<body>
+    {% include 'diretor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 py-3"><h3><i class="fa-solid fa-calendar-days mr-3"></i> Gerenciar Ciclos de Entrega</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" onclick="novoSemestre()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Ciclo de Entrega</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="titulo" selected>Título</option>
+                    <option value="dataInicial">Data Inicial</option>
+                    <option value="dataFinal">Data Final</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+                <div class="input-group-text">
+                    <input type="checkbox" checked id="filtrarAtivados" onchange="filtraDesativados( this )">  &nbsp Incluir Desativados
+                  </div>
+            </div>
+        </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
+                    <th>Estado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyCiclosEntrega">
+                {% for cicloDeEntrega in listaCiclos %}
+                    <tr class="trcicloDeEntrega" dataFinal="{{cicloDeEntrega.dataFinal}}" dataInicial="{{cicloDeEntrega.dataInicial}}" titulo="{{cicloDeEntrega.titulo}}" estado="{{ cicloDeEntrega.estado }}">
+                        <td>{{ cicloDeEntrega.titulo }}</td>
+                        <td>{{ cicloDeEntrega.dataInicial }}</td>
+                        <td>{{ cicloDeEntrega.dataFinal }}</td>
+                        <td>{{ cicloDeEntrega.estado }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="abreModalEdicaoAlunos('{{ cicloDeEntrega.dataInicial }}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="iniciaExcluirAluno('{{ cicloDeEntrega.dataFinal }}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+{% include 'diretor/cicloDeEntrega/modais/novoCicloDeEntrega.html' %}

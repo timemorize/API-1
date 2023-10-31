@@ -12,15 +12,26 @@
                     <label for="nome_aluno">Título:</label>
                     <input type="text" class="form-control" id="tituloAtividade">
                 </div>
+                
                 <div class="form-group" id="cicloDeEntregaAtividade">
                     <label for="nome_aluno">Ciclo de Entrega:</label>
-                    <select class="custom-select" id="selectCicloDeEntrega">
+                    <select class="custom-select" id="selectCicloDeEntrega" onchange="selecionaCIcloEntregaAtividade( this )">
                       <option value="" selected></option>
                       {% for cicloEntrega in listaCicloEntrega %}
                         <option dataInicial="{{cicloEntrega.dataInicial}}" dataFinal="{{cicloEntrega.dataFinal}}" value="{{cicloEntrega.chave}}">{{cicloEntrega.titulo}}</option>
                       {% endfor %}
                     </select>
                 </div>
+
+                <label for="nome_aluno">Peso:</label>
+                <div class="input-group">
+                    <input type="number" pesoAtual="" class="form-control" id="pesoAtividade" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span id="indicadorPesoTotal" class="input-group-text">0</span>
+                    </div>
+                </div>
+                <br>
+
                 <div class="form-group" id="dataEntregaAtividade">
                     <label for="nome_aluno">Data de Entrega:</label>
                     <input type="hidden" class="form-control" id="dataEntregaCicloEntregaValor">

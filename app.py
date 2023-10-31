@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request,jsonify, session
 from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega
 import json
+import datetime
+
 
 app = Flask(__name__)
 
@@ -171,11 +173,21 @@ def rotaGerenciaGrupos():
     dadosGrupos = grupos.buscaDadosGrupos()
     return render_template('diretor/grupos/grupos.html', listaGrupos = dadosGrupos )
 
+@app.route('/gerenciarCicloDeEntrega')
+def rotaGerenciarCicloDeEntrega():
+    dadosCicloDeEntrega = cicloEntrega.buscaCiclosEntrega()
+    dataServidor = datetime.date.today()
+    return render_template('diretor/cicloDeEntrega/cicloDeEntrega.html', dataAtual = dataServidor, listaCiclos = dadosCicloDeEntrega )
+
+
+@app.route('/cadastrarCicloEntrega', methods=['POST'])
+def rotaCadastrarSemestre():
+    return cicloEntrega.cadastrarCicloEntrega( request.form )
+
 @app.route('/minhasTurmas')
 def rotaMinhasTurmas():
     dadosTurmas = professores.buscarTurmas( 'PF03' )
     dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
-    print( dadosTurmas )
     return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega )
 
 @app.route('/cadastrarAtividade', methods=['POST'])
@@ -186,9 +198,11 @@ def rotaCadastrarAtividade():
 def rotaBuscaAtividadesTurma(identificador):
     listaAtividades = atividades.pesquisaAtividadeTurma( identificador )
     listaCicloEntregas = cicloEntrega.buscaCiclosEntrega()
+    pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
     return jsonify(
         {
             'result': '1',
+            'pesoTotal':pesoTotalTurma,
             'listaAtividades':listaAtividades,
             'listaCiclosEntrega': listaCicloEntregas
         } )
@@ -205,8 +219,9 @@ def rotaExcluirAtividade(identificador):
 @app.route('/notasProfessor/<string:identificador>', methods=['GET'])
 def rotaNotasProfessor(identificador):
     notasAlunos = atividades.buscaNotasAtividades( identificador )
+    pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
     ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
-    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega )
+    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega, pesoTotalTurma = pesoTotalTurma )
 
 @app.route('/salvarNotas', methods=['POST'])
 def rotaSalvarNotas():
@@ -215,6 +230,15 @@ def rotaSalvarNotas():
     nomeAluno = request.form['nomeALuno']
 
     return atividades.salvarNotasAluno(ra,nomeAluno,notas)
+
+@app.route('/buscaDadosAtividade/<string:chave>', methods=['GET'])
+def rotaBuscaDadosAtividade(chave):
+    dadosAtividade = atividades.pesquisaAtividade( chave )
+    return jsonify(
+        {
+            'result': '1',
+            'dadosAtividade':dadosAtividade
+        } )
 
 if __name__ == '__main__':
     app.run(debug=True)

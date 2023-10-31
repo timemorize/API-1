@@ -36,6 +36,7 @@ def cadastroAtividade( dados ):
 
     novaAtividade ={
         "chave":chave,
+        "peso":dados['peso'],
         "titulo":dados['titulo'],
         "dataEntrega":dados['dataEntrega'],
         "descricao":dados['descricao'],
@@ -48,6 +49,15 @@ def cadastroAtividade( dados ):
     gravaAtividades( dadosAtividades )
 
     return ''
+
+def pesquisaAtividade( chaveAtividade ):
+    dadosAtividades = buscaAtividades()
+
+    for dadosAtividade in dadosAtividades:
+        if dadosAtividade['chave'] == chaveAtividade:
+            return dadosAtividade
+        
+    return []
 
 def editarAtividade( entradaDadosAtividade ):
     dadosAtividades = buscaAtividades()
@@ -114,6 +124,29 @@ def buscaAtivadadesTurma( idTurma ):
             dadosAtividade['ordem'] = ordem
             ordem += 1
             retorno.append(dadosAtividade)
+
+    return retorno
+
+def getPesoTotalAtividades( idTurma ):
+    dadosAtividades = buscaAtividades()
+    dadosCiclosEntregas = cicloEntrega.buscaCiclosEntregaAtivos()
+
+    retorno = []
+
+    for dadosCicloEntrega in dadosCiclosEntregas:
+        pesoCiclo = 0
+        for dadosAtividade in dadosAtividades:
+            if (dadosAtividade['turma'] == idTurma) and (dadosCicloEntrega['chave'] == dadosAtividade['cicloEntrega']):
+                pesoCiclo += int(dadosAtividade['peso'])
+
+        pesoPorCiclo = {
+            'chaveCicloEntrega':dadosCicloEntrega['chave'],
+            'pesoTotalCiclo':pesoCiclo
+        }
+
+        retorno.append( pesoPorCiclo )
+
+    retorno = json.dumps( retorno)
 
     return retorno
 

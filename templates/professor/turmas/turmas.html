@@ -28,11 +28,11 @@
             </thead>
             <tbody id="tdobyTurmas">
                 {% for turma in listaTurmas %}
-                    <tr class="trTurmas" nome="{{ turma.nome }}" id="tr{{ turma.identificador }}">
+                    <tr class="trTurmas" nome="{{ turma.nome }}" id="tr{{ turma.identificador }}" pesoTotalTurma = "{{ turma.pesoTotalTurma }}">
                         <td>{{ turma.identificador }}</td>
                         <td>{{ turma.nome }}</td>
                         <td>
-                            <button type="button" class="btn btn-success" onclick="novaAtividade('{{ turma.identificador }}')">
+                            <button type="button" class="btn btn-success" onclick="novaAtividade('{{ turma.identificador }}','{{ turma.pesoTotalTurma }}')">
                                 <i class="fa-solid fa-calendar-plus"></i> Adicionar
                             </button>
                             <button type="button" class="btn btn-primary" onclick="abreModalAtividades('{{ turma.identificador }}','{{ turma.nome }}')">
