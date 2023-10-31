@@ -3,7 +3,7 @@
         color:#611f4e
     }
 </style>
-<div class="modal fade" id="novoCicloEntrega" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" chave="" id="editarCicloEntrega" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@
                 <div class="container">   
                     <div class="form-group">
                         <label for="nome_aluno">Título:</label>
-                        <input type="text" class="form-control" id="tituloCicloEntrega">
+                        <input type="text" class="form-control" id="tituloCicloEntregaEditar">
                     </div>
                     <div class="row">
                         <div class="col d-flex align-items-center">
@@ -25,20 +25,24 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-7.5">
-                            <input type="hidden" class="form-control" id="datePicker" placeholder="Clique para selecionar o intervalo de datas">
-                        
+                            <input type="hidden" class="form-control" id="datePickerEditar" placeholder="Clique para selecionar o intervalo de datas">
                         </div>
                     </div>
                     
                     <div class="row justify-content-center">
-                        <label id="indicadorData"></label>
+                        <label id="indicadorDataEditar"></label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button id="botaoSalvar" type="button" class="btn btn-primary" onclick="salvarCicloEntrega()">Salvar</button>
+                <button id="botaoSalvar" type="button" class="btn btn-primary" onclick="salvarAlteracaoCicloEntrega()">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+
+    });
+</script>

@@ -54,6 +54,39 @@ def cadastrarCicloEntrega( dadosEntrada ):
 
     return ''
 
+def editarCicloEntrega( dadosEntrada ):
+    dados = buscaDados()
+
+    novosDados = []
+    for dado in dados:
+        if int(dado['chave']) == int(dadosEntrada['chave']):
+            dadosEdiados ={
+                "chave":dadosEntrada['chave'],
+                "titulo":dadosEntrada['titulo'],
+                'dataInicial':dadosEntrada['dataInicial'],
+                'dataFinal': dadosEntrada['dataFinal'],
+            }
+
+            novosDados.append( dadosEdiados )
+        else:
+            novosDados.append( dado )
+
+    gravaCiclosEntrega(novosDados)
+
+    return ''
+
+def excluirCicloEntrega( chave ):
+    dados = buscaDados()
+
+    novosDados = []
+    for dado in dados:
+        if int(dado['chave']) != int(chave):
+            novosDados.append( dado )
+
+    gravaCiclosEntrega(novosDados)
+
+    return ''
+
 def buscaCiclosEntregaAtivos():
     dadosCicloEntregas = buscaCiclosEntrega()
 

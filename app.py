@@ -181,8 +181,22 @@ def rotaGerenciarCicloDeEntrega():
 
 
 @app.route('/cadastrarCicloEntrega', methods=['POST'])
-def rotaCadastrarSemestre():
+def rotaCadastrarCicloEntrega():
     return cicloEntrega.cadastrarCicloEntrega( request.form )
+
+
+@app.route('/excluirCicloEntrega/<string:chave>', methods=['POST', 'DELETE'])
+def rotaExcluirCicloEntrega(chave):
+    cicloEntrega.excluirCicloEntrega( chave )
+
+    if request.method == 'DELETE':
+        return '', 204
+
+    return '', 200
+
+@app.route('/editarCicloEntrega', methods=['POST'])
+def rotaEditarCicloEntrega():
+    return cicloEntrega.editarCicloEntrega( request.form )
 
 @app.route('/minhasTurmas')
 def rotaMinhasTurmas():

@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-10">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" onclick="novoSemestre()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Ciclo de Entrega</button>
+                    <button type="button" onclick="novoCicloEntrega()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Ciclo de Entrega</button>
                 </div>
             </div>
         </div>
@@ -30,29 +30,33 @@
                   </div>
             </div>
         </div>
-        
+
         <table class="table">
             <thead>
                 <tr>
                     <th>Título</th>
                     <th>Data Inicial</th>
                     <th>Data Final</th>
-                    <th>Estado</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody id="tbodyCiclosEntrega">
                 {% for cicloDeEntrega in listaCiclos %}
                     <tr class="trcicloDeEntrega" dataFinal="{{cicloDeEntrega.dataFinal}}" dataInicial="{{cicloDeEntrega.dataInicial}}" titulo="{{cicloDeEntrega.titulo}}" estado="{{ cicloDeEntrega.estado }}">
-                        <td>{{ cicloDeEntrega.titulo }}</td>
+                        <td>{{ cicloDeEntrega.titulo }}
+                            {% if cicloDeEntrega.estado == 'desativado' %}
+                                <span class="badge badge-secondary">D</span>
+                            {% else %}
+                                <span class="badge badge-success">A</span>
+                            {% endif %}
+                        </td>
                         <td>{{ cicloDeEntrega.dataInicial }}</td>
                         <td>{{ cicloDeEntrega.dataFinal }}</td>
-                        <td>{{ cicloDeEntrega.estado }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" onclick="abreModalEdicaoAlunos('{{ cicloDeEntrega.dataInicial }}')">
+                            <button type="button" class="btn btn-primary" onclick="iniciaEditarCicloEntrega('{{ cicloDeEntrega.chave }}','{{ cicloDeEntrega.dataInicial }}','{{ cicloDeEntrega.dataFinal }}','{{cicloDeEntrega.titulo}}')">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button type="button" class="btn btn-danger" onclick="iniciaExcluirAluno('{{ cicloDeEntrega.dataFinal }}')">
+                            <button type="button" class="btn btn-danger" onclick="inciarExcluirCicloEntrega('{{ cicloDeEntrega.chave }}')">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>
@@ -60,7 +64,40 @@
                 {% endfor %}
             </tbody>
         </table>
+
+        <div class="row">
+            <div class="col-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th  colspan="2">Legenda:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Ciclos de Entrega com as datas de finalização a partir deste ano: 
+                            </td>
+                            <td>
+                                <span class="badge badge-success">A</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ciclos de Entrega finalizados até o ano passado: 
+                            </td>
+                            <td>
+                                <span class="badge badge-secondary">D</span>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
 {% include 'diretor/cicloDeEntrega/modais/novoCicloDeEntrega.html' %}
+{% include 'diretor/cicloDeEntrega/modais/editarCicloDeEntrega.html' %}
+{% include 'diretor/cicloDeEntrega/modais/excluirCicloDeEntrega.html' %}
