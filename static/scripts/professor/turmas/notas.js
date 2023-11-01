@@ -89,7 +89,6 @@ function salvarNotas( botao )
         relacaoNotas.push( relacaoNota )
     });
 
-    console.log(relacaoNotas)
     $.ajax({
         url: '/salvarNotas',
         type: 'POST',
@@ -127,4 +126,27 @@ function mudaAbaCicloEntrega( aba )
             $( tabela ).hide();
         }
     });
+}
+
+function downloadCsvCicloEntrega( idTurma )
+{
+    const dados = [];
+    axios.get('/buscaCicloEntregaTurma/' + idTurma )
+	.then(function (response) {
+		console.log(response.data)
+	if( response.data.result )
+	{
+        const data = [
+            { Name: 'John', Age: 30, City: 'New York' },
+            { Name: 'Jane', Age: 25, City: 'Los Angeles' },
+            { Name: 'Bob', Age: 35, City: 'Chicago' },
+        ];
+
+        downloadCSV( data, 'cicloDeEntrega'+idTurma );
+	}
+	})
+	.catch(function () {
+		alert('Erro ao buscar o CEP. Tente novamente mais tarde.');
+	});
+
 }

@@ -15,6 +15,7 @@
             <div class="col-10">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" onclick="window.location.href = '/minhasTurmas'" class="btn btn-secondary"><i class="fa-solid fa-circle-arrow-left"></i> Minhas Turmas</button>
+                    <button type="button" onclick="downloadCsvCicloEntrega('{{idTurma}}')" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
                 </div>
             </div>
         </div>
@@ -97,3 +98,4 @@
 {% include 'professor/turmas/modais/modalExcluirAtividade.html' %}
 
 <script src="{{ url_for('static', filename='scripts/professor/turmas/notas.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/downloadCSV/downloadCSV.js') }}"></script>

@@ -118,7 +118,8 @@ function cadastrarAtividade()
             dataEntrega : dataEntrega,
             descricao : descricao,
             idTurma:idTurma,
-            chaveCicloEntrega:cicloEntrega
+            chaveCicloEntrega:cicloEntrega,
+            peso:peso
         },
         success: function(response)
         {

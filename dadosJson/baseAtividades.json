@@ -41,7 +41,7 @@
       },
       {
         "RA": "ALUNO7699",
-        "nota": "",
+        "nota": "10",
         "nomeAluno": "Ludmilo"
       }
     ]
@@ -197,7 +197,7 @@
       },
       {
         "RA": "ALUNO7699",
-        "nota": "",
+        "nota": "0",
         "nomeAluno": "Ludmilo"
       }
     ]
@@ -294,6 +294,32 @@
     "descricao": "",
     "turma": "AOC6436",
     "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO7699",
+        "nota": "",
+        "nomeAluno": "Ludmilo"
+      },
+      {
+        "RA": "ALUNO6879",
+        "nota": "",
+        "nomeAluno": "Marcos Nunes"
+      },
+      {
+        "RA": "ALUNO3618",
+        "nota": "",
+        "nomeAluno": "Martin Fowler"
+      }
+    ]
+  },
+  {
+    "chave": 17,
+    "peso": "10",
+    "titulo": "Prova ABC",
+    "dataEntrega": "20/06/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC6436",
+    "cicloEntrega": "5",
     "notas": [
       {
         "RA": "ALUNO7699",
