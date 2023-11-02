@@ -1,3 +1,14 @@
 [
-  
+  {
+    "chave": 1,
+    "identificador": "GRP1309",
+    "nome": "Alunos Monitores",
+    "descricao": "Bolsistas monitores Edital de 2024"
+  },
+  {
+    "chave": 2,
+    "identificador": "GRP2899",
+    "nome": "Intercambio Australia",
+    "descricao": "Alunos de intercambio "
+  }
 ]

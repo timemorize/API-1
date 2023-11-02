@@ -14,10 +14,11 @@ def gravarGrupos(dadosGrupos):
     with open('dadosJson/baseGrupos.json', 'w') as arquivoGrupos:
         json.dump(dadosGrupos, arquivoGrupos, indent=2)
 
-def cadastrarGrupo( dadosGrupo ):
+def cadastrarGrupo( dadosGrupoEntrada ):
     dadosGrupos = buscaDadosGrupos()
+    numeroRegistros = int(len(dadosGrupos))
 
-    if len(dadosGrupo) == 0:
+    if numeroRegistros < 1:
         chave = 1
     else:
         ultimoElemento = dadosGrupos[-1]
@@ -28,8 +29,8 @@ def cadastrarGrupo( dadosGrupo ):
     novoGrupo = {
         'chave': chave,
         'identificador': idGrupo,
-        'nome' :  dadosGrupo['nome'],
-		'descricao' : dadosGrupo['descricao']
+        'nome' :  dadosGrupoEntrada['nome'],
+		'descricao' : dadosGrupoEntrada['descricao']
     }
 
     dadosGrupos.append(novoGrupo)

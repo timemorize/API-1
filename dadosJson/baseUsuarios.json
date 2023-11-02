@@ -10,5 +10,17 @@
     "senha": "Teste12345678",
     "tipo": "aluno",
     "resetSenha": true
+  },
+  {
+    "usuario": "ALUNO2783",
+    "senha": "Teste12345678",
+    "tipo": "aluno",
+    "resetSenha": true
+  },
+  {
+    "usuario": "ALUNO2173",
+    "senha": "Teste12345678",
+    "tipo": "aluno",
+    "resetSenha": true
   }
 ]

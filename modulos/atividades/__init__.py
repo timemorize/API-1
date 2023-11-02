@@ -195,7 +195,9 @@ def buscaNotasAtividades( idTurma ):
                         "estadoNotas": estadoNotas
                     }
 
-            retornoNotasAluno.append( dadosNotasAluno )
+            possuiNotas = 'dadosNotasAluno' in locals()
+            if possuiNotas:
+                retornoNotasAluno.append( dadosNotasAluno )
 
         notasPorCicloEntrega = {
             "chaveCicloEntrega":dadosCicloEntrega['chave'],
@@ -255,8 +257,13 @@ def iniciaAlunoAtividadesTurma( ra, nomeAluno, idTurma):
                 "nota": "",
                 "nomeAluno": nomeAluno
             }
-
-            dadosAtividade['notas'].append( notaInicial )
+            possuiNotasNaTurma = False
+            for notas in dadosAtividade['notas']:
+                if(notas['RA']) == ra:
+                    possuiNotasNaTurma = True
+            
+            if possuiNotasNaTurma == False:
+                dadosAtividade['notas'].append( notaInicial )
 
         novosDadosAtividades.append(dadosAtividade)
 
