@@ -1,8 +1,8 @@
 import json
 from flask import jsonify
 import random
-from modulos import usuarios, grupos, turmas
-from datetime import datetime
+from modulos import configuracoesSistema, grupos, turmas
+from datetime import datetime, timedelta
 
 def buscaDados():
     with open('dadosJson/baseCiclosEntrega.json', 'r') as arquivo:
@@ -12,6 +12,8 @@ def buscaDados():
 def buscaCiclosEntrega():
     dados = buscaDados()
     dataAtual = datetime.now()
+    margemTempo = int(configuracoesSistema.buscaTempoLimiteConclusaoCicloEntrega())
+    dataVencimento = dataAtual - timedelta(days=margemTempo)
     
     retorno = []
     for dado in dados:
@@ -23,7 +25,7 @@ def buscaCiclosEntrega():
             "dataFinal":dado['dataFinal'],
             "estado": 'desativado'
         }
-        if dataFinal >= dataAtual:
+        if dataFinal >= dataVencimento:
             dadoRetorno['estado'] = 'ativo'
         
         retorno.append( dadoRetorno )
