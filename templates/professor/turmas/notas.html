@@ -6,6 +6,7 @@
 </style>
 <body>
     {% include 'professor/componentes/menu.html' %}
+    
    <div class="container">
     
         <div class="row">
@@ -15,7 +16,7 @@
             <div class="col-10">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" onclick="window.location.href = '/minhasTurmas'" class="btn btn-secondary"><i class="fa-solid fa-circle-arrow-left"></i> Minhas Turmas</button>
-                    <button type="button" onclick="downloadCsvCicloEntrega('{{idTurma}}')" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
+                    <button type="button" onclick="iniciarExportacaoCsv('{{idTurma}}')" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
                 </div>
             </div>
         </div>
@@ -32,61 +33,66 @@
         <br>
         
         {% for dadosCicloEntrega in listaDadosCicloEntrega %}
-            <div class="notasCicloEntrega" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
-
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <select class="custom-select" id="campoPesquisa">
-                            <option value="nomeAluno" selected>Nome</option>
-                            <option value="ra">RA</option>
-                          </select>
+                <div class="notasCicloEntrega" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
+                    {% if dadosCicloEntrega.possuiAtividades %}
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <select class="custom-select" id="campoPesquisa">
+                                    <option value="nomeAluno" selected>Nome</option>
+                                    <option value="ra">RA</option>
+                                </select>
+                                </div>
+                                <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
-                      </div>
-                </div>
-                
-                <table class="table" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
-                    <thead>
-                        <tr>
-                            <th><label>RA</label></th>
-                            <th><label>Nome</label></th>
-                            {% for atividade in dadosCicloEntrega.atividadesCicloEntrega %}
-                                <th titulo="{{atividade.titulo}}">
-                                    <label data-toggle="popover" title="Dados da Atividade:" data-content="Títuro: {{atividade.titulo}} | Prazo: {{atividade.dataEntrega}} | Peso: {{atividade.peso}}/{{pesoTotalTurma}}">{{atividade.ordemAtividade}}º</label>
-                                </th>
-                            {% endfor %}
-                            <th><label>Ação</label></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tdobyTurmas">
-                        {% for aluno in dadosCicloEntrega.notasAluno %}
-                            <tr class="trNotasAluno" nomeAluno="{{aluno.nomeAluno}}" ra="{{aluno.RA}}">
-                                <td>{{aluno.RA}}</td>
-                                <td>{{aluno.nomeAluno}}</td>
-                                {% for dadosNotas in aluno.dadosNotas %}
-                                    {% if dadosNotas.nota == "" %}
-                                        <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">
-                                            <span class="badge badge-secondary">sem nota</span>
-                                        </td>
-                                    {% else %}
-                                        <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">{{dadosNotas.nota}}</td>
-                                    {% endif %}
+                        
+                        <table class="table" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
+                            <thead>
+                                <tr>
+                                    <th><label>RA</label></th>
+                                    <th><label>Nome</label></th>
+                                    {% for atividade in dadosCicloEntrega.atividadesCicloEntrega %}
+                                        <th titulo="{{atividade.titulo}}">
+                                            <label data-toggle="popover" title="Dados da Atividade:" data-content="Títuro: {{atividade.titulo}} | Prazo: {{atividade.dataEntrega}} | Peso: {{atividade.peso}}">{{atividade.ordemAtividade}}º</label>
+                                        </th>
+                                    {% endfor %}
+                                    <th><label>Ação</label></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tdobyTurmas">
+                                {% for aluno in dadosCicloEntrega.notasAluno %}
+                                    <tr class="trNotasAluno" nomeAluno="{{aluno.nomeAluno}}" ra="{{aluno.RA}}">
+                                        <td>{{aluno.RA}}</td>
+                                        <td>{{aluno.nomeAluno}}</td>
+                                        {% for dadosNotas in aluno.dadosNotas %}
+                                            {% if dadosNotas.nota == "" %}
+                                                <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">
+                                                    <span class="badge badge-secondary">sem nota</span>
+                                                </td>
+                                            {% else %}
+                                                <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">{{dadosNotas.nota}}</td>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if aluno.estadoNotas == "incompleto" %}
+                                            <td class="trAcaoAluno">
+                                                <button class="btn btn-success" onclick="salvarNotas( this )"><i class="fa-solid fa-floppy-disk"></i></button>
+                                            </td>
+                                        {% else %}
+                                            <td class="trAcaoAluno">
+                                                <button class="btn btn-primary" onclick="revisarNotas( this )"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            </td>
+                                        {% endif %}
+                                    </tr>
                                 {% endfor %}
-                                {% if aluno.estadoNotas == "incompleto" %}
-                                    <td class="trAcaoAluno">
-                                        <button class="btn btn-success" onclick="salvarNotas( this )"><i class="fa-solid fa-floppy-disk"></i></button>
-                                    </td>
-                                {% else %}
-                                    <td class="trAcaoAluno">
-                                        <button class="btn btn-primary" onclick="revisarNotas( this )"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    </td>
-                                {% endif %}
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="alert alert-info" role="alert">
+                        Ciclo de Entrega não possui atividades nessa Turma
+                        </div>
+                    {% endif %}
+                </div>
         {% endfor %}
 
     </div>
@@ -94,8 +100,10 @@
 
 
 {% include 'professor/turmas/modais/modalNovaAtividade.html' %}
-{% include 'professor/turmas/modais/modalGerenciarAtividade.html' %}
 {% include 'professor/turmas/modais/modalExcluirAtividade.html' %}
+{% include 'professor/turmas/modais/modalFiltroCsvNotas.html' %}
+
+
 
 <script src="{{ url_for('static', filename='scripts/professor/turmas/notas.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/downloadCSV/downloadCSV.js') }}"></script>

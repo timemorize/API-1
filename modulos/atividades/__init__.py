@@ -162,8 +162,10 @@ def buscaNotasAtividades( idTurma ):
         atividadesCicloEntrega = []
 
         ordemAtividade = 1
+        possuiAtivdades = False
         for dadosAtividade in dadosAtiviades:
             if dadosAtividade['cicloEntrega'] == dadosCicloEntrega['chave']:
+                possuiAtivdades = True
                 dadosAtividade['ordemAtividade'] = ordemAtividade
                 atividadesCicloEntrega.append(dadosAtividade)
                 ordemAtividade += 1
@@ -199,7 +201,8 @@ def buscaNotasAtividades( idTurma ):
             "chaveCicloEntrega":dadosCicloEntrega['chave'],
             "tituloCicloEntrega":dadosCicloEntrega['titulo'],
             "atividadesCicloEntrega":atividadesCicloEntrega,
-            "notasAluno":retornoNotasAluno
+            "notasAluno":retornoNotasAluno,
+            "possuiAtividades":possuiAtivdades
         }
 
         retorno.append(notasPorCicloEntrega)

@@ -241,14 +241,11 @@ def rotaNotasProfessor(identificador):
 @app.route('/buscaCicloEntregaTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaCicloEntregaTurma(identificador):
     notasAlunos = atividades.buscaNotasAtividades( identificador )
-    pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
-    ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+    print(notasAlunos)
     return jsonify(
         {
             'result': '1',
-            'notasAlunos':notasAlunos,
-            'pesoTotalTurma':pesoTotalTurma,
-            'ciclosEntrega': ciclosEntrega
+            'notasAlunos':notasAlunos
         } )
 
 @app.route('/salvarNotas', methods=['POST'])

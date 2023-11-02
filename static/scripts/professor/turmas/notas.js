@@ -131,22 +131,54 @@ function mudaAbaCicloEntrega( aba )
 function downloadCsvCicloEntrega( idTurma )
 {
     const dados = [];
+    const cicloEntrega = $('#selectCicloDeEntregaFiltro').val();
+    console.log($('#selectCicloDeEntrega'))
+
     axios.get('/buscaCicloEntregaTurma/' + idTurma )
 	.then(function (response) {
-		console.log(response.data)
+        
 	if( response.data.result )
 	{
-        const data = [
-            { Name: 'John', Age: 30, City: 'New York' },
-            { Name: 'Jane', Age: 25, City: 'Los Angeles' },
-            { Name: 'Bob', Age: 35, City: 'Chicago' },
-        ];
+        let dadosGerais = response.data.notasAlunos;
+
+        const dataCicloEntrega = dadosGerais.filter((dadosGeral) => dadosGeral.chaveCicloEntrega == cicloEntrega);
+		const dataNotasAlunos = dataCicloEntrega[0].notasAluno;
+
+        let data = [];
+
+        dataNotasAlunos.forEach((dataNotasAluno) => 
+        {
+            let linhaAlunos = new Object();
+
+            linhaAlunos['nome'] = dataNotasAluno.nomeAluno;
+            linhaAlunos['ra'] = dataNotasAluno.RA;
+
+            dataNotasAluno.dadosNotas.forEach((notaAluno,index) =>
+            {
+                const numeroAtividade = index + 1;
+                if( notaAluno.nota == '' )
+                {
+                    notaAluno.nota = 0;
+                }
+                linhaAlunos['Atividade ' + numeroAtividade] = notaAluno.nota;
+            })
+
+            
+            data.push( linhaAlunos );
+        });
+
+        console.log(data)
 
         downloadCSV( data, 'cicloDeEntrega'+idTurma );
 	}
 	})
-	.catch(function () {
-		alert('Erro ao buscar o CEP. Tente novamente mais tarde.');
+	.catch(function (e) {
+		alert(e);
 	});
 
+}
+
+function iniciarExportacaoCsv( idTurma )
+{
+    $('#modalFiltroCsvNotas2').modal('show');
 }
