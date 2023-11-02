@@ -132,7 +132,7 @@ function downloadCsvCicloEntrega( idTurma )
 {
     const dados = [];
     const cicloEntrega = $('#selectCicloDeEntregaFiltro').val();
-    console.log($('#selectCicloDeEntrega'))
+    const considerarSemTodasNotas = $( '#considerarAlunosSemNotas' ).is(':checked');
 
     axios.get('/buscaCicloEntregaTurma/' + idTurma )
 	.then(function (response) {
@@ -153,9 +153,16 @@ function downloadCsvCicloEntrega( idTurma )
             linhaAlunos['nome'] = dataNotasAluno.nomeAluno;
             linhaAlunos['ra'] = dataNotasAluno.RA;
 
+            let considerarLinha = true;
+
             dataNotasAluno.dadosNotas.forEach((notaAluno,index) =>
             {
                 const numeroAtividade = index + 1;
+                if(!considerarSemTodasNotas && notaAluno.nota == '')
+                {
+                    considerarLinha = false;
+                }
+
                 if( notaAluno.nota == '' )
                 {
                     notaAluno.nota = 0;
@@ -163,8 +170,10 @@ function downloadCsvCicloEntrega( idTurma )
                 linhaAlunos['Atividade ' + numeroAtividade] = notaAluno.nota;
             })
 
-            
-            data.push( linhaAlunos );
+            if( considerarLinha )
+            {
+                data.push( linhaAlunos );
+            }
         });
 
         console.log(data)

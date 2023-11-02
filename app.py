@@ -241,7 +241,6 @@ def rotaNotasProfessor(identificador):
 @app.route('/buscaCicloEntregaTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaCicloEntregaTurma(identificador):
     notasAlunos = atividades.buscaNotasAtividades( identificador )
-    print(notasAlunos)
     return jsonify(
         {
             'result': '1',
