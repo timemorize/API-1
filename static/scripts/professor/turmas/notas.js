@@ -142,43 +142,49 @@ function downloadCsvCicloEntrega( idTurma )
         let dadosGerais = response.data.notasAlunos;
 
         const dataCicloEntrega = dadosGerais.filter((dadosGeral) => dadosGeral.chaveCicloEntrega == cicloEntrega);
-		const dataNotasAlunos = dataCicloEntrega[0].notasAluno;
+		const possuiAtividades = dataCicloEntrega[0].possuiAtividades;
 
-        let data = [];
-
-        dataNotasAlunos.forEach((dataNotasAluno) => 
+        if( possuiAtividades )
         {
-            let linhaAlunos = new Object();
-
-            linhaAlunos['nome'] = dataNotasAluno.nomeAluno;
-            linhaAlunos['ra'] = dataNotasAluno.RA;
-
-            let considerarLinha = true;
-
-            dataNotasAluno.dadosNotas.forEach((notaAluno,index) =>
+            const dataNotasAlunos = dataCicloEntrega[0].notasAluno;
+            let data = [];
+            dataNotasAlunos.forEach((dataNotasAluno) => 
             {
-                const numeroAtividade = index + 1;
-                if(!considerarSemTodasNotas && notaAluno.nota == '')
+                let linhaAlunos = new Object();
+
+                linhaAlunos['nome'] = dataNotasAluno.nomeAluno;
+                linhaAlunos['ra'] = dataNotasAluno.RA;
+
+                let considerarLinha = true;
+
+                dataNotasAluno.dadosNotas.forEach((notaAluno,index) =>
                 {
-                    considerarLinha = false;
-                }
+                    const numeroAtividade = index + 1;
+                    if(!considerarSemTodasNotas && notaAluno.nota == '')
+                    {
+                        considerarLinha = false;
+                    }
 
-                if( notaAluno.nota == '' )
+                    if( notaAluno.nota == '' )
+                    {
+                        notaAluno.nota = 0;
+                    }
+                    linhaAlunos['Atividade ' + numeroAtividade] = notaAluno.nota;
+                })
+
+                if( considerarLinha )
                 {
-                    notaAluno.nota = 0;
+                    data.push( linhaAlunos );
                 }
-                linhaAlunos['Atividade ' + numeroAtividade] = notaAluno.nota;
-            })
-
-            if( considerarLinha )
-            {
-                data.push( linhaAlunos );
-            }
-        });
-
-        console.log(data)
-
-        downloadCSV( data, 'cicloDeEntrega'+idTurma );
+            });
+            downloadCSV( data, 'cicloDeEntrega'+idTurma );
+            
+            $('#erroCicloSemAtividades').hide();
+        }
+        else
+        {
+            $('#erroCicloSemAtividades').show();
+        }
 	}
 	})
 	.catch(function (e) {
@@ -190,4 +196,5 @@ function downloadCsvCicloEntrega( idTurma )
 function iniciarExportacaoCsv( idTurma )
 {
     $('#modalFiltroCsvNotas2').modal('show');
+    $('#erroCicloSemAtividades').hide();
 }

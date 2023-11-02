@@ -1,44 +1,14 @@
 [
   {
-    "chave": "0",
-    "titulo": "2- Semestre 2022",
-    "dataInicial": "01/07/2022",
-    "dataFinal": "01/09/2023"
-  },
-  {
     "chave": "1",
-    "titulo": "1- Semestre",
+    "titulo": "1-Bimestre",
     "dataInicial": "01/01/2024",
-    "dataFinal": "01/06/2024"
+    "dataFinal": "29/02/2024"
   },
   {
     "chave": "2",
-    "titulo": "2- Semestre",
-    "dataInicial": "01/07/2024",
-    "dataFinal": "01/12/2024"
-  },
-  {
-    "chave": "4",
-    "titulo": "new 2",
-    "dataInicial": "02/04/2023",
-    "dataFinal": "19/04/2023"
-  },
-  {
-    "chave": "5",
-    "titulo": "Novo v",
-    "dataInicial": "11/06/2024",
-    "dataFinal": "21/06/2024"
-  },
-  {
-    "chave": "6",
-    "titulo": "1 yy",
-    "dataInicial": "01/10/2023",
-    "dataFinal": "29/10/2023"
-  },
-  {
-    "chave": "7",
-    "titulo": "ter",
-    "dataInicial": "01/11/2023",
-    "dataFinal": "30/11/2023"
+    "titulo": "2 - Bimestre",
+    "dataInicial": "01/03/2024",
+    "dataFinal": "30/04/2024"
   }
 ]

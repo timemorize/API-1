@@ -1,12 +1,12 @@
 [
   {
-    "chave": 7,
-    "RA": "ALUNO7699",
-    "nome": "Ludmilo",
-    "cpf": "436.690.138-22",
-    "rg": "12212",
-    "email": "rck13campos@gmail.com",
-    "telefone": "1111111",
+    "chave": 2,
+    "RA": "ALUNO2606",
+    "nome": "Adilson Nunes",
+    "cpf": "12",
+    "rg": "12",
+    "email": "an@morize.com",
+    "telefone": "12999999999",
     "cep": "12230100",
     "numero": "12",
     "logradouro": "Rua Maric\u00e1",
@@ -14,78 +14,27 @@
     "cidade": "S\u00e3o Jos\u00e9 dos Campos",
     "estado": "SP",
     "turmas": [
-      "AOC6436"
+      "AOC1524"
     ],
-    "grupos": [
-      "GRP2175"
-    ]
+    "grupos": []
   },
   {
-    "chave": 6,
-    "RA": "ALUNO6879",
-    "nome": "Marcos Nunes",
-    "cpf": "43669013822",
-    "rg": "43669001212",
-    "email": "rck13campos@gmail.com",
-    "telefone": "12992442731",
-    "cep": "12230100",
+    "chave": 1,
+    "RA": "ALUNO1791",
+    "nome": "Ezequiel Arantes",
+    "cpf": "12",
+    "rg": "12",
+    "email": "ea@gmail.com",
+    "telefone": "12999999999",
+    "cep": "12230081",
     "numero": "12",
-    "logradouro": "Rua Maric\u00e1",
-    "bairro": "Jardim Sat\u00e9lite",
+    "logradouro": "Rua Jos\u00e9 Alves dos Santos",
+    "bairro": "Floradas de S\u00e3o Jos\u00e9",
     "cidade": "S\u00e3o Jos\u00e9 dos Campos",
     "estado": "SP",
     "turmas": [
-      "RDC4157",
-      "AOC6436"
+      "AOC1524"
     ],
-    "grupos": [
-      "GRP3432"
-    ]
-  },
-  {
-    "chave": 3,
-    "RA": "ALUNO3618",
-    "nome": "Martin Fowler",
-    "cpf": "1234567890",
-    "rg": "123",
-    "email": "mf@tes.com",
-    "telefone": "12981707434",
-    "cep": "12230080",
-    "numero": "89",
-    "logradouro": "Rua Patr\u00edcio Santana",
-    "bairro": "Jardim Sat\u00e9lite",
-    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
-    "estado": "SP",
-    "turmas": [
-      "A30",
-      "AOC6436"
-    ],
-    "grupos": [
-      "A33",
-      "GRP2175"
-    ]
-  },
-  {
-    "chave": 5,
-    "RA": "ALUNO5471",
-    "nome": "Nicola Tesla",
-    "cpf": "159.653.878-30",
-    "rg": "123",
-    "email": "rck13campos@gmail.com",
-    "telefone": "12992442731",
-    "cep": "12240090",
-    "numero": "89",
-    "logradouro": "Rua Trajano Vieira de Macedo",
-    "bairro": "Jardim das Ind\u00fastrias",
-    "cidade": "S\u00e3o Jos\u00e9 dos Campos",
-    "estado": "SP",
-    "turmas": [
-      "A30",
-      "A32"
-    ],
-    "grupos": [
-      "GRP2175",
-      "GRP3432"
-    ]
+    "grupos": []
   }
 ]

@@ -1,18 +1,3 @@
 [
-  {
-    "identificador": "GRP4148",
-    "nome": "Beta",
-    "descricao": "Grupo Beta 2"
-  },
-  {
-    "identificador": "GRP2175",
-    "nome": "Delta",
-    "descricao": "Deltas 2"
-  },
-  {
-    "chave": 3,
-    "identificador": "GRP3432",
-    "nome": "Gama",
-    "descricao": "Gama"
-  }
+  
 ]

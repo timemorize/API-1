@@ -1,340 +1,64 @@
 [
   {
     "chave": 1,
-    "titulo": "Teste",
-    "peso": 10,
-    "dataEntrega": "10/01/2024",
-    "descricao": "",
-    "turma": "A32",
+    "peso": "10",
+    "titulo": "Prova Sistema Bin\u00e1rio",
+    "dataEntrega": "18/01/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
     "cicloEntrega": "1",
     "notas": [
       {
-        "RA": "ALUNO6879",
-        "nota": "5",
-        "nomeAluno": "Marcos Nunes"
+        "RA": "ALUNO2606",
+        "nota": "9",
+        "nomeAluno": "Adilson Nunes"
       },
       {
-        "RA": "ALUNO3618",
-        "nota": "4",
-        "nomeAluno": "Martin Fowler"
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
       }
     ]
   },
   {
     "chave": 2,
-    "peso": 10,
-    "titulo": "Trabalho Hist\u00f3ria dos Computadores",
-    "dataEntrega": "31/07/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
+    "peso": "30",
+    "titulo": "Prova Componentes",
+    "dataEntrega": "08/02/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "1",
     "notas": [
       {
-        "RA": "ALUNO6879",
-        "nota": "1",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
+        "RA": "ALUNO2606",
         "nota": "8",
-        "nomeAluno": "Martin Fowler"
+        "nomeAluno": "Adilson Nunes"
       },
       {
-        "RA": "ALUNO7699",
-        "nota": "10",
-        "nomeAluno": "Ludmilo"
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
       }
     ]
   },
   {
     "chave": 3,
-    "peso": 10,
-    "titulo": "Prova Sistema Bin\u00e1rio",
-    "dataEntrega": "26/09/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "1",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "6",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 5,
-    "peso": 10,
-    "titulo": "Teste",
-    "dataEntrega": "15/05/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "6",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "3",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "3",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 6,
-    "peso": 10,
-    "titulo": "Exame Final",
-    "dataEntrega": "31/01/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "4",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "3",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 8,
-    "peso": 10,
-    "titulo": "Fundamentos Calculo",
-    "dataEntrega": "17/10/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "9",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 9,
-    "peso": 10,
-    "titulo": "Exame Final",
-    "dataEntrega": "30/04/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "3",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "2",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "10",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 10,
-    "peso": 25,
-    "titulo": "Fundamentos Calculo 2",
-    "dataEntrega": "19/01/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "0",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 11,
-    "peso": 10,
-    "titulo": "Trabalho Hist\u00f3ria dos Computadores",
-    "dataEntrega": "",
-    "descricao": "",
-    "turma": "RDC4157",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "10",
-        "nomeAluno": "Marcos Nunes"
-      }
-    ]
-  },
-  {
-    "chave": 12,
-    "peso": 10,
-    "titulo": "Desenho 1",
-    "dataEntrega": "22/11/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 13,
-    "peso": 10,
-    "titulo": "Desenho 2",
-    "dataEntrega": "22/11/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
-    "notas": [
-      {
-        "RA": "ALUNO6879",
-        "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
-      },
-      {
-        "RA": "ALUNO7699",
-        "nota": "",
-        "nomeAluno": "Ludmilo"
-      }
-    ]
-  },
-  {
-    "chave": 15,
-    "peso": 10,
-    "titulo": "Desenho A",
-    "dataEntrega": "19/01/2024",
-    "descricao": "<p><br></p>",
-    "turma": "A32",
-    "cicloEntrega": "1",
-    "notas": [
-      {
-        "RA": "ALUNO5471",
-        "nota": "",
-        "nomeAluno": "Nicola Tesla"
-      }
-    ]
-  },
-  {
-    "chave": 16,
-    "peso": 10,
-    "titulo": "Teste A",
-    "dataEntrega": "17/10/2024",
-    "descricao": "",
-    "turma": "AOC6436",
-    "cicloEntrega": "2",
-    "notas": [
-      {
-        "RA": "ALUNO7699",
-        "nota": "",
-        "nomeAluno": "Ludmilo"
-      },
-      {
-        "RA": "ALUNO6879",
-        "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
-      }
-    ]
-  },
-  {
-    "chave": 17,
     "peso": "10",
-    "titulo": "Prova ABC",
-    "dataEntrega": "20/06/2024",
+    "titulo": "Prova Processadores",
+    "dataEntrega": "29/03/2024",
     "descricao": "<p><br></p>",
-    "turma": "AOC6436",
-    "cicloEntrega": "5",
+    "turma": "AOC1524",
+    "cicloEntrega": "2",
     "notas": [
       {
-        "RA": "ALUNO7699",
-        "nota": "10",
-        "nomeAluno": "Ludmilo"
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
       },
       {
-        "RA": "ALUNO6879",
+        "RA": "ALUNO1791",
         "nota": "",
-        "nomeAluno": "Marcos Nunes"
-      },
-      {
-        "RA": "ALUNO3618",
-        "nota": "",
-        "nomeAluno": "Martin Fowler"
+        "nomeAluno": "Ezequiel Arantes"
       }
     ]
   }

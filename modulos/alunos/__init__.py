@@ -16,8 +16,9 @@ def gravarAlunos(dadosAlunos):
 
 def cadastrarAluno( dadosAluno ):
     dadosAlunos = buscaDadosAlunos()
+    numeroRegistros = len(dadosAlunos)
 
-    if len(dadosAluno) == 0:
+    if int(numeroRegistros) < 1:
         chave = 1
     else:
         ultimoElemento = dadosAlunos[-1]
