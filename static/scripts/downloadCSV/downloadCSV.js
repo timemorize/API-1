@@ -1,15 +1,15 @@
-
-function arrayToCSV(data) {
-    const header = Object.keys(data[0]).join(',');
-    const rows = data.map(obj => Object.values(obj).join(','));
-    return [header, ...rows].join('\n');
+function converteArrayParaCsv(dados)
+{
+    const titulos = Object.keys(dados[0]).join(',');
+    const linhas = dados.map(obj => Object.values(obj).join(','));
+    return [titulos, ...linhas].join('\n');
 }
 
-function downloadCSV( data, nomeArquivo )
+function downloadCSV( dados, nomeArquivo )
 {
     const filename = nomeArquivo + '.csv';
 
-    const csv = arrayToCSV(data);
+    const csv = converteArrayParaCsv(dados);
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

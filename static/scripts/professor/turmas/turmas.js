@@ -167,7 +167,7 @@ function abreModalAtividades( idTurma, nomeTurma )
             htmlTabela += '    <td>' + atividade.peso + '/' + pesoTotal + ' ('+ porcentagem +'%)' +'</td>';
             htmlTabela += '    <td>' + atividade.dataEntrega + '</td>';
             htmlTabela += '    <td>';
-            htmlTabela += '        <button type="button" class="btn btn-success" chave="' + atividade.chave + '"onclick="iniciaEditaModal( this )"><i class="fas fa-edit"></i></button>';
+            htmlTabela += '        <button type="button" disabled class="btn btn-success" chave="' + atividade.chave + '"onclick="iniciaEditaModal( this )"><i class="fas fa-edit"></i></button>';
             htmlTabela += '        <button type="button" class="btn btn-danger" chave="' + atividade.chave + '"onclick="iniciarExcluirAtividade( this )"><i class="fa-solid fa-trash"></i></button>';
             htmlTabela += '    </td>';
             htmlTabela += '</tr>';
