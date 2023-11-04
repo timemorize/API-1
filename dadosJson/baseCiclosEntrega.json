@@ -10,5 +10,11 @@
     "titulo": "2 - Bimestre",
     "dataInicial": "01/03/2024",
     "dataFinal": "30/04/2024"
+  },
+  {
+    "chave": "3",
+    "titulo": "4 - Bimestre ( 2022 )",
+    "dataInicial": "01/11/2022",
+    "dataFinal": "31/12/2022"
   }
 ]
