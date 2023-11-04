@@ -99,7 +99,7 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 
 
 ## Tecnologias utilizadas e Integrantes
-<img src="https://github.com/ElbertJean/faculdade/blob/main/Frame%203.jpg" width="100%"/>
+<img src="https://github.com/ElbertJean/faculdade/blob/main/Frame%203%20(2).jpg" width="100%"/>
 
 ## Instalação
 
