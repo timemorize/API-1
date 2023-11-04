@@ -202,7 +202,10 @@ def rotaEditarCicloEntrega():
 def rotaMinhasTurmas():
     dadosTurmas = professores.buscarTurmas( 'PF03' )
     dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
-    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega )
+    
+    dadosProfessor = professores.pesquisaProfessor('PF03')
+    nomeProf = dadosProfessor['nome']
+    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
 
 @app.route('/cadastrarAtividade', methods=['POST'])
 def rotaCadastrarAtividade():
@@ -235,8 +238,10 @@ def rotaNotasProfessor(identificador):
     notasAlunos = atividades.buscaNotasAtividades( identificador )
     pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
     ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+    dadosProfessor = professores.pesquisaProfessor('PF03')
+    nomeProf = dadosProfessor['nome']
     idTurmaGet = identificador
-    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega, pesoTotalTurma = pesoTotalTurma, idTurma = idTurmaGet )
+    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega, pesoTotalTurma = pesoTotalTurma, idTurma = idTurmaGet, nomeProfessor = nomeProf )
 
 @app.route('/buscaCicloEntregaTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaCicloEntregaTurma(identificador):

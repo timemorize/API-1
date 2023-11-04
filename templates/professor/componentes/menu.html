@@ -1,6 +1,13 @@
 <!-- menu.html -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
+<style>
+    .nav-professor{
+        color:white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 150;
+    }
+</style>
 <nav class="navbar navbar-expand-lg" style="background-color: #e31649;">
     <div class="collapse navbar-collapse" id="navbarNav">
         
@@ -10,18 +17,16 @@
             </svg>
         </a>
 
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="nav-professor">Bem vindo Professor(a): {{nomeProfessor}}</div>
+            </li>
+        </ul>
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-diretor nav-link" href="logout">Sair</a>
+                <a class="nav-professor nav-link" href="logout">Sair</a>
             </li>
         </ul>
     </div>
 </nav>
-
-<style>
-    .nav-diretor{
-        color:white;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 150;
-    }
-</style>
