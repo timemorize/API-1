@@ -1,13 +1,14 @@
 [
   {
-    "identificador": "GRP2175",
-    "nome": "Delta",
-    "descricao": "Deltas 2"
+    "chave": 1,
+    "identificador": "GRP1309",
+    "nome": "Alunos Monitores",
+    "descricao": "Bolsistas monitores Edital de 2024"
   },
   {
-    "chave": 3,
-    "identificador": "GRP3432",
-    "nome": "Gama",
-    "descricao": "Gama"
+    "chave": 2,
+    "identificador": "GRP2899",
+    "nome": "Intercambio Australia",
+    "descricao": "Alunos de intercambio "
   }
 ]

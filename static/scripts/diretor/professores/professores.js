@@ -140,7 +140,7 @@ function buscaListaTurmas( identificador, nomeProfessor )
         $('#nomeProfessorTurmas').html('Turmas do professor ' + nomeProfessor + ":" );
         $('#listaTurmas').html('');
         response.data.listaTurmas.forEach( turma =>{
-            $('#listaTurmas').append( '<li class="list-group-item">' + turma + '</li>' );
+            $('#listaTurmas').append( '<li class="list-group-item">' + turma.nome + '</li>' );
         } );
 	}
 	})

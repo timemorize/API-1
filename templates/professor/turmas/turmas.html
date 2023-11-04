@@ -1,0 +1,61 @@
+{% include 'componentes/header.html' %}
+<body>
+    {% include 'professor/componentes/menu.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 py-3"><h3><i class="fa-solid fa-chalkboard  mr-3"></i> Minhas Turmas</h3></div>
+        </div>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="custom-select" id="campoPesquisa">
+                    <option value="nome" selected>Nome</option>
+                    <option value="id">Identificador</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" id="searchTurmas" placeholder="Digite para pesquisar">
+              </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Atividades</th>
+                    <th>Alunos</th>
+                </tr>
+            </thead>
+            <tbody id="tdobyTurmas">
+                {% for turma in listaTurmas %}
+                    <tr class="trTurmas" nome="{{ turma.nome }}" id="tr{{ turma.identificador }}" pesoTotalTurma = "{{ turma.pesoTotalTurma }}">
+                        <td>{{ turma.identificador }}</td>
+                        <td>{{ turma.nome }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="novaAtividade('{{ turma.identificador }}','{{ turma.pesoTotalTurma }}')">
+                                <i class="fa-solid fa-calendar-plus"></i> Adicionar
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="abreModalAtividades('{{ turma.identificador }}','{{ turma.nome }}')">
+                                <i class="fa-solid fa-list-check"></i> Gerenciar
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-info"  onclick='window.location.href ="notasProfessor/{{ turma.identificador }}"'>
+                                <i class="fa-solid fa-id-badge"></i> Notas
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+
+{% include 'professor/turmas/modais/modalNovaAtividade.html' %}
+{% include 'professor/turmas/modais/modalGerenciarAtividade.html' %}
+{% include 'professor/turmas/modais/modalExcluirAtividade.html' %}
+{% include 'professor/turmas/modais/modalEditaAtividade.html' %}
+
+<script src="{{ url_for('static', filename='scripts/professor/turmas/turmas.js') }}"></script>

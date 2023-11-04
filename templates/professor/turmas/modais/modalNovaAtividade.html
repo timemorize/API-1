@@ -1,0 +1,57 @@
+<div class="modal fade" id="novaAtividade" idTurma="" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAlunos">Cadastrar Atividade</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="erroAlunos" class="alert alert-danger alert-dismissible fade show erroModal" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label for="nome_aluno">Título:</label>
+                    <input type="text" class="form-control campoObrigatorio" id="tituloAtividade">
+                </div>
+                
+                <div class="form-group" id="cicloDeEntregaAtividade">
+                    <label for="nome_aluno">Ciclo de Entrega:</label>
+                    <select class="custom-select campoObrigatorio form-control" id="selectCicloDeEntrega" onchange="selecionaCIcloEntregaAtividade( this )">
+                      <option value="" selected></option>
+                      {% for cicloEntrega in listaCicloEntrega %}
+                        <option dataInicial="{{cicloEntrega.dataInicial}}" dataFinal="{{cicloEntrega.dataFinal}}" value="{{cicloEntrega.chave}}">{{cicloEntrega.titulo}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+
+                <label for="nome_aluno">Peso:</label>
+                <div class="input-group">
+                    <input type="number" pesoAtual="" class="form-control campoObrigatorio" id="pesoAtividade" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span id="indicadorPesoTotal" class="input-group-text">0</span>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group" id="dataEntregaAtividade">
+                    <label for="nome_aluno">Data de Entrega:</label>
+                    <input type="hidden" class="form-control" id="dataEntregaCicloEntregaValor">
+                    <div id="dataEntregaCicloEntrega" class="datepicker-here"></div>
+                </div>
+                <div class="form-group">
+                    <label for="nome_aluno">Descrição:</label>
+                    <div id="descricaoAtivdade"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="botaoSalvar" type="button" acao="editar" class="btn btn-primary" onclick="cadastrarAtividade()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

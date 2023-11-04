@@ -1,7 +1,7 @@
 import json
 from flask import jsonify
 import random
-from modulos import usuarios, grupos, turmas
+from modulos import usuarios, grupos, turmas, atividades
 
 def buscaDadosAlunos():
     with open('dadosJson/baseAlunos.json', 'r') as arquivo:
@@ -16,8 +16,9 @@ def gravarAlunos(dadosAlunos):
 
 def cadastrarAluno( dadosAluno ):
     dadosAlunos = buscaDadosAlunos()
+    numeroRegistros = len(dadosAlunos)
 
-    if len(dadosAluno) == 0:
+    if int(numeroRegistros) < 1:
         chave = 1
     else:
         ultimoElemento = dadosAlunos[-1]
@@ -143,12 +144,18 @@ def inserirGrupos( ra, listaGrupos ):
 def inserirTurmas( ra, listaTurmas ):
     dadosAlunos = buscaDadosAlunos()
 
+    nomeAluno = ""
     novosDados = []
     for dadosAluno in dadosAlunos:
         if dadosAluno['RA'] == ra:
             dadosAluno['turmas'] = listaTurmas
+            nomeAluno = dadosAluno['nome']
 
         novosDados.append(dadosAluno)
+
+    
+    for turma in listaTurmas:
+        atividades.iniciaAlunoAtividadesTurma( ra, nomeAluno, turma)
 
     gravarAlunos( novosDados )
 

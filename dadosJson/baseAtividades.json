@@ -1,0 +1,165 @@
+[
+  {
+    "chave": 1,
+    "peso": "10",
+    "titulo": "Prova Sistema Bin\u00e1rio",
+    "dataEntrega": "18/01/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "9",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 2,
+    "peso": "30",
+    "titulo": "Prova Componentes",
+    "dataEntrega": "08/02/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "8",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "7",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 3,
+    "peso": "10",
+    "titulo": "Prova Processadores",
+    "dataEntrega": "29/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      },
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 4,
+    "peso": "2",
+    "titulo": "Prova: La\u00e7os de Repeti\u00e7\u00e3o",
+    "dataEntrega": "19/04/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      },
+      {
+        "RA": "ALUNO2606",
+        "nota": "1",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 5,
+    "peso": "10",
+    "titulo": "Listas",
+    "dataEntrega": "25/01/2024",
+    "descricao": "<p><br></p>",
+    "turma": "ED3752",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 6,
+    "peso": "20",
+    "titulo": "Prova ABC",
+    "dataEntrega": "12/01/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 7,
+    "peso": "12",
+    "titulo": "Prova A",
+    "dataEntrega": "22/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "2",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 8,
+    "peso": "20",
+    "titulo": "Opera\u00e7\u00f5es B\u00e1sicas",
+    "dataEntrega": "01/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  }
+]
