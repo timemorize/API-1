@@ -181,3 +181,18 @@ function filtrarCiclosEntrega(campoPesquisa,valorPesquisa)
     }
   });
 }
+
+function downloadCsvCicloEntrega(){
+  axios.get('/listaCicloEntrega')
+  .then(function (response) {
+    
+  if( response.data.result )
+  {
+    const dadosCicloEntrega =  response.data.dadosCicloEntrega;
+    downloadCSV( dadosCicloEntrega, 'Relacao_Alunos');
+  }
+  })
+  .catch(function (e) {
+    alert(e);
+  });
+}

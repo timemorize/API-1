@@ -1,5 +1,6 @@
 {% include 'componentes/header.html' %}
 <script src="{{ url_for('static', filename='scripts/diretor/cicloDeEntrega/cicloDeEntrega.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/downloadCSV/downloadCSV.js') }}"></script>
 
 <body>
     {% include 'diretor/componentes/menu.html' %}
@@ -11,6 +12,7 @@
             <div class="col-10">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" onclick="novoCicloEntrega()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Ciclo de Entrega</button>
+                    <button type="button" onclick="downloadCsvCicloEntrega()"class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
                 </div>
             </div>
         </div>

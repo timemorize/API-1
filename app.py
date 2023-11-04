@@ -198,6 +198,13 @@ def rotaExcluirCicloEntrega(chave):
 def rotaEditarCicloEntrega():
     return cicloEntrega.editarCicloEntrega( request.form )
 
+@app.route('/listaCicloEntrega', methods=['GET'])
+def rotaListaCicloEntrega():
+    return jsonify({
+        "result":"1",
+        "dadosCicloEntrega":cicloEntrega.buscaCiclosEntrega()
+    })
+
 @app.route('/minhasTurmas')
 def rotaMinhasTurmas():
     dadosTurmas = professores.buscarTurmas( 'PF03' )
