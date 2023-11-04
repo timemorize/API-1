@@ -71,13 +71,21 @@ $(document).ready(function()
         }
         $('#indicadorPesoTotal').html("/ " + valorFinal);
     });
+
+    $('.form-control').on('input', function() {
+		$(this).removeClass( "is-invalid" );
+	} );
 });
 
 function novaAtividade( idTurma, pesoJSON )
 {
     const pesoCiclos = JSON.parse(pesoJSON);
     $('#novaAtividade').modal('show');
+    $('.erroModal').hide();
+    $('.erroModal').html( '' );
     $('#novaAtividade').attr( 'idTurma', idTurma );
+
+    $('.form-control').removeClass( "is-invalid" );
 
     $('#selectCicloDeEntrega option').each( function( chave, option )
     {
@@ -108,28 +116,62 @@ function cadastrarAtividade()
     const descricao = quill.root.innerHTML;
     const idTurma = $('#novaAtividade').attr( 'idTurma');
     const cicloEntrega = $('#selectCicloDeEntrega').val();
-    
-    $.ajax({
-        url: '/cadastrarAtividade',
-        type: 'POST',
-        data:
+
+    let formValido = true;
+    let listaErros = "";
+
+	$("#novaAtividade").find(".campoObrigatorio").each(function() {
+        if ($(this).val() === '')
         {
-            titulo : titulo,
-            dataEntrega : dataEntrega,
-            descricao : descricao,
-            idTurma:idTurma,
-            chaveCicloEntrega:cicloEntrega,
-            peso:peso
-        },
-        success: function(response)
-        {
-            window.location.href = '/minhasTurmas'
-        },
-        error: function(error)
-        {
-            console.log('Erro ao editar o aluno.');
+            formValido = false;
+            $(this).addClass( "is-invalid" );
         }
     });
+
+    if( !formValido )
+    {
+        listaErros += "Preencha todos os campos";
+    }
+
+    if( dataEntrega === '' )
+    {
+        if( !formValido )
+        {
+            listaErros += "<br>"
+        }
+        listaErros += "Selecione uma data valida";
+        formValido = false;
+    }
+
+    if( formValido )
+    {
+        $.ajax({
+            url: '/cadastrarAtividade',
+            type: 'POST',
+            data:
+            {
+                titulo : titulo,
+                dataEntrega : dataEntrega,
+                descricao : descricao,
+                idTurma:idTurma,
+                chaveCicloEntrega:cicloEntrega,
+                peso:peso
+            },
+            success: function(response)
+            {
+                window.location.href = '/minhasTurmas'
+            },
+            error: function(error)
+            {
+                console.log('Erro ao editar o aluno.');
+            }
+        });
+    }
+    else
+    {
+		$('.erroModal').show();
+        $('.erroModal').html( listaErros );
+    }
 }
 
 function abreModalAtividades( idTurma, nomeTurma )
@@ -218,7 +260,6 @@ function iniciarExcluirAtividade( botaoExcluir )
 function excluirAtividade()
 {
     const identificador = $( trAtividade ).attr('idAtividade')
-    console.log(identificador)
     $('#confirmaExcluirAtividade').modal('hide');
 
     $.ajax({

@@ -93,7 +93,7 @@
       },
       {
         "RA": "ALUNO2606",
-        "nota": "",
+        "nota": "1",
         "nomeAluno": "Adilson Nunes"
       }
     ]
@@ -116,12 +116,44 @@
   },
   {
     "chave": 6,
-    "peso": "10",
-    "titulo": "Condicionais",
-    "dataEntrega": "04/01/2024",
+    "peso": "20",
+    "titulo": "Prova ABC",
+    "dataEntrega": "12/01/2024",
     "descricao": "<p><br></p>",
     "turma": "LP2841",
     "cicloEntrega": "1",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 7,
+    "peso": "12",
+    "titulo": "Prova A",
+    "dataEntrega": "22/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "2",
+    "notas": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "2",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 8,
+    "peso": "20",
+    "titulo": "Opera\u00e7\u00f5es B\u00e1sicas",
+    "dataEntrega": "01/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "2",
     "notas": [
       {
         "RA": "ALUNO2606",

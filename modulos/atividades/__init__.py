@@ -2,6 +2,7 @@ import json
 from flask import jsonify
 import random
 from modulos import usuarios, grupos, turmas, cicloEntrega
+from datetime import datetime
 
 def buscaAtividades():
     with open('dadosJson/baseAtividades.json', 'r') as arquivo:
@@ -150,9 +151,13 @@ def getPesoTotalAtividades( idTurma ):
 
     return retorno
 
+def extrair_data(dicionario):
+    return datetime.strptime(dicionario['dataEntrega'], '%d/%m/%Y')
+
 def buscaNotasAtividades( idTurma ):
     dadosAlunos = turmas.buscaAlunos( idTurma )['matriculado']
     dadosAtiviades = buscaAtivadadesTurma( idTurma )
+    dadosAtiviades = sorted(dadosAtiviades, key=extrair_data)
     dadosCicloEntregas = cicloEntrega.buscaCiclosEntregaAtivos()
 
 

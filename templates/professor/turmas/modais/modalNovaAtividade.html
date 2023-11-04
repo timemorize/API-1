@@ -8,14 +8,20 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div id="erroAlunos" class="alert alert-danger alert-dismissible fade show erroModal" role="alert">
+                    Preencha todos os campos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="form-group">
                     <label for="nome_aluno">Título:</label>
-                    <input type="text" class="form-control" id="tituloAtividade">
+                    <input type="text" class="form-control campoObrigatorio" id="tituloAtividade">
                 </div>
                 
                 <div class="form-group" id="cicloDeEntregaAtividade">
                     <label for="nome_aluno">Ciclo de Entrega:</label>
-                    <select class="custom-select" id="selectCicloDeEntrega" onchange="selecionaCIcloEntregaAtividade( this )">
+                    <select class="custom-select campoObrigatorio form-control" id="selectCicloDeEntrega" onchange="selecionaCIcloEntregaAtividade( this )">
                       <option value="" selected></option>
                       {% for cicloEntrega in listaCicloEntrega %}
                         <option dataInicial="{{cicloEntrega.dataInicial}}" dataFinal="{{cicloEntrega.dataFinal}}" value="{{cicloEntrega.chave}}">{{cicloEntrega.titulo}}</option>
@@ -25,7 +31,7 @@
 
                 <label for="nome_aluno">Peso:</label>
                 <div class="input-group">
-                    <input type="number" pesoAtual="" class="form-control" id="pesoAtividade" aria-label="Amount (to the nearest dollar)">
+                    <input type="number" pesoAtual="" class="form-control campoObrigatorio" id="pesoAtividade" aria-label="Amount (to the nearest dollar)">
                     <div class="input-group-append">
                       <span id="indicadorPesoTotal" class="input-group-text">0</span>
                     </div>
