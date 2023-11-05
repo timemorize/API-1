@@ -1,15 +1,54 @@
 from flask import Flask, render_template, request,jsonify, session
-from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega
+from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios
 import json
 import datetime
 
 
 app = Flask(__name__)
+app.secret_key = 'chave_secreta'
+
+def is_logged_in():
+    return 'username' in session
 
 @app.route('/')
 def index():
-    return render_template('diretor/index.html')
+    if not is_logged_in():
+        return render_template('auth/login.html')
+    if session['tipoUsuario'] == 'diretor':
+        return render_template('diretor/index.html')
+    if session['tipoUsuario'] == 'professor':  
+        dadosTurmas = professores.buscarTurmas( 'PF03' )
+        dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+        dadosProfessor = professores.pesquisaProfessor('PF03')
+        nomeProf = dadosProfessor['nome']
+        return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
 
+    return render_template('auth/login.html')
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    dadosUsuarios = usuarios.buscaDadosUsuarios()
+    print(dadosUsuarios)
+    autentica = False
+    tipoUsuario = ""
+    resetSenha = ""
+    for dadosUsuario in dadosUsuarios:
+        if dadosUsuario['usuario'] == username and dadosUsuario['senha'] == password:
+            autentica = True
+            tipoUsuario = dadosUsuario['tipo']
+            resetSenha = dadosUsuario['resetSenha']
+            break
+
+    if autentica == True:
+        session['username'] = username
+        session['tipoUsuario'] = tipoUsuario
+         
+        return jsonify({'result': '1', 'message': '', 'resetSenha':resetSenha})
+    else:
+        return jsonify({'result': '', 'message': 'Credenciais inválidas. Tente novamente.'})
+    
 @app.route('/gerenciarAlunos')
 def rotaGerenciaAlunos():
     dadosAlunos = alunos.buscaDadosAlunos()

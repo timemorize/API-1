@@ -1,9 +1,9 @@
 [
   {
-    "usuario": "ALUNO1791",
-    "senha": "Teste12345678",
-    "tipo": "aluno",
-    "resetSenha": true
+    "usuario": "admin",
+    "senha": "Teste123456789",
+    "tipo": "diretor",
+    "resetSenha": false
   },
   {
     "usuario": "ALUNO2606",
