@@ -51,7 +51,7 @@ Desenvolver um sistema interno de gestão e acompanhamento de scores para a inst
 
 ### Fluxograma da Aplicação:
 Foi elaborado um fluxograma utilizando o software Miro. Convido você a clicar no botão abaixo para conferir o resultado: <br>
-<a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">
+<a href="https://miro.com/app/board/uXjVMmvukI4=/?share_link_id=70126474804">
     <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarFluxograma.png" width="25%"/>
 </a>
 
