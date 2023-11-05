@@ -54,7 +54,7 @@
                                     <th><label>Nome</label></th>
                                     {% for atividade in dadosCicloEntrega.atividadesCicloEntrega %}
                                         <th titulo="{{atividade.titulo}}">
-                                            <label style="cursor: pointer;" class="btn btn-secondary" data-toggle="popover" title="Dados da Atividade:" data-content="Título: {{atividade.titulo}} | Prazo: {{atividade.dataEntrega}} | Peso: {{atividade.peso}}">{{atividade.ordemAtividade}}º</label>
+                                            <label style="cursor: pointer;" data-toggle="popover" title="Dados da Atividade:" data-content="Título: {{atividade.titulo}} | Prazo: {{atividade.dataEntrega}} | Peso: {{atividade.peso}}">{{atividade.ordemAtividade}}º</label>
                                         </th>
                                     {% endfor %}
                                     <th><label>Ação</label></th>
