@@ -121,7 +121,7 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 | Professor | Conseguir gerenciar as atividades | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir editar e excluir uma atividade | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir inserir as notas dos alunos | Imprescindível | 3 | **Realizado** |
-| Diretor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
+| Professor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
 
 
 ## Tecnologias utilizadas e Integrantes
