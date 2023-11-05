@@ -62,40 +62,66 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 </a>
 
 ### Backlog do projeto
-| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
-|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
-| Desenvolvedor | Criar documentação do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar fluxograma e wireframes  do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar Backlog do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar conta no Jira e gerenciar as tasks realizadas durante as sprints | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Desenvolver as telas do diretor com as funcionalidades| Desenvolvimento | Imprescindível | 2 | **Realizado** |
-| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 2 | **Realizado**|
-| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 2 | **Realizado** |
-| Usuário | Login/Log-off| Acessar o sistema | Imprescindível | 3 | **-** |
-| Professor | Visualizar desempenho individual do aluno | Visualizar notas do aluno | Importante | 3 | **-** |
-| Professor | Visualizar grupo de alunos | Visualizar alunos de um grupo específico | Importante | 3 | **-** |
-| Desenvolvedor | Aplicar restrições e hierarquias dos usuários | Organização | Imprescindível | 3 | **-** |
-| Desenvolvedor | Desenvolver as telas do aluno com as funcionalidades| Desenvolvimento | Imprescindível | 3 | **-** |
-| Desenvolvedor | Desenvolver as telas do professor com as funcionalidades| Desenvolvimento | Imprescindível | 3 | **-** |
-| Desenvolvedor | Realizar a conexão das telas com o backend | Desenvolvimento | Imprescindível | 3 | **-** |
-| Diretor | Editar e excluir contas, grupos de alunos e turmas| Corrigir erros e fazer alterações | Importante | 4 | **-** |
-| Professor | Inserir nota no ciclo de entrega | Nota individual para o aluno | Importante | 4 | **-** |
-| Aluno | Ver as médias das minhas notas | Noção de performance  | Importante | 4 | **-** |
+| **COMO** | **EU QUERO** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Desenvolvedor | Criar documentação do produto | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar fluxograma e wireframes  do produto | Imprescindível | 1 | **Realizado** |
+| Diretor | Cadastrar diferentes tipos de usuários | Imprescindível | 2 | **Realizado** |
+| Diretor | Conseguir editar e excluir o cadastro dos usuários |  Imprescindível | 2 | **Realizado**|
+| Diretor | Criar Grupos de alunos | Imprescindível | 2 | **Realizado** |
+| Diretor | Vincular alunos aos grupos existentes |  Imprescindível | 2 | **Realizado**|
+| Diretor | Conseguir editar e excluir Grupos |  Imprescindível | 2 | **Realizado**|
+| Diretor | Criar Turmas | Imprescindível | 2 | **Realizado** |
+| Diretor | Vincular alunos e professores as turmas existentes |  Imprescindível | 2 | **Realizado**|
+| Diretor | Conseguir editar e excluir Turmas |  Imprescindível | 2 | **Realizado**|
+| Diretor | Campo de pesquisa nas telas de Alunos, Grupos, Turmas e Professores | Importante | 2 | **Realizado** |
+| Diretor | Conseguir criar um ciclo de entrega | Imprescindível | 3 | **Realizado** |
+| Diretor | Conseguir editar e excluir o ciclo de entrega |  Imprescindível | 3 | **Realizado**|
+| Diretor | Saber se um ciclo de entrega está ativo ou desativado |  Importante | 3 | **Realizado**|
+| Diretor | Campo de pesquisa na tela de ciclo de entrega | Importante | 3 | **Realizado** |
+| Diretor | Conseguir exportar os ciclos de entrega | Importante | 3 | **Realizado** |
+| Professor | Conseguir cadastrar uma atividade | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir gerenciar as atividades | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir editar e excluir uma atividade | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir inserir as notas dos alunos | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
+| Usuário | Fazer login no sistema | Imprescindível | 4 | **-** |
+| Aluno | Conseguir visualizar em quais turmas está cadastrado | Imprescindível | 4 | **-** |
+| Aluno | Conseguir visualizar as suas notas |  Imprescindível | 4 | **-**|
+| Aluno | Saber como está o seu score|  Importante | 4 | **-**|
 
 ### Backlog 1º Sprint
-| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
-|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
-| Desenvolvedor | Criar documentação do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar fluxograma e wireframes  do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar Backlog do produto | Organização | Imprescindível | 1 | **Realizado** |
-| Desenvolvedor | Criar conta no Jira e gerenciar as tasks realizadas durante as sprints | Organização | Imprescindível | 1 | **Realizado** |
+| **COMO** | **EU QUERO** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Desenvolvedor | Criar documentação do produto | Imprescindível | 1 | **Realizado** |
+| Desenvolvedor | Criar fluxograma e wireframes  do produto | Imprescindível | 1 | **Realizado** |
 
 ### Backlog 2º Sprint
-| **COMO UM** |  **EU QUERO**  | **PARA** | **PRIORIDADE** | **SPRINT** | **STATUS** |
-|-----------------------|-------------------------|-------------------------|---------------------|----------------|-------------------------|
-| Desenvolvedor | Desenvolver as telas do diretor com as funcionalidades| Desenvolvimento | Imprescindível | 2 | **Realizado** |
-| Diretor | Cadastrar usuários | Acessar o sistema | Imprescindível | 2 | **Realizado** |
-| Diretor | Cadastrar turmas e grupo de alunos | Organização | Imprescindível | 2 | **Realizado** |
+| **COMO** | **EU QUERO** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Diretor | Cadastrar diferentes tipos de usuários | Imprescindível | 2 | **Realizado** |
+| Diretor | Conseguir editar e excluir o cadastro dos usuários |  Imprescindível | 2 | **Realizado**|
+| Diretor | Criar Grupos de alunos | Imprescindível | 2 | **Realizado** |
+| Diretor | Vincular alunos aos grupos existentes |  Imprescindível | 2 | **Realizado**|
+| Diretor | Conseguir editar e excluir Grupos |  Imprescindível | 2 | **Realizado**|
+| Diretor | Criar Turmas | Imprescindível | 2 | **Realizado** |
+| Diretor | Vincular alunos e professores as turmas existentes |  Imprescindível | 2 | **Realizado**|
+| Diretor | Conseguir editar e excluir Turmas |  Imprescindível | 2 | **Realizado**|
+| Diretor | Campos de pesquisa | Importante | 2 | **Realizado** |
+
+### Backlog 3º Sprint
+| **COMO** | **EU QUERO** | **PRIORIDADE** | **SPRINT** | **STATUS** |
+|-------------------------|-------------------------|---------------------|----------------|-------------------------|
+| Diretor | Conseguir criar um ciclo de entrega | Imprescindível | 3 | **Realizado** |
+| Diretor | Conseguir editar e excluir o ciclo de entrega |  Imprescindível | 3 | **Realizado**|
+| Diretor | Saber se um ciclo de entrega está ativo ou desativado |  Importante | 3 | **Realizado**|
+| Diretor | Campo de pesquisa na tela de ciclo de entrega | Importante | 3 | **Realizado** |
+| Diretor | Conseguir exportar os ciclos de entrega | Importante | 3 | **Realizado** |
+| Professor | Conseguir cadastrar uma atividade | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir gerenciar as atividades | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir editar e excluir uma atividade | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir inserir as notas dos alunos | Imprescindível | 3 | **Realizado** |
+| Diretor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
 
 
 ## Tecnologias utilizadas e Integrantes
@@ -107,17 +133,24 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 
 ### 1. Preparação do Ambiente
 
-Certifique-se de ter o Python instalado em seu sistema. Você pode baixá-lo em [Python Official Website](https://www.python.org/). Além disso, é recomendável criar um ambiente virtual para isolar as dependências do projeto.
+Certifique-se de ter o Python instalado em seu sistema. Você pode baixá-lo em [Python Official Website](https://www.python.org/). Certifique-se também de instalar o [Flask Official Website](https://pypi.org/project/Flask/) e [Pip Official Website](https://pypi.org/project/pip/)  para que o projeto possa funcionar.<br>
+Além disso, é recomendável criar um ambiente virtual para isolar as dependências do projeto.
 
 ### 2. Clonar o Repositório
 
-Clone o repositório do projeto a partir do GitHub.
+Clone o repositório do projeto a partir do GitHub.<br>
+Para isso, abra o terminal dentro de uma pasta e:
 
-bash <br>
-git clone <URL_DO_REPOSITORIO> <br>
-cd nome-do-projeto <br>
+```
+git clone <URL_DO_REPOSITORIO>
+cd nome-do-projeto
+```
 
+### 2. Para rodar o projeto
+```
+python3 app.py
 
-### 3. Criar o primeiro usuário Diretor
-bash
-python firstUsr.py
+Ou
+
+flask run
+```
