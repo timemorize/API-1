@@ -52,13 +52,13 @@ Desenvolver um sistema interno de gestão e acompanhamento de scores para a inst
 ### Fluxograma da Aplicação:
 Foi elaborado um fluxograma utilizando o software Miro. Convido você a clicar no botão abaixo para conferir o resultado: <br>
 <a href="https://miro.com/welcomeonboard/YlRPSEFoVjhnZGoxempKd2k4aW5EQmpFZ0JOVVVYRU02Mk1OY1VmNlQ3Wm9qc002TlFCeWxzR2FoYzB1cjFMS3wzNDU4NzY0NTYzNTMzMTc5OTk2fDI=?share_link_id=665929022673">
-    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarFluxograma.png" width="20%"/>
+    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarFluxograma.png" width="25%"/>
 </a>
 
 ### WireFrame
 Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no botão abaixo para visualizar o wireframe: <br>
 <a href="https://www.figma.com/file/z3ULTstviHzHjpTrmdqyky/Untitled?type=design&node-id=0%3A1&mode=design&t=7X3mwSH3mpjgNpdP-1">
-    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarWireframe.png" width="20%"/>
+    <img src="https://github.com/ElbertJean/faculdade/blob/main/AcessarWireframe.png" width="25%"/>
 </a>
 
 ### Backlog do projeto
