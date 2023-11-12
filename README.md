@@ -83,11 +83,11 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 | Professor | Conseguir cadastrar uma atividade | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir gerenciar as atividades | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir editar e excluir uma atividade | Imprescindível | 3 | **Realizado** |
-| Professor | Conseguir inserir as notas dos alunos | Imprescindível | 3 | **Realizado** |
-| Professor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
+| Professor | Conseguir inserir as scores dos alunos | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir exportar as scores dos alunos | Importante | 3 | **Realizado** |
 | Usuário | Fazer login no sistema | Imprescindível | 4 | **-** |
 | Aluno | Conseguir visualizar em quais turmas está cadastrado | Imprescindível | 4 | **-** |
-| Aluno | Conseguir visualizar as suas notas |  Imprescindível | 4 | **-**|
+| Aluno | Conseguir visualizar as suas scores |  Imprescindível | 4 | **-**|
 | Aluno | Saber como está o seu score|  Importante | 4 | **-**|
 
 ### Backlog 1º Sprint
@@ -120,8 +120,8 @@ Foi Desenvolvido um wireframe no Figma para o projeto. Convido você a clicar no
 | Professor | Conseguir cadastrar uma atividade | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir gerenciar as atividades | Imprescindível | 3 | **Realizado** |
 | Professor | Conseguir editar e excluir uma atividade | Imprescindível | 3 | **Realizado** |
-| Professor | Conseguir inserir as notas dos alunos | Imprescindível | 3 | **Realizado** |
-| Professor | Conseguir exportar as notas dos alunos | Importante | 3 | **Realizado** |
+| Professor | Conseguir inserir as scores dos alunos | Imprescindível | 3 | **Realizado** |
+| Professor | Conseguir exportar as scores dos alunos | Importante | 3 | **Realizado** |
 
 
 ## Tecnologias utilizadas e Integrantes

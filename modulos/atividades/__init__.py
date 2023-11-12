@@ -24,7 +24,7 @@ def cadastroAtividade( dados ):
 
     alunosTurma = turmas.buscaAlunos(dados['idTurma'])['matriculado']
 
-    notasIniciais = []
+    scoresIniciais = []
 
     for alunoTurma in alunosTurma:
         notaInicial = {
@@ -33,7 +33,7 @@ def cadastroAtividade( dados ):
             'nomeAluno': alunoTurma['nome']
         }
 
-        notasIniciais.append( notaInicial )
+        scoresIniciais.append( notaInicial )
 
     novaAtividade ={
         "chave":chave,
@@ -43,7 +43,7 @@ def cadastroAtividade( dados ):
         "descricao":dados['descricao'],
         "turma":dados['idTurma'],
         "cicloEntrega": dados['chaveCicloEntrega'],
-        "notas":notasIniciais
+        "scores":scoresIniciais
     }
 
     dadosAtividades.append( novaAtividade )
@@ -77,7 +77,7 @@ def editarAtividade( entradaDadosAtividade ):
                 "descricao":entradaDadosAtividade['descricao'],
                 "cicloEntrega": entradaDadosAtividade['chaveCicloEntrega'],
                 "turma":entradaDadosAtividade['idTurma'],
-                "notas":dadosAtividade['notas']
+                "scores":dadosAtividade['scores']
             }
             novosDados.append(dadosAtividadeEditado)
 
@@ -106,12 +106,12 @@ def pesquisaAtividadeTurma( idTurma ):
 
     return retorno
 
-def buscaNotas( chave ):
+def buscascores( chave ):
     dadosAtividades = buscaAtividades()
 
     for dadosAtividade in dadosAtividades:
         if dadosAtividade['chave'] == chave:
-            return dadosAtividade['notas']
+            return dadosAtividade['scores']
 
     return []
 
@@ -154,7 +154,7 @@ def getPesoTotalAtividades( idTurma ):
 def extrair_data(dicionario):
     return datetime.strptime(dicionario['dataEntrega'], '%d/%m/%Y')
 
-def buscaNotasAtividades( idTurma ):
+def buscascoresAtividades( idTurma ):
     dadosAlunos = turmas.buscaAlunos( idTurma )['matriculado']
     dadosAtiviades = buscaAtivadadesTurma( idTurma )
     dadosAtiviades = sorted(dadosAtiviades, key=extrair_data)
@@ -163,7 +163,7 @@ def buscaNotasAtividades( idTurma ):
 
     retorno = []
     for dadosCicloEntrega in dadosCicloEntregas:
-        retornoNotasAluno = []
+        retornoscoresAluno = []
         atividadesCicloEntrega = []
 
         ordemAtividade = 1
@@ -176,57 +176,57 @@ def buscaNotasAtividades( idTurma ):
                 ordemAtividade += 1
         
         for dadoAluno in dadosAlunos:
-            notasAluno = []
+            scoresAluno = []
             for dadosAtividade in dadosAtiviades:
                 if dadosAtividade['cicloEntrega'] == dadosCicloEntrega['chave']:
-                    estadoNotas = 'completo'
-                    if len(dadosAtividade['notas']) != 0:
-                        for notaAtividade in dadosAtividade['notas']:
+                    estadoscores = 'completo'
+                    if len(dadosAtividade['scores']) != 0:
+                        for notaAtividade in dadosAtividade['scores']:
                             if notaAtividade['RA'] ==  dadoAluno['RA']:
                                 dadosNotaAtividade = {
                                     'nota':notaAtividade['nota'],
                                     'chaveAtividade':dadosAtividade['chave']
                                 }
-                                notasAluno.append( dadosNotaAtividade )
+                                scoresAluno.append( dadosNotaAtividade )
                                 
-                    for notaAluno in notasAluno:
+                    for notaAluno in scoresAluno:
                         if notaAluno == '':
-                            estadoNotas = 'incompleto'
+                            estadoscores = 'incompleto'
 
-                    dadosNotasAluno = {
+                    dadosscoresAluno = {
                         "nomeAluno": dadoAluno['nome'],
                         "RA": dadoAluno['RA'],
-                        "dadosNotas":notasAluno,
-                        "estadoNotas": estadoNotas
+                        "dadosscores":scoresAluno,
+                        "estadoscores": estadoscores
                     }
 
-            possuiNotas = 'dadosNotasAluno' in locals()
-            if possuiNotas:
-                retornoNotasAluno.append( dadosNotasAluno )
+            possuiscores = 'dadosscoresAluno' in locals()
+            if possuiscores:
+                retornoscoresAluno.append( dadosscoresAluno )
 
-        notasPorCicloEntrega = {
+        scoresPorCicloEntrega = {
             "chaveCicloEntrega":dadosCicloEntrega['chave'],
             "tituloCicloEntrega":dadosCicloEntrega['titulo'],
             "atividadesCicloEntrega":atividadesCicloEntrega,
-            "notasAluno":retornoNotasAluno,
+            "scoresAluno":retornoscoresAluno,
             "possuiAtividades":possuiAtivdades
         }
 
-        retorno.append(notasPorCicloEntrega)
+        retorno.append(scoresPorCicloEntrega)
 
     return retorno
 
-def salvarNotasAluno( ra, nomeAluno, relacaoNotas ):
+def salvarscoresAluno( ra, nomeAluno, relacaoscores ):
     dadosAtividades = buscaAtividades()
 
     novosDadosAtividade = []
     
     for dadosAtidade in dadosAtividades:
-        novasNotasAtividades = []
-        for notaAtividade in dadosAtidade['notas']:
+        novasscoresAtividades = []
+        for notaAtividade in dadosAtidade['scores']:
             if notaAtividade['RA'] == ra:
                 notaNaoSubstituida = True
-                for relacaoNota in relacaoNotas:
+                for relacaoNota in relacaoscores:
                     if int(relacaoNota['chaveAtividade']) == dadosAtidade['chave']:
                         novaNota = {
                             "RA":ra,
@@ -234,14 +234,14 @@ def salvarNotasAluno( ra, nomeAluno, relacaoNotas ):
                             "nomeAluno": nomeAluno
                         }
 
-                        novasNotasAtividades.append( novaNota )
+                        novasscoresAtividades.append( novaNota )
                         notaNaoSubstituida = False
                 if( notaNaoSubstituida ):
-                    novasNotasAtividades.append( notaAtividade )
+                    novasscoresAtividades.append( notaAtividade )
             else:
-                novasNotasAtividades.append( notaAtividade )
+                novasscoresAtividades.append( notaAtividade )
         
-        dadosAtidade['notas'] = novasNotasAtividades
+        dadosAtidade['scores'] = novasscoresAtividades
         novosDadosAtividade.append( dadosAtidade )
 
     gravaAtividades( dadosAtividades )
@@ -262,13 +262,13 @@ def iniciaAlunoAtividadesTurma( ra, nomeAluno, idTurma):
                 "nota": "",
                 "nomeAluno": nomeAluno
             }
-            possuiNotasNaTurma = False
-            for notas in dadosAtividade['notas']:
-                if(notas['RA']) == ra:
-                    possuiNotasNaTurma = True
+            possuiscoresNaTurma = False
+            for scores in dadosAtividade['scores']:
+                if(scores['RA']) == ra:
+                    possuiscoresNaTurma = True
             
-            if possuiNotasNaTurma == False:
-                dadosAtividade['notas'].append( notaInicial )
+            if possuiscoresNaTurma == False:
+                dadosAtividade['scores'].append( notaInicial )
 
         novosDadosAtividades.append(dadosAtividade)
 

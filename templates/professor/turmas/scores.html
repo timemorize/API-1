@@ -10,7 +10,7 @@
    <div class="container">
     
         <div class="row">
-            <div class="col-10 py-3"><h3> <i class="fa-solid fa-id-badge mr-3"></i>Notas</h3></div>
+            <div class="col-10 py-3"><h3> <i class="fa-solid fa-id-badge mr-3"></i>scores</h3></div>
         </div>
         <div class="row">
             <div class="col-10">
@@ -33,7 +33,7 @@
         <br>
         
         {% for dadosCicloEntrega in listaDadosCicloEntrega %}
-                <div class="notasCicloEntrega" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
+                <div class="scoresCicloEntrega" cicloEntrega = {{dadosCicloEntrega.chaveCicloEntrega}}>
                     {% if dadosCicloEntrega.possuiAtividades %}
                         <div class="form-group">
                             <div class="input-group mb-3">
@@ -61,26 +61,26 @@
                                 </tr>
                             </thead>
                             <tbody id="tdobyTurmas">
-                                {% for aluno in dadosCicloEntrega.notasAluno %}
-                                    <tr class="trNotasAluno" nomeAluno="{{aluno.nomeAluno}}" ra="{{aluno.RA}}">
+                                {% for aluno in dadosCicloEntrega.scoresAluno %}
+                                    <tr class="trscoresAluno" nomeAluno="{{aluno.nomeAluno}}" ra="{{aluno.RA}}">
                                         <td>{{aluno.RA}}</td>
                                         <td>{{aluno.nomeAluno}}</td>
-                                        {% for dadosNotas in aluno.dadosNotas %}
-                                            {% if dadosNotas.nota == "" %}
-                                                <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">
+                                        {% for dadosscores in aluno.dadosscores %}
+                                            {% if dadosscores.nota == "" %}
+                                                <td chaveAtividade="{{dadosscores.chaveAtividade}}" class="indicadorNota">
                                                     <span class="badge badge-secondary">sem nota</span>
                                                 </td>
                                             {% else %}
-                                                <td chaveAtividade="{{dadosNotas.chaveAtividade}}" class="indicadorNota">{{dadosNotas.nota}}</td>
+                                                <td chaveAtividade="{{dadosscores.chaveAtividade}}" class="indicadorNota">{{dadosscores.nota}}</td>
                                             {% endif %}
                                         {% endfor %}
-                                        {% if aluno.estadoNotas == "incompleto" %}
+                                        {% if aluno.estadoscores == "incompleto" %}
                                             <td class="trAcaoAluno">
-                                                <button class="btn btn-success" onclick="salvarNotas( this )"><i class="fa-solid fa-floppy-disk"></i></button>
+                                                <button class="btn btn-success" onclick="salvarscores( this )"><i class="fa-solid fa-floppy-disk"></i></button>
                                             </td>
                                         {% else %}
                                             <td class="trAcaoAluno">
-                                                <button class="btn btn-primary" onclick="revisarNotas( this )"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-primary" onclick="revisarscores( this )"><i class="fa-solid fa-pen-to-square"></i></button>
                                             </td>
                                         {% endif %}
                                     </tr>
@@ -101,9 +101,9 @@
 
 {% include 'professor/turmas/modais/modalNovaAtividade.html' %}
 {% include 'professor/turmas/modais/modalExcluirAtividade.html' %}
-{% include 'professor/turmas/modais/modalFiltroCsvNotas.html' %}
+{% include 'professor/turmas/modais/modalFiltroCsvscores.html' %}
 
 
 
-<script src="{{ url_for('static', filename='scripts/professor/turmas/notas.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/professor/turmas/scores.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/downloadCSV/downloadCSV.js') }}"></script>

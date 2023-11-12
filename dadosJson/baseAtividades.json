@@ -7,7 +7,7 @@
     "descricao": "<p><br></p>",
     "turma": "AOC1524",
     "cicloEntrega": "1",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
         "nota": "9",
@@ -33,7 +33,7 @@
     "descricao": "<p><br></p>",
     "turma": "AOC1524",
     "cicloEntrega": "1",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
         "nota": "8",
@@ -59,7 +59,7 @@
     "descricao": "<p><br></p>",
     "turma": "AOC1524",
     "cicloEntrega": "2",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO1791",
         "nota": "",
@@ -85,7 +85,7 @@
     "descricao": "<p><br></p>",
     "turma": "LP2841",
     "cicloEntrega": "2",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2783",
         "nota": "",
@@ -106,10 +106,10 @@
     "descricao": "<p><br></p>",
     "turma": "ED3752",
     "cicloEntrega": "1",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
-        "nota": "",
+        "nota": "10",
         "nomeAluno": "Adilson Nunes"
       }
     ]
@@ -122,7 +122,7 @@
     "descricao": "<p><br></p>",
     "turma": "LP2841",
     "cicloEntrega": "1",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
         "nota": "",
@@ -138,7 +138,7 @@
     "descricao": "<p><br></p>",
     "turma": "LP2841",
     "cicloEntrega": "2",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
         "nota": "2",
@@ -154,7 +154,7 @@
     "descricao": "<p><br></p>",
     "turma": "LP2841",
     "cicloEntrega": "2",
-    "notas": [
+    "scores": [
       {
         "RA": "ALUNO2606",
         "nota": "",

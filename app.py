@@ -240,32 +240,32 @@ def rotaExcluirAtividade(identificador):
 
     return '', 200
 
-@app.route('/notasProfessor/<string:identificador>', methods=['GET'])
-def rotaNotasProfessor(identificador):
-    notasAlunos = atividades.buscaNotasAtividades( identificador )
+@app.route('/scoresProfessor/<string:identificador>', methods=['GET'])
+def rotascoresProfessor(identificador):
+    scoresAlunos = atividades.buscascoresAtividades( identificador )
     pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
     ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
     dadosProfessor = professores.pesquisaProfessor('PF03')
     nomeProf = dadosProfessor['nome']
     idTurmaGet = identificador
-    return render_template('professor/turmas/notas.html', listaDadosCicloEntrega = notasAlunos, listaCiclosEntrega = ciclosEntrega, pesoTotalTurma = pesoTotalTurma, idTurma = idTurmaGet, nomeProfessor = nomeProf )
+    return render_template('professor/turmas/scores.html', listaDadosCicloEntrega = scoresAlunos, listaCiclosEntrega = ciclosEntrega, pesoTotalTurma = pesoTotalTurma, idTurma = idTurmaGet, nomeProfessor = nomeProf )
 
 @app.route('/buscaCicloEntregaTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaCicloEntregaTurma(identificador):
-    notasAlunos = atividades.buscaNotasAtividades( identificador )
+    scoresAlunos = atividades.buscascoresAtividades( identificador )
     return jsonify(
         {
             'result': '1',
-            'notasAlunos':notasAlunos
+            'scoresAlunos':scoresAlunos
         } )
 
-@app.route('/salvarNotas', methods=['POST'])
-def rotaSalvarNotas():
+@app.route('/salvarscores', methods=['POST'])
+def rotaSalvarscores():
     ra = request.form['ra']
-    notas = json.loads( request.form['dadosNotas'] )
+    scores = json.loads( request.form['dadosscores'] )
     nomeAluno = request.form['nomeALuno']
 
-    return atividades.salvarNotasAluno(ra,nomeAluno,notas)
+    return atividades.salvarscoresAluno(ra,nomeAluno,scores)
 
 @app.route('/buscaDadosAtividade/<string:chave>', methods=['GET'])
 def rotaBuscaDadosAtividade(chave):

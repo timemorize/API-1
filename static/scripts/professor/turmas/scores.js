@@ -1,22 +1,22 @@
 $(document).ready(function()
 {
     $('[data-toggle="popover"]').popover();
-    $('.notasCicloEntrega').hide();
-    $('.notasCicloEntrega:first').show();
+    $('.scoresCicloEntrega').hide();
+    $('.scoresCicloEntrega:first').show();
     $('.abaCicloEntrega:first').addClass('active');
     $('.inputNota').on('input', function()
     {
-        const divTabela = $( this ).closest(".notasCicloEntrega");
-        const botaoSalvarNotas = $( divTabela ).find('.botaoSalvarNotas');
-        $( botaoSalvarNotas ).attr('disabled',false);
+        const divTabela = $( this ).closest(".scoresCicloEntrega");
+        const botaoSalvarscores = $( divTabela ).find('.botaoSalvarscores');
+        $( botaoSalvarscores ).attr('disabled',false);
     });
 
     $('#search').on('input', function()
 	{
 		const valorPesquisa = $(this).val().toUpperCase();
 		const campoPesquisa = $( '#campoPesquisa' ).val();
-        const div = $( this ).closest( '.notasCicloEntrega' );
-        const trs = $( div ).find( '.trNotasAluno' )
+        const div = $( this ).closest( '.scoresCicloEntrega' );
+        const trs = $( div ).find( '.trscoresAluno' )
 
 		$( trs ).each( function(chave,tarefa)
 		{
@@ -34,17 +34,17 @@ $(document).ready(function()
 
 } );
 
-function revisarNotas( botao )
+function revisarscores( botao )
 {
-    const tr = $( botao ).closest(".trNotasAluno");
-    const indicadoresNotas = $( tr ).find('.indicadorNota')
+    const tr = $( botao ).closest(".trscoresAluno");
+    const indicadoresscores = $( tr ).find('.indicadorNota')
 
     let td = $( botao ).closest(".trAcaoAluno");
 
-    $( td ).html( '<button class="btn btn-success" onclick="salvarNotas( this )"><i class="fa-solid fa-floppy-disk"></i></button>' )
+    $( td ).html( '<button class="btn btn-success" onclick="salvarscores( this )"><i class="fa-solid fa-floppy-disk"></i></button>' )
     $( botao ).hide();
 
-    indicadoresNotas.each( function(index,td)
+    indicadoresscores.each( function(index,td)
     {
         let valorNota = parseInt( $( td ).html() );
         if( isNaN( valorNota ) )
@@ -55,21 +55,21 @@ function revisarNotas( botao )
     });
 }
 
-function salvarNotas( botao )
+function salvarscores( botao )
 {
-    let relacaoNotas = [];
+    let relacaoscores = [];
 
-    const tr = $( botao ).closest(".trNotasAluno");
+    const tr = $( botao ).closest(".trscoresAluno");
     const ra = $( tr ).attr('ra');
     const nomeAluno = $( tr ).attr('nomeAluno');
-    const inputsNotas = $( tr ).find('.inputNota')
+    const inputsscores = $( tr ).find('.inputNota')
 
     let tdAcao = $( botao ).closest(".trAcaoAluno");
 
-    $( tdAcao ).html( '<button class="btn btn-primary" onclick="revisarNotas( this )"><i class="fa-solid fa-pen-to-square"></i></button>' );
+    $( tdAcao ).html( '<button class="btn btn-primary" onclick="revisarscores( this )"><i class="fa-solid fa-pen-to-square"></i></button>' );
     $( botao ).hide();
 
-    inputsNotas.each( function(index,input)
+    inputsscores.each( function(index,input)
     {
         $( input ).hide();
         const tdNota = $( input ).closest(".indicadorNota");
@@ -86,16 +86,16 @@ function salvarNotas( botao )
         }
         $( tdNota ).html( valorNota )
 
-        relacaoNotas.push( relacaoNota )
+        relacaoscores.push( relacaoNota )
     });
 
     $.ajax({
-        url: '/salvarNotas',
+        url: '/salvarscores',
         type: 'POST',
         data:
         {
             ra : ra,
-            dadosNotas : JSON.stringify(relacaoNotas),
+            dadosscores : JSON.stringify(relacaoscores),
             nomeALuno:nomeAluno
         },
         success: function(response)
@@ -115,7 +115,7 @@ function mudaAbaCicloEntrega( aba )
    $(aba).addClass('active');
 
     const cicloEntregaSelecionado = $( aba ).attr('cicloEntrega');
-    $('.notasCicloEntrega').each( function( index, tabela )
+    $('.scoresCicloEntrega').each( function( index, tabela )
     {
         if( $( tabela ).attr('cicloEntrega') == cicloEntregaSelecionado)
         {
@@ -132,35 +132,35 @@ function downloadCsvCicloEntrega( idTurma )
 {
     const dados = [];
     const cicloEntrega = $('#selectCicloDeEntregaFiltro').val();
-    const considerarSemTodasNotas = $( '#considerarAlunosSemNotas' ).is(':checked');
+    const considerarSemTodasscores = $( '#considerarAlunosSemscores' ).is(':checked');
 
     axios.get('/buscaCicloEntregaTurma/' + idTurma )
 	.then(function (response) {
         
 	if( response.data.result )
 	{
-        let dadosGerais = response.data.notasAlunos;
+        let dadosGerais = response.data.scoresAlunos;
 
         const dataCicloEntrega = dadosGerais.filter((dadosGeral) => dadosGeral.chaveCicloEntrega == cicloEntrega);
 		const possuiAtividades = dataCicloEntrega[0].possuiAtividades;
 
         if( possuiAtividades )
         {
-            const dataNotasAlunos = dataCicloEntrega[0].notasAluno;
+            const datascoresAlunos = dataCicloEntrega[0].scoresAluno;
             let data = [];
-            dataNotasAlunos.forEach((dataNotasAluno) => 
+            datascoresAlunos.forEach((datascoresAluno) => 
             {
                 let linhaAlunos = new Object();
 
-                linhaAlunos['nome'] = dataNotasAluno.nomeAluno;
-                linhaAlunos['ra'] = dataNotasAluno.RA;
+                linhaAlunos['nome'] = datascoresAluno.nomeAluno;
+                linhaAlunos['ra'] = datascoresAluno.RA;
 
                 let considerarLinha = true;
 
-                dataNotasAluno.dadosNotas.forEach((notaAluno,index) =>
+                datascoresAluno.dadosscores.forEach((notaAluno,index) =>
                 {
                     const numeroAtividade = index + 1;
-                    if(!considerarSemTodasNotas && notaAluno.nota == '')
+                    if(!considerarSemTodasscores && notaAluno.nota == '')
                     {
                         considerarLinha = false;
                     }
@@ -195,6 +195,6 @@ function downloadCsvCicloEntrega( idTurma )
 
 function iniciarExportacaoCsv( idTurma )
 {
-    $('#modalFiltroCsvNotas2').modal('show');
+    $('#modalFiltroCsvscores2').modal('show');
     $('#erroCicloSemAtividades').hide();
 }
