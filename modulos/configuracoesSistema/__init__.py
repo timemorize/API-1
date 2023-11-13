@@ -9,3 +9,8 @@ def buscaTempoLimiteConclusaoCicloEntrega():
     dados = buscaDados()
 
     return dados['tempoLimiteConclusaoCicloEntrega']
+
+def buscaMediaMinima():
+    dados = buscaDados()
+
+    return dados['mediaMinima']

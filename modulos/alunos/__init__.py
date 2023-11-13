@@ -1,7 +1,7 @@
 import json
 from flask import jsonify
 import random
-from modulos import usuarios, grupos, turmas, atividades
+from modulos import usuarios, grupos, turmas, atividades, cicloEntrega, configuracoesSistema
 
 def buscaDadosAlunos():
     with open('dadosJson/baseAlunos.json', 'r') as arquivo:
@@ -164,5 +164,67 @@ def buscaTurmasAlunos( ra ):
 
     listaTurmas = dadosAluno['turmas']
     retorno = turmas.buscaListaTurmas(listaTurmas)
+
+    return retorno
+
+def buscaScoreAluno( ra, idTurma ):
+    dadosAtividades = atividades.buscaAtividades()
+    dadosCiclosEntrega = cicloEntrega.buscaCiclosEntrega()
+    pesosCicloEntrega = atividades.buscaPesoTotal( idTurma )
+    mediaMinima = configuracoesSistema.buscaMediaMinima()
+    retorno = []
+
+    for dadosCicloEntrega in dadosCiclosEntrega:
+        estadoMedia = 'Integral'
+        possuiAtividades = False
+        parcialCicloEntrega = []
+        pesoTotal = 1
+        for pesoCicloEntrega in pesosCicloEntrega:
+            if pesoCicloEntrega['chaveCicloEntrega'] == dadosCicloEntrega['chave']:
+                pesoTotal = pesoCicloEntrega['pesoTotalCiclo']
+        
+        mediaParcial = 0
+        for dadosAtividade in dadosAtividades:
+            if dadosCicloEntrega['chave'] == dadosAtividade['cicloEntrega'] and dadosAtividade['turma'] == idTurma:
+                parcialScores ={
+                    "chave": dadosAtividade['chave'],
+                    "peso": dadosAtividade['peso'],
+                    "titulo": dadosAtividade['titulo'],
+                    "dataEntrega": dadosAtividade['dataEntrega'],
+                    "score":""
+                }
+                
+                possuiAtividades = True
+
+                for scoresAluno in dadosAtividade['scores']:
+                    if scoresAluno['RA'] == ra:
+                        parcialScores["score"] = scoresAluno['nota']
+                        notaFormatada = scoresAluno['nota'].replace('.', ',')
+
+                if parcialScores['score'] != '':
+                    mediaParcial += float(parcialScores['score']) * float(parcialScores['peso']) / float(pesoTotal)
+                else:
+                    estadoMedia = 'Parcial'
+
+                parcialScores["score"] = notaFormatada
+                parcialCicloEntrega.append(parcialScores)
+
+
+        possuiAnoAtual = cicloEntrega.cicloPossuiAnoAtual(dadosCicloEntrega['dataInicial'],dadosCicloEntrega['dataFinal'])
+        notaVermelha = mediaParcial < mediaMinima
+
+        retorno.append({
+            "cicloEntregaTitulo":dadosCicloEntrega['titulo'],
+            "cicloEntregaDataInicio":dadosCicloEntrega['dataInicial'],
+            "cicloEntregaDataFinal":dadosCicloEntrega['dataFinal'],
+            "parcialScores":parcialCicloEntrega,
+            "mediaParcial":"{:.2f}".format(mediaParcial).replace('.', ','),
+            "estadoMedia":estadoMedia,
+            "pesoTotal":pesoTotal,
+            "possuiAtividades":possuiAtividades,
+            "possuiAnoAtual":possuiAnoAtual,
+            "estado":dadosCicloEntrega['estado'],
+            "notaVermelha":notaVermelha
+        })
 
     return retorno

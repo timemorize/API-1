@@ -1,0 +1,23 @@
+{% include 'componentes/header.html' %}
+<body>
+    {% include 'aluno/componentes/menu.html' %}
+    <div class="container">
+        <br>
+        <div class="row">
+
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <div class="col-10 py-3"><h3><i class="fa-solid fa-chalkboard  mr-3"></i> Minhas Turmas</h3></div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for turma in listaTurmas %}
+                        <li class="list-group-item"><a href="/minhasNotas/{{turma.identificador}}" class="card-link" idTurma="{{turma.identificador}}">{{turma.nome}}</a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="{{ url_for('static', filename='scripts/professor/turmas/turmas.js') }}"></script>

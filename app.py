@@ -10,6 +10,30 @@ app = Flask(__name__)
 def index():
     return render_template('diretor/index.html')
 
+@app.route('/minhasTurmas')
+def rotaMinhasTurmas():
+    dadosTurmas = professores.buscarTurmas( 'PF03' )
+    dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+    
+    dadosProfessor = professores.pesquisaProfessor('PF03')
+    nomeProf = dadosProfessor['nome']
+    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
+
+@app.route('/aluno')
+def rotaaluno():
+    dadosAluno = alunos.pesquisaAluno('ALUNO2606')
+    turmasAluno = alunos.buscaTurmasAlunos('ALUNO2606')
+    turmasMatriculado = turmasAluno['matriculado']
+
+    return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'] )
+
+@app.route('/minhasNotas/<string:idTurma>')
+def rotaMinhasNotas(idTurma):
+    scoresAluno = alunos.buscaScoreAluno('ALUNO2606',idTurma)
+    dadosAluno = alunos.pesquisaAluno('ALUNO2606')
+    print(scoresAluno)
+    return render_template('aluno/scores.html', listaScoresCicloEntrega = scoresAluno, nomeAluno = dadosAluno['nome'] )
+
 @app.route('/gerenciarAlunos')
 def rotaGerenciaAlunos():
     dadosAlunos = alunos.buscaDadosAlunos()
@@ -205,15 +229,6 @@ def rotaListaCicloEntrega():
         "dadosCicloEntrega":cicloEntrega.buscaCiclosEntrega()
     })
 
-@app.route('/minhasTurmas')
-def rotaMinhasTurmas():
-    dadosTurmas = professores.buscarTurmas( 'PF03' )
-    dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
-    
-    dadosProfessor = professores.pesquisaProfessor('PF03')
-    nomeProf = dadosProfessor['nome']
-    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
-
 @app.route('/cadastrarAtividade', methods=['POST'])
 def rotaCadastrarAtividade():
     return atividades.cadastroAtividade( request.form )
@@ -242,7 +257,7 @@ def rotaExcluirAtividade(identificador):
 
 @app.route('/scoresProfessor/<string:identificador>', methods=['GET'])
 def rotascoresProfessor(identificador):
-    scoresAlunos = atividades.buscascoresAtividades( identificador )
+    scoresAlunos = atividades.buscaScoresAtividades( identificador )
     pesoTotalTurma = atividades.getPesoTotalAtividades( identificador )
     ciclosEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
     dadosProfessor = professores.pesquisaProfessor('PF03')
@@ -252,7 +267,7 @@ def rotascoresProfessor(identificador):
 
 @app.route('/buscaCicloEntregaTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaCicloEntregaTurma(identificador):
-    scoresAlunos = atividades.buscascoresAtividades( identificador )
+    scoresAlunos = atividades.buscaScoresAtividades( identificador )
     return jsonify(
         {
             'result': '1',

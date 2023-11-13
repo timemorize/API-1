@@ -102,6 +102,25 @@ def buscaCiclosEntregaAtivos():
 
     return retorno
 
+def cicloPossuiAnoAtual(dataInicio, dataFinal):
+    hoje = datetime.now().date()
+    anoAtual = hoje.year
+
+    formato = "%d/%m/%Y"
+
+    dataInicioFormatada = datetime.strptime(dataInicio, formato).date()
+    dataFinalFormatada = datetime.strptime(dataFinal, formato).date()
+
+    # Verifica se o intervalo tem algum dia no ano atual
+    if dataInicioFormatada.year == anoAtual or dataFinalFormatada.year == anoAtual:
+        return True
+
+    # Verifica se o intervalo abrange todo o ano atual
+    if dataInicioFormatada < hoje < dataFinalFormatada:
+        return True
+
+    return False
+
 
 def gravaCiclosEntrega(dados):
     with open('dadosJson/baseCiclosEntrega.json', 'w') as arquivo:

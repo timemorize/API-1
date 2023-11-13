@@ -128,7 +128,7 @@ def buscaAtivadadesTurma( idTurma ):
 
     return retorno
 
-def getPesoTotalAtividades( idTurma ):
+def buscaPesoTotal(idTurma):
     dadosAtividades = buscaAtividades()
     dadosCiclosEntregas = cicloEntrega.buscaCiclosEntregaAtivos()
 
@@ -147,6 +147,12 @@ def getPesoTotalAtividades( idTurma ):
 
         retorno.append( pesoPorCiclo )
 
+    return retorno
+
+def getPesoTotalAtividades( idTurma ):
+    
+    retorno = buscaPesoTotal(idTurma)
+
     retorno = json.dumps( retorno)
 
     return retorno
@@ -154,7 +160,7 @@ def getPesoTotalAtividades( idTurma ):
 def extrair_data(dicionario):
     return datetime.strptime(dicionario['dataEntrega'], '%d/%m/%Y')
 
-def buscascoresAtividades( idTurma ):
+def buscaScoresAtividades( idTurma ):
     dadosAlunos = turmas.buscaAlunos( idTurma )['matriculado']
     dadosAtiviades = buscaAtivadadesTurma( idTurma )
     dadosAtiviades = sorted(dadosAtiviades, key=extrair_data)
@@ -230,7 +236,7 @@ def salvarscoresAluno( ra, nomeAluno, relacaoscores ):
                     if int(relacaoNota['chaveAtividade']) == dadosAtidade['chave']:
                         novaNota = {
                             "RA":ra,
-                            "nota": relacaoNota['nota'],
+                            "nota": relacaoNota['nota'].replace(',', '.'),
                             "nomeAluno": nomeAluno
                         }
 

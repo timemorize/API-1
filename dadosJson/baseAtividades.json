@@ -36,7 +36,7 @@
     "scores": [
       {
         "RA": "ALUNO2606",
-        "nota": "8",
+        "nota": "8.5",
         "nomeAluno": "Adilson Nunes"
       },
       {
@@ -46,7 +46,7 @@
       },
       {
         "RA": "ALUNO2783",
-        "nota": "7",
+        "nota": "4.5",
         "nomeAluno": "Eliza Oliveira"
       }
     ]
@@ -72,7 +72,7 @@
       },
       {
         "RA": "ALUNO2606",
-        "nota": "",
+        "nota": "5",
         "nomeAluno": "Adilson Nunes"
       }
     ]
