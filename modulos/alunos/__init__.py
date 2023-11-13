@@ -190,6 +190,7 @@ def buscaScoreAluno( ra, idTurma ):
                     "chave": dadosAtividade['chave'],
                     "peso": dadosAtividade['peso'],
                     "titulo": dadosAtividade['titulo'],
+                    "descricao":dadosAtividade['descricao'],
                     "dataEntrega": dadosAtividade['dataEntrega'],
                     "score":""
                 }

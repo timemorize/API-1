@@ -161,5 +161,31 @@
         "nomeAluno": "Adilson Nunes"
       }
     ]
+  },
+  {
+    "chave": 9,
+    "peso": "12",
+    "titulo": "Trabalho Hist\u00f3ria dos Computadores 2",
+    "dataEntrega": "18/01/2024",
+    "descricao": "<p>Atividade Simples</p><p><br></p><p><strong>Negrito</strong></p><p><em>It\u00e1lico</em></p><p><u>Sublinhado</u></p><p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "1",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      },
+      {
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
+      }
+    ]
   }
 ]
