@@ -187,5 +187,47 @@
         "nomeAluno": "Ezequiel Arantes"
       }
     ]
+  },
+  {
+    "chave": 10,
+    "peso": "20",
+    "titulo": "Algebra Booleana",
+    "dataEntrega": "24/11/2023",
+    "descricao": "<p><strong>Trabalho Algebra Booleana</strong></p><p><br></p><p>Fazer reda\u00e7\u00e3o doscertativa sobre o tema</p><p><br></p><p><em>Enviar via Moodle</em></p>",
+    "turma": "LP2841",
+    "cicloEntrega": "4",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      }
+    ]
+  },
+  {
+    "chave": 11,
+    "peso": "12",
+    "titulo": "AOC",
+    "dataEntrega": "17/11/2023",
+    "descricao": "<p><br></p>",
+    "turma": "AOC1524",
+    "cicloEntrega": "4",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "8.6",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      },
+      {
+        "RA": "ALUNO1791",
+        "nota": "",
+        "nomeAluno": "Ezequiel Arantes"
+      }
+    ]
   }
 ]

@@ -18,95 +18,97 @@
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <select class="custom-select" id="campoPesquisa">
-                    <option value="titulo" selected>Título</option>
+                    <option value="cicloEntrega" selected>Ciclo de Entrega</option>
                     <option value="dataInicial">Data Inicial</option>
                     <option value="dataFinal">Data Final</option>
                   </select>
                 </div>
                 <input type="text" class="form-control" id="search" placeholder="Digite para pesquisar">
                 <div class="input-group-text">
-                    <input type="checkbox" checked id="filtrarAtivados" onchange="filtraDesativados( this )">  &nbsp Listar somente Ciclos do Ano Atual
+                    <input type="checkbox" checked id="filtrarAnoVigente" onchange="pesquisaCiclosAluno()">  &nbsp Listar somente Ciclos do Ano Atual
                   </div>
             </div>
         </div>
         <br>
         {% for dadosCicloEntrega in listaScoresCicloEntrega %}
-            <div class="card cardScores" dataInicial="{{dadosCicloEntrega.cicloEntregaDataInicio}}" dataFinal="{{dadosCicloEntrega.cicloEntregaDataFinal}}" titulo="{{dadosCicloEntrega.cicloEntregaTitulo}}" anoAtual="{{dadosCicloEntrega.possuiAnoAtual}}">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-8">
-                            {{dadosCicloEntrega.cicloEntregaTitulo}}
-                            {% if dadosCicloEntrega.estado == 'desativado' %}
-                                <span class="badge badge-secondary">Fechado</span>
-                            {% else %}
-                                <span class="badge badge-success">Aberto</span>
-                            {% endif %}
+            <div class="cardScores" dataInicial="{{dadosCicloEntrega.cicloEntregaDataInicio}}" dataFinal="{{dadosCicloEntrega.cicloEntregaDataFinal}}" cicloEntrega="{{dadosCicloEntrega.cicloEntregaTitulo}}" anoAtual="{{dadosCicloEntrega.possuiAnoAtual}}">
+                <div class="card" >
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                {{dadosCicloEntrega.cicloEntregaTitulo}}
+                                {% if dadosCicloEntrega.estado == 'desativado' %}
+                                    <span class="badge badge-secondary">Fechado</span>
+                                {% else %}
+                                    <span class="badge badge-success">Aberto</span>
+                                {% endif %}
+                                </div>
+                            <div class="col-4">
+                                <i class="fa-solid fa-calendar-days mr-3"></i>Inicio: {{dadosCicloEntrega.cicloEntregaDataInicio}} | Final:  {{dadosCicloEntrega.cicloEntregaDataFinal}}
                             </div>
-                        <div class="col-4">
-                            <i class="fa-solid fa-calendar-days mr-3"></i>Inicio: {{dadosCicloEntrega.cicloEntregaDataInicio}} | Final:  {{dadosCicloEntrega.cicloEntregaDataFinal}}
                         </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    {% if dadosCicloEntrega.possuiAtividades == True %}
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th><label>Atividade</label></th>
-                                    <th><label>Descrição</label></th>
-                                    <th><label>Peso</label></th>
-                                    <th><label>Prazo</label></th>
-                                    <th><label>Score</label></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for score in dadosCicloEntrega.parcialScores %}
-                                <tr>
-                                    <td><label> {{score.titulo}} </label></td>
-                                    <td>
-                                        <button type="button" class="btn btn-info" onclick="visualizaDescricao('{{score.descricao}}','{{score.titulo}}')">
-                                            <i class="fa-solid fa-book-open"></i> Ver
-                                        </button>
-                                    </td>
-                                    <td><label> {{score.peso}}/{{dadosCicloEntrega.pesoTotal}}</label></td>
-                                    <td><label> {{score.dataEntrega}}</label></td>
-                                    <td>
-                                        {% if score.score == "" %}
-                                            <span class="badge badge-secondary">sem nota</span>
-                                        {% else %}
-                                            {{score.score}}
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-
-                        <div class="row justify-content-md-end">
-                            <div class="col-3">
+                    <div class="card-body">
+                        {% if dadosCicloEntrega.possuiAtividades == True %}
                             <table class="table table-bordered">
-                                <tr>
-                                    <th>Média {{dadosCicloEntrega.estadoMedia}}: </th>
-                                    {% if dadosCicloEntrega.notaVermelha == True %}
-                                        <th class="table-danger">
-                                    {% else %}
-                                        <th class="table-info">
-                                    {% endif %}
-                                            {{dadosCicloEntrega.mediaParcial}}
-                                        </th>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th><label>Atividade</label></th>
+                                        <th><label>Descrição</label></th>
+                                        <th><label>Peso</label></th>
+                                        <th><label>Prazo</label></th>
+                                        <th><label>Score</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for score in dadosCicloEntrega.parcialScores %}
+                                    <tr>
+                                        <td><label> {{score.titulo}} </label></td>
+                                        <td>
+                                            <button type="button" class="btn btn-info" onclick="visualizaDescricao('{{score.descricao}}','{{score.titulo}}')">
+                                                <i class="fa-solid fa-book-open"></i> Ver
+                                            </button>
+                                        </td>
+                                        <td><label> {{score.peso}}/{{dadosCicloEntrega.pesoTotal}}</label></td>
+                                        <td><label> {{score.dataEntrega}}</label></td>
+                                        <td>
+                                            {% if score.score == "" %}
+                                                <span class="badge badge-secondary">sem nota</span>
+                                            {% else %}
+                                                {{score.score}}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
                             </table>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="alert alert-info" role="alert">
-                            Ciclo de Entrega não possui atividades nessa Turma
-                        </div>
-                    {% endif %}
 
+                            <div class="row justify-content-md-end">
+                                <div class="col-3">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Média {{dadosCicloEntrega.estadoMedia}}: </th>
+                                        {% if dadosCicloEntrega.notaVermelha == True %}
+                                            <th class="table-danger">
+                                        {% else %}
+                                            <th class="table-info">
+                                        {% endif %}
+                                                {{dadosCicloEntrega.mediaParcial}}
+                                            </th>
+                                    </tr>
+                                </table>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-info" role="alert">
+                                Ciclo de Entrega não possui atividades nessa Turma
+                            </div>
+                        {% endif %}
+
+                    </div>
                 </div>
+                <br>
             </div>
-            <br>
         {% endfor %}
     </div>
 </body>

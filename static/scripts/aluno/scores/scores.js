@@ -2,25 +2,10 @@ $(document).ready(function()
 {
     $('#search').on('input', function()
 	{
-		const valorPesquisa = $(this).val().toUpperCase();
-		const campoPesquisa = $( '#campoPesquisa' ).val();
-        const div = $( this ).closest( '.container' );
-        const cards = $( div ).find( '.cardScores' )
-		console.log(cards)
-
-		$( cards ).each( function(chave,tarefa)
-		{
-			let pesquisa = $(this).attr( campoPesquisa ).toUpperCase();
-			if( !pesquisa.includes(valorPesquisa ) && valorPesquisa != "" )
-			{
-				$( this ).hide();
-			}
-			else
-			{
-				$( this ).show();   
-			}
-		});
+		pesquisaCiclosAluno();
 	} );
+
+	pesquisaCiclosAluno();
 
 } );
 
@@ -33,4 +18,30 @@ function visualizaDescricao( descricao, tituloAtividade )
 	}
 	$('#descAtividade').html(descricao);
 	$('#tituloModalAtividade').html("Descrição da Atividade: " + tituloAtividade );
+}
+
+function pesquisaCiclosAluno()
+{
+	const valorPesquisa = $('#search').val().toUpperCase();
+	const campoPesquisa = $( '#campoPesquisa' ).val();
+
+	const estado = $( '#filtrarAnoVigente' ).is(':checked');
+
+	const div = $( '#search' ).closest( '.container' );
+	const cards = $( div ).find( '.cardScores' )
+
+	$( cards ).each( function(chave,tarefa)
+	{
+		let pesquisa = $(this).attr( campoPesquisa ).toUpperCase();
+		if(
+			(!pesquisa.includes(valorPesquisa ) && valorPesquisa != "" ) ||
+			(estado == true && $( this ).attr('anoAtual') == 'False') )
+		{
+			$( this ).hide();
+		}
+		else
+		{
+			$( this ).show();   
+		}
+	});
 }
