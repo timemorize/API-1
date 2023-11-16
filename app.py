@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,jsonify, session
+from flask import Flask, render_template, request,jsonify, session, redirect, url_for
 from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios
 import json
 import datetime
@@ -9,6 +9,10 @@ app.secret_key = 'c0h0dXQyamJRM0t5RzVjdDVsUEZoSzBRUjdFMGJkMnBmMkZEVlJJS25raz0'
 
 def is_logged_in():
     return 'userID' in session
+
+def verificarDiretor():
+    return session['tipo'] != 'diretor'
+        
 
 @app.route('/logout')
 def logout():
@@ -83,6 +87,9 @@ def rotaMinhasNotas(idTurma):
 
 @app.route('/gerenciarAlunos')
 def rotaGerenciaAlunos():
+    if verificarDiretor():
+        return redirect(url_for('logout'))
+
     dadosAlunos = alunos.buscaDadosAlunos()
     return render_template('diretor/alunos/alunos.html', listaAlunos = dadosAlunos )
 
@@ -170,6 +177,8 @@ def rotaModificarTurmasAlunos():
 
 @app.route('/gerenciarProfessores')
 def rotaGerenciaProfessores():
+    if verificarDiretor():
+        return redirect(url_for('logout'))
     dadosProfessores = professores.buscaDadosProfessores()
     return render_template('diretor/professores/professores.html',listaProfessores = dadosProfessores)
 
@@ -201,6 +210,8 @@ def rotaBuscaListaTurmas(identificador):
 
 @app.route('/gerenciarTurmas')
 def rotaGerenciaTurmas():
+    if verificarDiretor():
+        return redirect(url_for('logout'))
     dadosTurma = turmas.buscaDadosTurmas()
     dadosProfessores = professores.buscaDadosProfessores()
     return render_template('diretor/turmas/turmas.html', listaTurmas = dadosTurma, listaProfessores = dadosProfessores)
@@ -241,11 +252,15 @@ def rotaEditarGrupo():
 
 @app.route('/gerenciarGrupos')
 def rotaGerenciaGrupos():
+    if verificarDiretor():
+        return redirect(url_for('logout'))
     dadosGrupos = grupos.buscaDadosGrupos()
     return render_template('diretor/grupos/grupos.html', listaGrupos = dadosGrupos )
 
 @app.route('/gerenciarCicloDeEntrega')
 def rotaGerenciarCicloDeEntrega():
+    if verificarDiretor():
+        return redirect(url_for('logout'))
     dadosCicloDeEntrega = cicloEntrega.buscaCiclosEntrega()
     dataServidor = datetime.date.today()
     return render_template('diretor/cicloDeEntrega/cicloDeEntrega.html', dataAtual = dataServidor, listaCiclos = dadosCicloDeEntrega )
