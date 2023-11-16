@@ -13,9 +13,9 @@
   },
   {
     "usuario": "ALUNO2783",
-    "senha": "Teste12345678",
+    "senha": "mapa",
     "tipo": "aluno",
-    "resetSenha": true
+    "resetSenha": false
   },
   {
     "usuario": "ALUNO2173",

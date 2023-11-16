@@ -10,6 +10,16 @@
     .nav-menu:hover{
         color: #611f4e;
     }
+
+    .nav-aluno-clicavel{
+        color:white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 150;
+    }
+    .nav-aluno-clicavel:hover{
+        color: #f7e365;
+        cursor: pointer;
+    }
 </style>
 <nav class="navbar navbar-expand-lg" style="background-color: #d16134;">
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -28,8 +38,20 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <div class="nav-aluno-clicavel nav-link" onclick="resetarSenha()">Redefinir Senha</div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-professor nav-link nav-menu" href="logout">Sair</a>
             </li>
         </ul>
     </div>
 </nav>
+
+{% include 'componentes/modalRedefinirSenha.html' %}
+
+<script>
+    function resetarSenha()
+    {
+	    $('#modalMinhaConta').modal('show');
+    }
+</script>
