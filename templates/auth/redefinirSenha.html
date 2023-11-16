@@ -1,0 +1,45 @@
+{% include 'componentes/header.html' %}
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("{{ url_for('static', filename='images/fundoLogin.jpg') }}");
+    }
+  </style>
+<body>
+  <div class="card" style="width: 300px;">
+    <div class="card-body">
+      <form id="loginForm">
+        <div id="erroLogin" class="alert alert-danger" role="alert"></div>
+        <div class="form-group">
+          <h5><label for="username">Seja Bem Vindo</label></h5>
+          <h6>Você deve cadastrar uma nova senha para uso definitivo</h6>
+        </div>
+        <div class="form-group">
+          <label for="password">Senha Definitiva:</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
+            <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" onclick="visualizarSenha('password')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Confirmar Senha:</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="confirPassword" name="confirPassword" placeholder="Digite sua senha">
+            <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" onclick="visualizarSenha('confirPassword')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <br>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Atualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts/auth/redefinirSenha.js') }}"></script>

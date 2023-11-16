@@ -8,6 +8,10 @@ def buscaDadosUsuarios():
         dados_json = json.load(arquivo)
     return dados_json
 
+def gravarDadosUsuarios(dadosUsuarios):
+    with open('dadosJson/baseUsuarios.json', 'w') as arquivoUsuarios:
+        json.dump(dadosUsuarios, arquivoUsuarios, indent=2)
+
 def cadastrarUsuario(usuario, tipo):
     dadosUsuarios = buscaDadosUsuarios()
 
@@ -25,8 +29,19 @@ def cadastrarUsuario(usuario, tipo):
 
     dadosUsuarios.append(novoUsuario)
 
-    with open('dadosJson/baseUsuarios.json', 'w') as arquivoUsuarios:
-        json.dump(dadosUsuarios, arquivoUsuarios, indent=2)
+    gravarDadosUsuarios(dadosUsuarios)
 
     return senha
     
+def redefinirSenha( idUsuario, senha ):
+    dadosUsuarios = buscaDadosUsuarios()
+
+    novosDadosUsuarios = []
+    for dadosUsuario in dadosUsuarios:
+        if dadosUsuario['usuario'] == idUsuario:
+            dadosUsuario['senha'] = senha
+            dadosUsuario['resetSenha'] = False
+        
+        novosDadosUsuarios.append(dadosUsuario)
+
+    gravarDadosUsuarios(novosDadosUsuarios)

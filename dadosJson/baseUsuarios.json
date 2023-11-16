@@ -1,15 +1,15 @@
 [
   {
     "usuario": "ALUNO1791",
-    "senha": "Teste12345678",
+    "senha": "abc@1302",
     "tipo": "aluno",
-    "resetSenha": true
+    "resetSenha": false
   },
   {
-    "usuario": "ALUNO2606",
-    "senha": "Teste12345678",
-    "tipo": "aluno",
-    "resetSenha": true
+    "usuario": "PF03",
+    "senha": "GON\u00c7ALVES",
+    "tipo": "professor",
+    "resetSenha": false
   },
   {
     "usuario": "ALUNO2783",

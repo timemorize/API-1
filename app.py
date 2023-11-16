@@ -1,37 +1,84 @@
 from flask import Flask, render_template, request,jsonify, session
-from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega
+from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios
 import json
 import datetime
 
 
 app = Flask(__name__)
+app.secret_key = 'c0h0dXQyamJRM0t5RzVjdDVsUEZoSzBRUjdFMGJkMnBmMkZEVlJJS25raz0'
+
+def is_logged_in():
+    return 'userID' in session
+
+@app.route('/logout')
+def logout():
+    session.pop('userID', None)
+    session.pop('tipo', None)
+    return render_template('auth/login.html')
 
 @app.route('/')
 def index():
-    return render_template('diretor/index.html')
+    if not is_logged_in():
+        return render_template('auth/login.html')
 
-@app.route('/minhasTurmas')
-def rotaMinhasTurmas():
-    dadosTurmas = professores.buscarTurmas( 'PF03' )
-    dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+    if session['tipo'] == 'diretor':
+        return render_template('diretor/index.html')
+
+    if session['tipo'] == 'professor':
+        dadosTurmas = professores.buscarTurmas( session['userID'] )
+        dadosCicloEntrega = cicloEntrega.buscaCiclosEntregaAtivos()
+        
+        dadosProfessor = professores.pesquisaProfessor( session['userID'])
+        nomeProf = dadosProfessor['nome']
+        return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
     
-    dadosProfessor = professores.pesquisaProfessor('PF03')
-    nomeProf = dadosProfessor['nome']
-    return render_template('professor/turmas/turmas.html', listaTurmas = dadosTurmas, listaCicloEntrega= dadosCicloEntrega, nomeProfessor = nomeProf )
+    if session['tipo'] == 'aluno':
+        dadosAluno = alunos.pesquisaAluno( session['userID'] )
+        turmasAluno = alunos.buscaTurmasAlunos( session['userID'] )
+        turmasMatriculado = turmasAluno['matriculado']
 
-@app.route('/aluno')
-def rotaaluno():
-    dadosAluno = alunos.pesquisaAluno('ALUNO2606')
-    turmasAluno = alunos.buscaTurmasAlunos('ALUNO2606')
-    turmasMatriculado = turmasAluno['matriculado']
+        return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'] )
 
-    return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'] )
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    dadosUsuarios = usuarios.buscaDadosUsuarios()
+    autentica = False
+    tipoUsuario = ""
+    resetSenha = ""
+    for dadosUsuario in dadosUsuarios:
+        if dadosUsuario['usuario'] == username and dadosUsuario['senha'] == password:
+            autentica = True
+            tipoUsuario = dadosUsuario['tipo']
+            resetSenha = dadosUsuario['resetSenha']
+            break
+
+    if autentica == True:
+        session['userID'] = username
+        session['tipo'] = tipoUsuario
+         
+        return jsonify({'result': '1', 'message': '', 'resetSenha':resetSenha})
+    else:
+        return jsonify({'result': '', 'message': 'Credenciais inválidas. Tente novamente.'})
+
+@app.route('/redefinirSenha')
+def rotaRedefinirSenha():
+    return render_template('auth/redefinirSenha.html')
+
+@app.route('/atualizarSenha', methods=['POST'])
+def rotaAtualizarSenha():
+    usuarios.redefinirSenha( session['userID'], request.form['password'] )
+    return jsonify(
+        {
+            'result': '1'
+        } )
 
 @app.route('/minhasNotas/<string:idTurma>')
 def rotaMinhasNotas(idTurma):
-    scoresAluno = alunos.buscaScoreAluno('ALUNO2606',idTurma)
-    dadosAluno = alunos.pesquisaAluno('ALUNO2606')
-    print(scoresAluno)
+    scoresAluno = alunos.buscaScoreAluno( session['userID'] ,idTurma)
+    dadosAluno = alunos.pesquisaAluno( session['userID'] )
     return render_template('aluno/scores.html', listaScoresCicloEntrega = scoresAluno, nomeAluno = dadosAluno['nome'] )
 
 @app.route('/gerenciarAlunos')

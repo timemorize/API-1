@@ -1,0 +1,36 @@
+{% include 'componentes/header.html' %}
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("{{ url_for('static', filename='images/fundoLogin.jpg') }}");
+    }
+  </style>
+<body>
+  <div class="card" style="width: 300px;">
+    <div class="card-body">
+      <form id="loginForm">
+        <div id="erroLogin" class="alert alert-danger" role="alert"></div>
+        <div class="form-group">
+          <label for="username">Usuário</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário">
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
+            <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" onclick="visualizarSenha()"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <br>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Acessar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts/auth/login.js') }}"></script>
