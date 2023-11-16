@@ -6,8 +6,14 @@
     "resetSenha": false
   },
   {
+    "usuario": "ALUNO2606",
+    "senha": "ad",
+    "tipo": "aluno",
+    "resetSenha": false
+  },
+  {
     "usuario": "PF03",
-    "senha": "GON\u00c7ALVES",
+    "senha": "bob",
     "tipo": "professor",
     "resetSenha": false
   },

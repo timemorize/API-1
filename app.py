@@ -73,7 +73,12 @@ def rotaRedefinirSenha():
 
 @app.route('/atualizarSenha', methods=['POST'])
 def rotaAtualizarSenha():
-    usuarios.redefinirSenha( session['userID'], request.form['password'] )
+    if session['tipo'] == 'diretor':
+        identificador = request.form['idUsuario']
+    else:
+        identificador = session['userID']
+
+    usuarios.redefinirSenha( identificador, request.form['password'] )
     return jsonify(
         {
             'result': '1'

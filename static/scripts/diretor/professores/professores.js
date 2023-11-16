@@ -30,6 +30,12 @@ function novoProfessor()
 	$('#novoProfessor').modal('show');
 }
 
+function resetarSenha( identificador )
+{
+	$('#loginForm').attr('idUsuario',identificador);
+	$('#modalResetarSenha').modal('show');
+}
+
 function cadastrarProfessor()
 {
 	let formValido = true;

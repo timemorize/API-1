@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalMinhaConta" tabindex="-1" role="dialog" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalResetarSenha" tabindex="-1" role="dialog" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -8,13 +8,13 @@
         </button>
         </div>
         <div class="modal-body">
-        <form id="loginForm">
+        <form id="loginForm" idUsuario="">
             <div class="form-group">
             <label for="password">Nova Senha</label>
             <div class="input-group">
-                <input type="password" class="form-control" id="password" placeholder="Nova Senha">
+                <input type="password" class="form-control" id="senhaAtribuida" placeholder="Nova Senha">
                 <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" onclick="visualizarSenha('password')"><i class="fa-solid fa-eye"></i></button>
+                <button class="btn btn-outline-secondary" type="button" onclick="visualizarSenha('novaSenha')"><i class="fa-solid fa-eye"></i></button>
                 </div>
             </div>
             </div>

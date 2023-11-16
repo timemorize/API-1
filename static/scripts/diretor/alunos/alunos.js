@@ -66,6 +66,11 @@ function novoAluno()
 	$('#novoAluno').modal('show');
 }
 
+function resetarSenha( ra )
+{
+	$('#loginForm').attr('idUsuario',ra);
+	$('#modalResetarSenha').modal('show');
+}
 function cadastrarAluno()
 {
 	let formValido = true;

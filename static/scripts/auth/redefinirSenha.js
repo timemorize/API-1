@@ -9,7 +9,8 @@ $(document).ready(function() {
 
       e.preventDefault();
   
-      const password = $('#password').val();
+      const idUsuario = $('#loginForm').attr('idUsuario');
+      const password = $('#senhaAtribuida').val();
       const confirPassword = $('#confirPassword').val();
 
       if( password != confirPassword )
@@ -23,7 +24,10 @@ $(document).ready(function() {
       $.ajax({
         url: '/atualizarSenha',
         type: 'POST',
-        data: { password: password },
+        data: {
+          password: password,
+          idUsuario: idUsuario
+        },
         success: function(response)
         {
           window.location.href = '/';

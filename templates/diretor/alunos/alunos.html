@@ -35,6 +35,7 @@
                     <th>RA</th>
                     <th>Grupos</th>
                     <th>Turmas</th>
+                    <th>Autenticação</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -51,6 +52,11 @@
                         <td>
                             <button type="button" class="btn btn-info" onclick="buscaListaTurmas('{{ aluno.RA }}')">
                                 Turmas
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="resetarSenha('{{ aluno.RA }}')">
+                                Redefinir Senha
                             </button>
                         </td>
                         <td>
@@ -76,4 +82,5 @@
     {% include 'diretor/alunos/modais/gruposAluno.html' %}
     
     {% include 'diretor/componentes/modlExibirNovaSenha.html' %}
+    {% include 'componentes/modalRedefinirSenha.html' %}
 </body>

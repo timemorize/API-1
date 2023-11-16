@@ -33,6 +33,7 @@
                     <th>Nome</th>
                     <th>E-mail:</th>
                     <th>Visualizar</th>
+                    <th>Autenticação</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -45,6 +46,11 @@
                         <td>
                             <button type="button" class="btn btn-info" onclick="buscaListaTurmas('{{ professor.identificador }}','{{ professor.nome }}')">
                                 Turmas
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="resetarSenha('{{ professor.identificador }}')">
+                                Redefinir Senha
                             </button>
                         </td>
                         <td>
@@ -70,3 +76,5 @@
 
 {% include 'diretor/componentes/modalErro.html' %}
 {% include 'diretor/componentes/modlExibirNovaSenha.html' %}
+
+{% include 'componentes/modalRedefinirSenha.html' %}
