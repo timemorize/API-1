@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request,jsonify, session, redirect, url_for
-from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios
+from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios, configuracoesSistema
 import json
 import datetime
+
 
 
 app = Flask(__name__)
@@ -40,8 +41,11 @@ def index():
         dadosAluno = alunos.pesquisaAluno( session['userID'] )
         turmasAluno = alunos.buscaTurmasAlunos( session['userID'] )
         turmasMatriculado = turmasAluno['matriculado']
+        mediaMinina = configuracoesSistema.buscaMediaMinima()
+        dataAtual = datetime.date.today()
+        dataAtual = dataAtual.strftime('%d/%m/%Y')
 
-        return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'] )
+        return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'], mediaMinina=mediaMinina, dataAtualServidor=dataAtual )
 
 @app.route('/login', methods=['POST'])
 def login():

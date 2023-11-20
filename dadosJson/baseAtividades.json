@@ -241,12 +241,12 @@
     "scores": [
       {
         "RA": "ALUNO2606",
-        "nota": "",
+        "nota": "8",
         "nomeAluno": "Adilson Nunes"
       },
       {
         "RA": "ALUNO2783",
-        "nota": "",
+        "nota": "3",
         "nomeAluno": "Eliza Oliveira"
       }
     ]
@@ -262,12 +262,12 @@
     "scores": [
       {
         "RA": "ALUNO2606",
-        "nota": "",
+        "nota": "7",
         "nomeAluno": "Adilson Nunes"
       },
       {
         "RA": "ALUNO2783",
-        "nota": "",
+        "nota": "4",
         "nomeAluno": "Eliza Oliveira"
       }
     ]
