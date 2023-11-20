@@ -24,6 +24,13 @@
     "chave": 4,
     "identificador": "MD4452",
     "nome": "Matem\u00e1tica Discreta",
-    "professor": "PF03"
+    "professor": "PF03",
+    "nomeProfessor": "Uncle Bob"
+  },
+  {
+    "chave": 5,
+    "identificador": "HA5905",
+    "nome": "Hist\u00f3ria da Arte",
+    "professor": "PRF2862"
   }
 ]

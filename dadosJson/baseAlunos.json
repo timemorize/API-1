@@ -15,8 +15,9 @@
     "estado": "SP",
     "turmas": [
       "AOC1524",
+      "LP2841",
       "ED3752",
-      "LP2841"
+      "HA5905"
     ],
     "grupos": []
   },
@@ -35,7 +36,8 @@
     "cidade": "S\u00e3o Jos\u00e9 dos Campos",
     "estado": "SP",
     "turmas": [
-      "AOC1524"
+      "AOC1524",
+      "HA5905"
     ],
     "grupos": []
   },

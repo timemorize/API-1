@@ -229,5 +229,47 @@
         "nomeAluno": "Ezequiel Arantes"
       }
     ]
+  },
+  {
+    "chave": 12,
+    "peso": "20",
+    "titulo": "Vanguardas Europeias",
+    "dataEntrega": "23/11/2023",
+    "descricao": "<p><br></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "4",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 13,
+    "peso": "30",
+    "titulo": "Dadaismo",
+    "dataEntrega": "30/11/2023",
+    "descricao": "<p><br></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "4",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
   }
 ]

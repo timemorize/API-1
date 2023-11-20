@@ -159,7 +159,7 @@ function cadastrarAtividade()
             },
             success: function(response)
             {
-                window.location.href = '/minhasTurmas'
+                window.location.href = '/'
             },
             error: function(error)
             {
