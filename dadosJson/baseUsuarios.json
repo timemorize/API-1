@@ -13,7 +13,7 @@
   },
   {
     "usuario": "PF03",
-    "senha": "bob",
+    "senha": "bobbob",
     "tipo": "professor",
     "resetSenha": false
   },
@@ -27,6 +27,12 @@
     "usuario": "admin",
     "senha": "Teste123456789",
     "tipo": "diretor",
+    "resetSenha": false
+  },
+  {
+    "usuario": "PRF2862",
+    "senha": "teste",
+    "tipo": "professor",
     "resetSenha": false
   }
 ]
