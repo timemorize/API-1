@@ -12,6 +12,9 @@ def gravarProfessor(dadosProfessor):
     with open('dadosJson/baseProfessores.json', 'w') as arquivoProfessor:
         json.dump(dadosProfessor, arquivoProfessor, indent=2)
 
+def buscaQuantidadeProfessores():
+    return len(buscaDadosProfessores())
+
 def pesquisaProfessor( identificador ):
     dadosProfessores = buscaDadosProfessores()
 

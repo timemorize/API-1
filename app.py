@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request,jsonify, session, redirect, url_for
-from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios, configuracoesSistema
+from modulos import atividades,alunos,grupos,turmas, professores, cicloEntrega, usuarios, configuracoesSistema, informativo
 import json
 import datetime
 
@@ -27,7 +27,11 @@ def index():
         return render_template('auth/login.html')
 
     if session['tipo'] == 'diretor':
-        return render_template('diretor/index.html')
+        dadosInformativo = informativo.buscaDados()
+        relacaoTurmaAlunos = turmas.buscaQuantidadeTurmasAluno()
+        
+        relacaoEntidades = configuracoesSistema.relacaoTiposUsuario()
+        return render_template('diretor/index.html', dadosInformativo = dadosInformativo, relacaoTurmaAlunos = relacaoTurmaAlunos,relacaoEntidades=relacaoEntidades)
 
     if session['tipo'] == 'professor':
         dadosTurmas = professores.buscarTurmas( session['userID'] )
@@ -44,8 +48,9 @@ def index():
         mediaMinina = configuracoesSistema.buscaMediaMinima()
         dataAtual = datetime.date.today()
         dataAtual = dataAtual.strftime('%d/%m/%Y')
+        dadosInformativo = informativo.buscaDados()
 
-        return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'], mediaMinina=mediaMinina, dataAtualServidor=dataAtual )
+        return render_template('aluno/aluno.html', listaTurmas = turmasMatriculado, nomeAluno = dadosAluno['nome'], raAluno = dadosAluno['RA'], mediaMinina=mediaMinina, dataAtualServidor=dataAtual, dadosInformativo=dadosInformativo )
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -74,6 +79,14 @@ def login():
 @app.route('/redefinirSenha')
 def rotaRedefinirSenha():
     return render_template('auth/redefinirSenha.html')
+
+@app.route('/salvarInformativo', methods=['POST'])
+def rotaSalvarInformativo():
+    informativo.salvarDados( request.form )
+    return jsonify(
+        {
+            'result': '1'
+        } )
 
 @app.route('/atualizarSenha', methods=['POST'])
 def rotaAtualizarSenha():

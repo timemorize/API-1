@@ -1,4 +1,99 @@
 {% include 'componentes/header.html' %}
 <body>
     {% include 'diretor/componentes/menu.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header">Proporções Administrativas</div>
+                  <div class="card-body">
+                    <canvas id="chart1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <!-- Repita este bloco para os outros gráficos -->
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header">Quantidade de Alunos por Turma</div>
+                  <div class="card-body">
+                    <canvas id="chart2"></canvas>
+                  </div>
+                </div>
+              </div>
+            <div class="col-4">
+                <div id="cardInformativo" class="{{dadosInformativo.classe}}">
+                    <div class="card-header">
+                        <div class="col-10"><i class="fa-solid fa-newspaper"></i> Informativo de Alunos</div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Bandeira</label>
+                                <select onchange="mudaTipoAviso( this )" class="form-control" id="tipoAlerta">
+                                    <option classeAlerta="class-warning" value="card bg-light" class=""
+                                    {% if dadosInformativo.classe == "card bg-light" %}
+                                        selected
+                                    {% endif %}>Padrão</option>
+                                    <option classeAlerta="alert-danger" value="card text-white bg-danger" class="text-danger"
+                                    {% if dadosInformativo.classe == "card text-white bg-danger" %}
+                                        selected
+                                    {% endif %}
+                                    >Urgente</option>
+                                    <option classeAlerta="alert-warning" value="card text-white bg-warning" class="text-warning"
+                                    {% if dadosInformativo.classe == "card text-white bg-warning" %}
+                                        selected
+                                    {% endif %}>Alerta</option>
+                                    <option classeAlerta="alert-info" value="card text-white bg-info" class="text-info"
+                                    {% if dadosInformativo.classe == "card text-white bg-info" %}
+                                        selected
+                                    {% endif %}>Informativo</option>
+                                    <option classeAlerta="alert-success" value="card text-white bg-success" class="text-success"
+                                    {% if dadosInformativo.classe == "card text-white bg-success" %}
+                                        selected
+                                    {% endif %}>Sucesso</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Título do Informativo</label>
+                                <input class="form-control" id="tituloInformativo" value="{{dadosInformativo.titulo}}"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Texto Informativo</label>
+                                <textarea class="form-control" id="textoInformativo" rows="3">{{dadosInformativo.texto}}</textarea>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="estadoInformativo"
+                                {% if dadosInformativo.estado == "ativo" %}
+                                    checked
+                                {% endif %}>
+                                <label class="form-check-label" for="exampleCheck1">Informativo Ativado</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <a onclick="salvarInformativo( false)" class="btn btn-success active" role="button" aria-pressed="true">Salvar</a>
+                    </div>
+                </div>
+            </div>
+    </div>
 </body>
+<script>
+        const listaTurmas = [];
+        const listaQuantidadeAlunosTurma = [];
+        {% for relacao in relacaoTurmaAlunos %}
+            listaTurmas.push( '{{ relacao.nome }} ')
+            listaQuantidadeAlunosTurma.push( '{{ relacao.quantidade }} ')
+        {% endfor %}
+
+        const listaEntidades = [];
+        const listaQuantidadeEntidades = [];
+        {% for relacao in relacaoEntidades %}
+            listaEntidades.push( '{{ relacao.entidade }} ')
+            listaQuantidadeEntidades.push( '{{ relacao.quantidade }} ')
+        {% endfor %}
+</script>
+<script src="{{ url_for('static', filename='scripts/diretor/index/informativo.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/diretor/index/graficos.js') }}"></script>

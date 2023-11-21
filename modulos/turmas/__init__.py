@@ -23,6 +23,9 @@ def gravarTurmas( dadosTurmas ):
     with open('dadosJson/baseTurmas.json', 'w') as arquivo:
         json.dump(dadosTurmas, arquivo, indent=2)
 
+def buscaQuantidadeTurmas():
+    return len(buscaDadosTurmas())
+
 def cadastrarTurma( dadosTurma ):
     dadosTurmas = buscaDadosTurmas()
 
@@ -147,3 +150,21 @@ def excluirTurma( id ):
     gravarTurmas( novosDados )
 
     return ''
+
+def buscaQuantidadeTurmasAluno(): 
+    dadosAlunos = alunos.buscaDadosAlunos()
+    dadosTurmas = buscaDadosTurmas()
+    retorno = []
+    for dadosTurma in dadosTurmas:
+        quantidadeAlunos = 0
+        for dadosAluno in dadosAlunos:
+            if dadosTurma['identificador'] in dadosAluno['turmas']:
+                quantidadeAlunos = quantidadeAlunos + 1
+        retornoTurma = {
+            'nome':dadosTurma['nome'],
+            'identificador':dadosTurma['identificador'],
+            'quantidade':quantidadeAlunos
+        }
+        retorno.append( retornoTurma )
+
+    return retorno

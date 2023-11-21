@@ -14,6 +14,9 @@ def gravarAlunos(dadosAlunos):
     with open('dadosJson/baseAlunos.json', 'w') as arquivoAlunos:
         json.dump(dadosAlunos, arquivoAlunos, indent=2)
 
+def buscaQuantidadeAlunos():
+    return len(buscaDadosAlunos())
+
 def cadastrarAluno( dadosAluno ):
     dadosAlunos = buscaDadosAlunos()
     numeroRegistros = len(dadosAlunos)
