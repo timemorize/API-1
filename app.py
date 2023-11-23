@@ -313,6 +313,13 @@ def rotaListaCicloEntrega():
         "dadosCicloEntrega":cicloEntrega.buscaCiclosEntrega()
     })
 
+@app.route('/listaProfessores', methods=['GET'])
+def rotaListaProfessores():
+    return jsonify({
+        "result":"1",
+        "dadosProfessores":professores.buscaDadosProfessores()
+    })
+
 @app.route('/cadastrarAtividade', methods=['POST'])
 def rotaCadastrarAtividade():
     return atividades.cadastroAtividade( request.form )

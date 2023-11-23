@@ -9,6 +9,7 @@
             <div class="col-10">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" onclick="novoProfessor()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Novo Professor</button>
+                    <button type="button" onclick="downloadCsvProfessor()" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Exportar Dados</button>
                 </div>
             </div>
         </div>
@@ -68,6 +69,7 @@
     </div>
 </body>
 
+<script src="{{ url_for('static', filename='scripts/downloadCSV/downloadCSV.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/diretor/professores/professores.js') }}"></script>
 {% include 'diretor/professores/modais/novoProfessor.html' %}
 {% include 'diretor/professores/modais/visualizarTurmas.html' %}

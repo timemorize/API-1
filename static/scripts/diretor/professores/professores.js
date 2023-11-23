@@ -251,3 +251,18 @@ function abreModalEdicaoProfessor( id, nome, email )
 	$('#botaoEditarProfessor').attr('identificador',id);
 	$('#editarProfessor').modal('show');
 }
+
+function downloadCsvProfessor(){
+	axios.get('/listaProfessores')
+	.then(function (response) {
+	console.log(response)  
+	if( response.data.result )
+	{
+	  const dadosProfessores =  response.data.dadosProfessores;
+	  downloadCSV( dadosProfessores, 'Relacao_Professores');
+	}
+	})
+	.catch(function (e) {
+	  alert(e);
+	});  
+}
