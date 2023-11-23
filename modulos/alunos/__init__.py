@@ -225,6 +225,8 @@ def buscaScoreAluno( ra, idTurma ):
         dataHoje = datetime.today()
         diasPassados=dataFinal-dataHoje
         diasPorc=diasPassados*100/diasTotais
+        if( int(diasPorc) > 100 ):
+            diasPorc = 100
 
         retorno.append({
             "cicloEntregaTitulo":dadosCicloEntrega['titulo'],
