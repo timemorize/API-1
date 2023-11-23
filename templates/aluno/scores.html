@@ -35,13 +35,19 @@
                 <div class="card" >
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-3">
                                 {{dadosCicloEntrega.cicloEntregaTitulo}}
                                 {% if dadosCicloEntrega.estado == 'desativado' %}
                                     <span class="badge badge-secondary">Fechado</span>
                                 {% else %}
                                     <span class="badge badge-success">Aberto</span>
                                 {% endif %}
+                                </div>
+                                <div class="col-5">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{dadosCicloEntrega.cicloEntregaDiasPorcentagem}}%" ></div>
+                                      </div>
+                                
                                 </div>
                             <div class="col-4">
                                 <i class="fa-solid fa-calendar-days mr-3"></i>Inicio: {{dadosCicloEntrega.cicloEntregaDataInicio}} | Final:  {{dadosCicloEntrega.cicloEntregaDataFinal}}

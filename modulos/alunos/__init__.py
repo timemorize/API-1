@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from flask import jsonify
 import random
 from modulos import usuarios, grupos, turmas, atividades, cicloEntrega, configuracoesSistema
@@ -217,10 +218,19 @@ def buscaScoreAluno( ra, idTurma ):
         possuiAnoAtual = cicloEntrega.cicloPossuiAnoAtual(dadosCicloEntrega['dataInicial'],dadosCicloEntrega['dataFinal'])
         notaVermelha = mediaParcial < mediaMinima
 
+        dataInicial = datetime.strptime(dadosCicloEntrega['dataInicial'], '%d/%m/%Y')
+        dataFinal = datetime.strptime(dadosCicloEntrega['dataFinal'], '%d/%m/%Y')
+
+        diasTotais=dataFinal-dataInicial
+        dataHoje = datetime.today()
+        diasPassados=dataFinal-dataHoje
+        diasPorc=diasPassados*100/diasTotais
+
         retorno.append({
             "cicloEntregaTitulo":dadosCicloEntrega['titulo'],
             "cicloEntregaDataInicio":dadosCicloEntrega['dataInicial'],
             "cicloEntregaDataFinal":dadosCicloEntrega['dataFinal'],
+            "cicloEntregaDiasPorcentagem":100-diasPorc,
             "parcialScores":parcialCicloEntrega,
             "mediaParcial":"{:.2f}".format(mediaParcial).replace('.', ','),
             "estadoMedia":estadoMedia,
