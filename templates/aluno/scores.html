@@ -44,8 +44,17 @@
                                 {% endif %}
                                 </div>
                                 <div class="col-5">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{dadosCicloEntrega.cicloEntregaDiasPorcentagem}}%" ></div>
+                                    <div class="progress" style="margin-top:5px; height: 20px;">
+                                        <div class="progress-bar {{dadosCicloEntrega.flagBarra}}" 
+                                        role="progressbar" style="width: {{dadosCicloEntrega.cicloEntregaDiasPorcentagem}}%" >
+                                            {% if dadosCicloEntrega.cicloEntregaDiasPorcentagem > 50 %}
+                                                {% if dadosCicloEntrega.cicloEntregaDiasPorcentagem >= 100 %}
+                                                    Ciclo de Entrega Concluído
+                                                {% else %}
+                                                    Restam {{dadosCicloEntrega.diasFaltantes}} dias
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
                                       </div>
                                 
                                 </div>

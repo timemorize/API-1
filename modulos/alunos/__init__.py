@@ -228,11 +228,22 @@ def buscaScoreAluno( ra, idTurma ):
         if( int(diasPorc) > 100 ):
             diasPorc = 100
 
+        diasFaltantes = diasPassados
+        flagBarra = "bg-info"
+        if diasPorc < 1:
+            flagBarra = "bg-info"
+        elif diasPorc < 50 and diasPorc > 30:
+            flagBarra = "bg-sucess"
+        elif diasPorc < 30:
+            flagBarra = "bg-warning"
+    
         retorno.append({
             "cicloEntregaTitulo":dadosCicloEntrega['titulo'],
             "cicloEntregaDataInicio":dadosCicloEntrega['dataInicial'],
             "cicloEntregaDataFinal":dadosCicloEntrega['dataFinal'],
             "cicloEntregaDiasPorcentagem":100-diasPorc,
+            'flagBarra':flagBarra,
+            "diasFaltantes":diasFaltantes.days,
             "parcialScores":parcialCicloEntrega,
             "mediaParcial":"{:.2f}".format(mediaParcial).replace('.', ','),
             "estadoMedia":estadoMedia,
