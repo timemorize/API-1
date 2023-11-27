@@ -324,6 +324,10 @@ def rotaListaProfessores():
 def rotaCadastrarAtividade():
     return atividades.cadastroAtividade( request.form )
 
+@app.route('/editarAtividade', methods=['POST'])
+def rotaEditarAtividade():
+    return atividades.editarAtividade( request.form )
+
 @app.route('/buscaAtividadesTurma/<string:identificador>', methods=['GET'])
 def rotaBuscaAtividadesTurma(identificador):
     listaAtividades = atividades.pesquisaAtividadeTurma( identificador )

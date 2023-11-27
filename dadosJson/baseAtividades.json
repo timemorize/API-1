@@ -271,5 +271,26 @@
         "nomeAluno": "Eliza Oliveira"
       }
     ]
+  },
+  {
+    "chave": 14,
+    "peso": "50",
+    "titulo": "Impressionismo 2",
+    "dataEntrega": "09/11/2023",
+    "descricao": "<p>Resenha do filme: <strong>Van Gogh 2</strong></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "4",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
   }
 ]

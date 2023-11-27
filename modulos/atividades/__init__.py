@@ -2,7 +2,7 @@ import json
 from flask import jsonify
 import random
 from modulos import usuarios, grupos, turmas, cicloEntrega
-from datetime import datetime
+from datetime import datetime,timedelta
 
 def buscaAtividades():
     with open('dadosJson/baseAtividades.json', 'r') as arquivo:
@@ -51,39 +51,46 @@ def cadastroAtividade( dados ):
 
     return ''
 
+def editarAtividade( dados ):
+    dadosAtividades = buscaAtividades()
+
+    novosDados = []
+    for dadosAtividade in dadosAtividades:
+        if int(dadosAtividade['chave']) == int(dados['chave']):
+            dadosAtividade['titulo'] = dados['titulo']
+            dadosAtividade['dataEntrega'] = dados['dataEntrega']
+            dadosAtividade['descricao'] = dados['descricao']
+            dadosAtividade['peso'] = dados['peso']
+        
+        novosDados.append(dadosAtividade)
+    
+    gravaAtividades(novosDados)
+
+    return ''
+
 def pesquisaAtividade( chaveAtividade ):
     dadosAtividades = buscaAtividades()
 
     for dadosAtividade in dadosAtividades:
-        if dadosAtividade['chave'] == chaveAtividade:
+        if dadosAtividade['chave'] == int(chaveAtividade):     
+            pesosTotal = buscaPesoTotal(dadosAtividade['turma'])
+            for pesoTotal in pesosTotal:
+                if int(pesoTotal['chaveCicloEntrega']) == int(dadosAtividade['cicloEntrega']):
+                    dadosAtividade['pesoTotalAtividades'] = pesoTotal['pesoTotalCiclo']
+            dadosCicloEntregas = cicloEntrega.buscaCiclosEntrega()
+
+            dataPrazoSemFormatar = datetime.strptime(dadosAtividade['dataEntrega'], "%d/%m/%Y") + timedelta(days=1)
+            dataPrazoFormatada = dataPrazoSemFormatar.strftime("%Y-%m-%d")
+
+            dadosAtividade['dataLimite'] = dataPrazoFormatada
+            for dadosCicloEntrega in dadosCicloEntregas:
+                if int(dadosCicloEntrega['chave']) == int(dadosAtividade['cicloEntrega']):
+                    dadosAtividade['tituloCicloEntrega'] = dadosCicloEntrega['titulo']
+                    dadosAtividade['dataInicialCicloEntrega'] = dadosCicloEntrega['dataInicial']
+                    dadosAtividade['dataFinalCicloEntrega'] = dadosCicloEntrega['dataFinal']
             return dadosAtividade
         
     return []
-
-def editarAtividade( entradaDadosAtividade ):
-    dadosAtividades = buscaAtividades()
-
-    chave = entradaDadosAtividade['chave']
-
-    novosDados = []
-    for dadosAtividade in dadosAtividades:
-        if dadosAtividade['chave'] != chave:
-            novosDados.append(dadosAtividade)
-        else:
-            dadosAtividadeEditado = {
-                "chave":entradaDadosAtividade['chave'],
-                "titulo":entradaDadosAtividade['titulo'],
-                "dataEntrega":entradaDadosAtividade['dataEntrega'],
-                "descricao":entradaDadosAtividade['descricao'],
-                "cicloEntrega": entradaDadosAtividade['chaveCicloEntrega'],
-                "turma":entradaDadosAtividade['idTurma'],
-                "scores":dadosAtividade['scores']
-            }
-            novosDados.append(dadosAtividadeEditado)
-
-    gravaAtividades(novosDados)
-
-    return ''
 
 def excluirAtividade( chave ):
     dadosAtividades = buscaAtividades()

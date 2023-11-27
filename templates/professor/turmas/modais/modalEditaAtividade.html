@@ -1,8 +1,8 @@
-<div class="modal fade" id="editaAtividade" idTurma="" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="editaAtividade" idAtividade="" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tituloModalAlunos">Cadastrar Atividade</h5>
+                <h5 class="modal-title" id="tituloModalAlunos">Editar Atividade</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,30 +10,34 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="nome_aluno">Título:</label>
-                    <input type="text" class="form-control" id="tituloAtividade">
+                    <input type="text" class="form-control" id="tituloAtividadeEditar">
                 </div>
                 <div class="form-group" id="cicloDeEntregaAtividade">
-                    <label for="nome_aluno">Ciclo de Entrega:</label>
-                    <select class="custom-select" id="selectCicloDeEntrega">
-                      <option value="" selected></option>
-                      {% for cicloEntrega in listaCicloEntrega %}
-                        <option dataInicial="{{cicloEntrega.dataInicial}}" dataFinal="{{cicloEntrega.dataFinal}}" value="{{cicloEntrega.chave}}">{{cicloEntrega.titulo}}</option>
-                      {% endfor %}
-                    </select>
+                    <label for="nome_aluno" id="cicloEntregaEdit">Ciclo de Entrega:</label>
                 </div>
+
+                <label for="nome_aluno">Peso:</label>
+                <div class="input-group">
+                    <input type="number" pesoAtual="" class="form-control campoObrigatorio" id="pesoAtividadeEditar" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span id="indicadorPesoTotalEditar" class="input-group-text">0</span>
+                    </div>
+                </div>
+                <br>
+
                 <div class="form-group" id="dataEntregaAtividade">
                     <label for="nome_aluno">Data de Entrega:</label>
-                    <input type="hidden" class="form-control" id="dataEntregaCicloEntregaValor">
-                    <div id="dataEntregaCicloEntrega" class="datepicker-here"></div>
+                    <input type="hidden" class="form-control" id="dataEntregaCicloEntregaValorEditar">
+                    <div id="dataEntregaCicloEntregaEditar" class="datepicker-here"></div>
                 </div>
                 <div class="form-group">
                     <label for="nome_aluno">Descrição:</label>
-                    <div id="descricaoAtivdade"></div>
+                    <div id="descricaoAtivdadeEditar"></div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button id="botaoSalvar" type="button" acao="editar" class="btn btn-primary" onclick="cadastrarAtividade()">Salvar</button>
+                <button id="botaoSalvar" type="button" acao="editar" class="btn btn-primary" onclick="editarAtividade()">Salvar</button>
             </div>
         </div>
     </div>
