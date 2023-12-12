@@ -283,6 +283,69 @@
     "scores": [
       {
         "RA": "ALUNO2606",
+        "nota": "6",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 15,
+    "peso": "30",
+    "titulo": "Prova Paul Klee",
+    "dataEntrega": "15/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "2",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 16,
+    "peso": "10",
+    "titulo": "Resenha Angelus Novus",
+    "dataEntrega": "19/04/2024",
+    "descricao": "<p><br></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "2",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
+        "nota": "",
+        "nomeAluno": "Adilson Nunes"
+      },
+      {
+        "RA": "ALUNO2783",
+        "nota": "",
+        "nomeAluno": "Eliza Oliveira"
+      }
+    ]
+  },
+  {
+    "chave": 17,
+    "peso": "20",
+    "titulo": "Atividade A",
+    "dataEntrega": "21/03/2024",
+    "descricao": "<p><br></p>",
+    "turma": "HA5905",
+    "cicloEntrega": "2",
+    "scores": [
+      {
+        "RA": "ALUNO2606",
         "nota": "",
         "nomeAluno": "Adilson Nunes"
       },
