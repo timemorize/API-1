@@ -105,11 +105,17 @@ def excluirAtividade( chave ):
 
 def pesquisaAtividadeTurma( idTurma ):
     dadosAtividades = buscaAtividades()
+    dadosCiclos = cicloEntrega.buscaCiclosEntregaAtivos()
+    chavesCiclosAtivos = []
+
+    for cicloEntregaAtivo in dadosCiclos:
+        chavesCiclosAtivos.append( cicloEntregaAtivo['chave'] )
 
     retorno = []
     for dadosAtividade in dadosAtividades:
         if dadosAtividade['turma'] == idTurma:
-            retorno.append( dadosAtividade )
+            if dadosAtividade['cicloEntrega'] in chavesCiclosAtivos:
+                retorno.append( dadosAtividade )
 
     return retorno
 
